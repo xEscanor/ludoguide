@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Toutes les fiches jeux de société LudoGuide — règles simplifiées, stratégies et avis pour plus de 50 jeux.">
+<meta name="description" content="50 fiches jeux de société avec filtres par type, joueurs, durée, âge et complexité.">
 <title>Toutes les fiches jeux — LudoGuide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,54 +12,183 @@
 <body>
 <header class="site-header">
   <div class="container">
-    <a href="../index.html" class="logo">🎲 LudoGuide</a>
+    <a href="../index.html" class="logo"><span class="logo-icon">🎲</span> LudoGuide</a>
     <nav>
-      <a href="../jeux/">Fiches jeux</a>
-      <a href="../guides/">Guides</a>
+      <a href="index.html">Fiches jeux</a>
+      <a href="../guides/index.html">Guides</a>
       <a href="../comparatifs.html">Comparatifs</a>
+      <a href="index.html" class="nav-cta">Trouver un jeu</a>
     </nav>
   </div>
 </header>
-<section style="background:var(--bg-card);border-bottom:1px solid var(--border);padding:48px 0">
+<div class="jeux-page-hero">
   <div class="container">
-    <h1 style="font-family:'Fraunces',serif;font-size:40px;font-weight:700;letter-spacing:-1px;margin-bottom:12px">Toutes les fiches jeux</h1>
-    <p style="font-size:18px;color:var(--ink-mid)">50 jeux analysés — règles, stratégies et avis honnêtes.</p>
+    <h1>Toutes les fiches jeux</h1>
+    <p>50 jeux analysés — règles simplifiées, stratégies et avis honnêtes.</p>
   </div>
-</section>
-<section style="padding:48px 0">
+</div>
+<div class="filters-bar">
   <div class="container">
-    <div id="grid" class="jeux-grid"></div>
+    <div class="filters-inner">
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <div class="filter-tags">
+          <button class="filter-tag active" data-type="all">Tous</button>
+          <button class="filter-tag" data-type="strat">Stratégie</button>
+          <button class="filter-tag" data-type="fam">Famille</button>
+          <button class="filter-tag" data-type="coop">Coopératif</button>
+          <button class="filter-tag" data-type="party">Party</button>
+          <button class="filter-tag" data-type="deck">Deck-building</button>
+        </div>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Joueurs</span>
+        <select class="filter-select" id="filter-players">
+          <option value="">Tous</option>
+          <option value="1">Solo</option>
+          <option value="2">2 joueurs</option>
+          <option value="3">3 joueurs</option>
+          <option value="4">4 joueurs</option>
+          <option value="5">5+ joueurs</option>
+        </select>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Durée</span>
+        <select class="filter-select" id="filter-duration">
+          <option value="">Toutes</option>
+          <option value="30">≤ 30 min</option>
+          <option value="60">≤ 60 min</option>
+          <option value="90">≤ 90 min</option>
+          <option value="120">≤ 2h</option>
+        </select>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Âge</span>
+        <select class="filter-select" id="filter-age">
+          <option value="">Tous</option>
+          <option value="6">Dès 6 ans</option>
+          <option value="8">Dès 8 ans</option>
+          <option value="10">Dès 10 ans</option>
+          <option value="12">Dès 12 ans</option>
+          <option value="14">Dès 14 ans</option>
+        </select>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Complexité</span>
+        <select class="filter-select" id="filter-complexity">
+          <option value="">Toutes</option>
+          <option value="Facile">Facile</option>
+          <option value="Moyenne">Moyenne</option>
+          <option value="Elevee">Élevée</option>
+        </select>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Note min.</span>
+        <select class="filter-select" id="filter-note">
+          <option value="">Toutes</option>
+          <option value="9">9–10 ⭐ Top</option>
+          <option value="8">8+ Excellent</option>
+          <option value="7">7+ Bien</option>
+        </select>
+      </div>
+      <button class="filters-reset" onclick="resetFilters()">✕ Réinitialiser</button>
+      <span class="results-count" id="results-count">50 jeux</span>
+    </div>
+  </div>
+</div>
+<section style="padding:40px 0 64px">
+  <div class="container">
+    <div class="jeux-grid" id="games-grid"></div>
+    <div class="empty-state" id="empty-state" style="display:none">
+      <div class="empty-state-icon">🎲</div>
+      <h3>Aucun jeu trouvé</h3>
+      <p>Essayez d'élargir vos critères de recherche.</p>
+    </div>
   </div>
 </section>
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-cols">
+    <div class="footer-top">
       <div><p class="footer-logo">🎲 LudoGuide</p><p class="footer-desc">Le guide indépendant des jeux de société francophones.</p></div>
-      <div><p class="footer-heading">Explorer</p><ul><li><a href="../jeux/">Toutes les fiches</a></li><li><a href="../guides/">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Explorer</p><ul><li><a href="index.html">Toutes les fiches</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../comparatifs.html">Comparatifs</a></li></ul></div>
+      <div><p class="footer-heading">Catégories</p><ul><li><a href="?type=fam">Familiaux</a></li><li><a href="?type=strat">Stratégie</a></li><li><a href="?type=coop">Coopératifs</a></li></ul></div>
       <div><p class="footer-heading">Légal</p><ul><li><a href="../mentions-legales.html">Mentions légales</a></li><li><a href="../affiliation.html">Affiliation</a></li></ul></div>
     </div>
-    <p class="footer-copy">© 2024 LudoGuide · Certains liens sont affiliés — cela ne change pas notre avis.</p>
+    <div class="footer-bottom"><p class="footer-copy">© 2024 LudoGuide · Liens affiliés déclarés.</p></div>
   </div>
 </footer>
 <script>
-const games = [{"slug": "wingspan", "title": "Wingspan", "tagline": "Le jeu ornithologique qui a conquis le monde.", "tags": ["strat"], "note": 9, "players": "1–5", "duration": "40–70 min", "age": "14 ans", "search": "wingspan"}, {"slug": "catan", "title": "Les Colons de Catane", "tagline": "Le classique indétrônable du commerce et de la construction.", "tags": ["fam"], "note": 8, "players": "3–4", "duration": "60–120 min", "age": "10 ans", "search": "catan"}, {"slug": "pandemic", "title": "Pandemic", "tagline": "Sauvez le monde d'une épidémie mondiale en coopération.", "tags": ["coop"], "note": 9, "players": "2–4", "duration": "45 min", "age": "8 ans", "search": "pandemic"}, {"slug": "7wonders", "title": "7 Wonders", "tagline": "Bâtissez la plus grande civilisation antique par le draft.", "tags": ["strat"], "note": 9, "players": "2–7", "duration": "30 min", "age": "10 ans", "search": "7+wonders"}, {"slug": "dixit", "title": "Dixit", "tagline": "Le jeu de l'imagination à travers de sublimes illustrations.", "tags": ["party", "fam"], "note": 8, "players": "3–6", "duration": "30 min", "age": "8 ans", "search": "dixit"}, {"slug": "ticket-to-ride", "title": "Les Aventuriers du Rail", "tagline": "Reliez les villes d'Europe et bâtissez l'empire ferroviaire.", "tags": ["fam"], "note": 9, "players": "2–5", "duration": "45–75 min", "age": "8 ans", "search": "aventuriers+rail"}, {"slug": "azul", "title": "Azul", "tagline": "Carrelez les palais du roi du Portugal dans ce jeu abstrait.", "tags": ["strat", "fam"], "note": 8, "players": "2–4", "duration": "30–45 min", "age": "8 ans", "search": "azul"}, {"slug": "terraforming-mars", "title": "Terraforming Mars", "tagline": "Transformez la planète rouge en coopération ou compétition.", "tags": ["strat"], "note": 9, "players": "1–5", "duration": "120–180 min", "age": "12 ans", "search": "terraforming+mars"}, {"slug": "root", "title": "Root", "tagline": "Une guerre asymétrique dans une forêt enchantée.", "tags": ["strat"], "note": 9, "players": "2–4", "duration": "60–90 min", "age": "10 ans", "search": "root+jeu"}, {"slug": "gloomhaven", "title": "Gloomhaven", "tagline": "Le donjon-crawler coopératif le plus ambitieux jamais créé.", "tags": ["coop", "strat"], "note": 10, "players": "1–4", "duration": "60–120 min", "age": "14 ans", "search": "gloomhaven"}, {"slug": "spirit-island", "title": "Spirit Island", "tagline": "Défendez votre île contre les colonisateurs en tant qu'esprits.", "tags": ["coop"], "note": 9, "players": "1–4", "duration": "90–120 min", "age": "13 ans", "search": "spirit+island"}, {"slug": "dominion", "title": "Dominion", "tagline": "Le pionnier du deck-building. Construisez votre royaume.", "tags": ["deck"], "note": 8, "players": "2–4", "duration": "30 min", "age": "13 ans", "search": "dominion"}, {"slug": "everdell", "title": "Everdell", "tagline": "Construisez une cité pour animaux dans ce jeu de pose d'ouvriers.", "tags": ["strat"], "note": 9, "players": "1–4", "duration": "40–80 min", "age": "13 ans", "search": "everdell"}, {"slug": "arkham-horror", "title": "Arkham Horror LCG", "tagline": "Un jeu de cartes narratif dans l'univers de Lovecraft.", "tags": ["coop"], "note": 9, "players": "1–2", "duration": "60–120 min", "age": "14 ans", "search": "arkham+horror+lcg"}, {"slug": "carcassonne", "title": "Carcassonne", "tagline": "Posez des tuiles pour construire villes, routes et monastères.", "tags": ["fam"], "note": 8, "players": "2–5", "duration": "30–45 min", "age": "7 ans", "search": "carcassonne"}, {"slug": "splendor", "title": "Splendor", "tagline": "Devenez le marchand de gemmes le plus prospère de la Renaissance.", "tags": ["strat", "fam"], "note": 8, "players": "2–4", "duration": "30 min", "age": "10 ans", "search": "splendor"}, {"slug": "viticulture", "title": "Viticulture", "tagline": "Gérez votre domaine viticole toscan à travers les saisons.", "tags": ["strat"], "note": 9, "players": "1–6", "duration": "45–90 min", "age": "13 ans", "search": "viticulture"}, {"slug": "concordia", "title": "Concordia", "tagline": "Étendez votre empire romain dans ce jeu de gestion de main.", "tags": ["strat"], "note": 9, "players": "2–5", "duration": "90 min", "age": "12 ans", "search": "concordia"}, {"slug": "brass-birmingham", "title": "Brass Birmingham", "tagline": "Le meilleur jeu économique sur la révolution industrielle.", "tags": ["strat"], "note": 10, "players": "2–4", "duration": "60–120 min", "age": "14 ans", "search": "brass+birmingham"}, {"slug": "scythe", "title": "Scythe", "tagline": "Conquérez l'Europe de l'Est dans un monde diesel-punk des années 20.", "tags": ["strat"], "note": 9, "players": "1–5", "duration": "90–115 min", "age": "14 ans", "search": "scythe+jeu"}, {"slug": "puerto-rico", "title": "Puerto Rico", "tagline": "Développez votre plantation coloniale dans les Caraïbes.", "tags": ["strat"], "note": 8, "players": "2–5", "duration": "90–150 min", "age": "12 ans", "search": "puerto+rico"}, {"slug": "agricola", "title": "Agricola", "tagline": "Gérez votre ferme médiévale et nourrissez votre famille.", "tags": ["strat"], "note": 8, "players": "1–5", "duration": "30–150 min", "age": "12 ans", "search": "agricola"}, {"slug": "codenames", "title": "Codenames", "tagline": "Retrouvez vos agents secrets grâce à des indices en un mot.", "tags": ["party"], "note": 8, "players": "2–8", "duration": "15 min", "age": "14 ans", "search": "codenames"}, {"slug": "mysterium", "title": "Mysterium", "tagline": "Un fantôme guide les médiums vers la vérité par des visions.", "tags": ["coop", "party"], "note": 8, "players": "2–7", "duration": "42 min", "age": "10 ans", "search": "mysterium"}, {"slug": "smallworld", "title": "Small World", "tagline": "Conquérez un monde trop petit pour toutes les races fantastiques.", "tags": ["strat", "fam"], "note": 7, "players": "2–5", "duration": "40–80 min", "age": "8 ans", "search": "small+world"}, {"slug": "hanabi", "title": "Hanabi", "tagline": "Coopérez pour créer le feu d'artifice parfait sans voir ses cartes.", "tags": ["coop", "party"], "note": 7, "players": "2–5", "duration": "25 min", "age": "8 ans", "search": "hanabi"}, {"slug": "coup", "title": "Coup", "tagline": "Bluffez et éliminez vos adversaires dans ce jeu de déduction.", "tags": ["party"], "note": 7, "players": "2–6", "duration": "15 min", "age": "10 ans", "search": "coup+jeu+societe"}, {"slug": "7-wonders-duel", "title": "7 Wonders Duel", "tagline": "Le duel ultime entre deux civilisations antiques.", "tags": ["strat", "2j"], "note": 9, "players": "2", "duration": "30 min", "age": "10 ans", "search": "7+wonders+duel"}, {"slug": "patchwork", "title": "Patchwork", "tagline": "Un duel de quilts dans ce jeu à 2 élégant et malin.", "tags": ["strat", "2j", "fam"], "note": 8, "players": "2", "duration": "15–30 min", "age": "8 ans", "search": "patchwork"}, {"slug": "lords-of-waterdeep", "title": "Lords of Waterdeep", "tagline": "Recrutez des aventuriers et accomplissez des quêtes à Waterdeep.", "tags": ["strat"], "note": 8, "players": "2–5", "duration": "60–120 min", "age": "12 ans", "search": "lords+waterdeep"}, {"slug": "king-of-tokyo", "title": "King of Tokyo", "tagline": "Des monstres géants s'affrontent pour dominer Tokyo.", "tags": ["party", "fam"], "note": 7, "players": "2–6", "duration": "30 min", "age": "8 ans", "search": "king+of+tokyo"}, {"slug": "pandemic-legacy-s1", "title": "Pandemic Legacy S1", "tagline": "Le jeu coopératif évolutif qui a révolutionné le genre.", "tags": ["coop"], "note": 10, "players": "2–4", "duration": "60 min", "age": "13 ans", "search": "pandemic+legacy"}, {"slug": "robinson-crusoe", "title": "Robinson Crusoé", "tagline": "Survivez sur une île déserte dans ce coopératif intense.", "tags": ["coop"], "note": 8, "players": "1–4", "duration": "60–120 min", "age": "14 ans", "search": "robinson+crusoe"}, {"slug": "dead-of-winter", "title": "Dead of Winter", "tagline": "Survivez à l'apocalypse zombie avec des traîtres potentiels.", "tags": ["coop"], "note": 8, "players": "2–5", "duration": "60–120 min", "age": "13 ans", "search": "dead+of+winter"}, {"slug": "the-crew", "title": "The Crew", "tagline": "Un jeu de plis coopératif en mission spatiale.", "tags": ["coop"], "note": 8, "players": "2–5", "duration": "20 min", "age": "10 ans", "search": "the+crew+jeu"}, {"slug": "sheriff-nottingham", "title": "Sheriff of Nottingham", "tagline": "Bluffez le shérif pour faire passer vos marchandises.", "tags": ["party"], "note": 7, "players": "3–5", "duration": "60 min", "age": "14 ans", "search": "sheriff+nottingham"}, {"slug": "resistance-avalon", "title": "La Résistance : Avalon", "tagline": "Déductionez qui sont les traîtres parmi vos compagnons.", "tags": ["party"], "note": 8, "players": "5–10", "duration": "30 min", "age": "13 ans", "search": "resistance+avalon"}, {"slug": "pandemic-iberia", "title": "Pandemic Iberia", "tagline": "Une version historique de Pandemic dans la péninsule ibérique.", "tags": ["coop"], "note": 8, "players": "2–4", "duration": "45 min", "age": "8 ans", "search": "pandemic+iberia"}, {"slug": "quoridor", "title": "Quoridor", "tagline": "Le jeu de stratégie abstraite des murs et du labyrinthe.", "tags": ["strat", "fam"], "note": 7, "players": "2–4", "duration": "15 min", "age": "6 ans", "search": "quoridor"}, {"slug": "takenoko", "title": "Takenoko", "tagline": "Cultivez du bambou et nourrissez le panda impérial.", "tags": ["fam"], "note": 7, "players": "2–4", "duration": "45 min", "age": "8 ans", "search": "takenoko"}, {"slug": "tokaido", "title": "Tokaido", "tagline": "Voyagez sur la route du Tokaido et vivez les meilleures expériences.", "tags": ["fam"], "note": 7, "players": "2–5", "duration": "45 min", "age": "8 ans", "search": "tokaido"}, {"slug": "istanbul", "title": "Istanbul", "tagline": "Traversez le bazar d'Istanbul pour récolter rubis et richesses.", "tags": ["strat", "fam"], "note": 8, "players": "2–5", "duration": "40–60 min", "age": "10 ans", "search": "istanbul+jeu"}, {"slug": "clank", "title": "Clank!", "tagline": "Plongez dans le donjon, volez un trésor, ne faites pas de bruit.", "tags": ["deck", "strat"], "note": 8, "players": "2–4", "duration": "45–90 min", "age": "12 ans", "search": "clank+jeu"}, {"slug": "sagrada", "title": "Sagrada", "tagline": "Assemblez de magnifiques vitraux dans ce jeu de dés.", "tags": ["strat", "fam"], "note": 7, "players": "1–4", "duration": "30–45 min", "age": "13 ans", "search": "sagrada"}, {"slug": "century-spice-road", "title": "Century : La Route des Épices", "tagline": "Commercez des épices sur la Route de la Soie.", "tags": ["strat", "fam"], "note": 7, "players": "2–5", "duration": "30–45 min", "age": "8 ans", "search": "century+epices"}, {"slug": "tapestry", "title": "Tapestry", "tagline": "Faites progresser votre civilisation à travers les âges.", "tags": ["strat"], "note": 8, "players": "1–5", "duration": "90–120 min", "age": "12 ans", "search": "tapestry+jeu"}, {"slug": "cascadia", "title": "Cascadia", "tagline": "Peuplez les écosystèmes du Pacifique Nord-Ouest.", "tags": ["fam", "strat"], "note": 8, "players": "1–4", "duration": "30–45 min", "age": "10 ans", "search": "cascadia+jeu"}, {"slug": "lost-ruins-arnak", "title": "Les Ruines Perdues d'Arnak", "tagline": "Explorez une île mystérieuse mêlant pose d'ouvriers et deck-building.", "tags": ["strat", "deck"], "note": 9, "players": "1–4", "duration": "30–120 min", "age": "12 ans", "search": "arnak"}, {"slug": "dune-imperium", "title": "Dune Imperium", "tagline": "Intrigues et conquête dans l'univers de Dune.", "tags": ["strat", "deck"], "note": 9, "players": "1–4", "duration": "60–120 min", "age": "14 ans", "search": "dune+imperium"}, {"slug": "heat", "title": "Heat : Pedal to the Metal", "tagline": "Des courses automobiles tendues avec gestion de chaleur moteur.", "tags": ["fam", "deck"], "note": 8, "players": "1–6", "duration": "30–60 min", "age": "10 ans", "search": "heat+pedal+metal"}];
-const tagClass = {strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-strat"};
-const tagLabel = {strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs"};
-const grid = document.getElementById('grid');
-grid.innerHTML = games.map(g => `
-<article class="jeu-card">
-  <div class="jeu-meta">
-    <span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span>
-    <span class="jeu-note">★ ${g.note}/10</span>
-  </div>
-  <h3><a href="${g.slug}.html">${g.title}</a></h3>
-  <p class="jeu-desc">${g.tagline}</p>
-  <div class="jeu-infos"><span>👥 ${g.players}</span><span>⏱ ${g.duration}</span><span>🎯 ${g.age}</span></div>
-  <div class="jeu-actions">
-    <a href="${g.slug}.html" class="link-fiche">Voir la fiche →</a>
-    <a href="https://www.philibert.fr/search?q=${g.search}" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-  </div>
-</article>`).join('');
+const tagClass={strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j",abs:"tag-abs"};
+const tagLabel={strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs",abs:"Abstrait"};
+let allGames=[],activeType='all';
+function maxDur(d){const n=d.match(/\d+/g);return n?Math.max(...n.map(Number)):999;}
+function maxAge(a){const n=a.match(/\d+/);return n?parseInt(n[0]):99;}
+function minP(p){const n=p.match(/\d+/);return n?parseInt(n[0]):1;}
+function maxP(p){const n=p.match(/\d+/g);return n?Math.max(...n.map(Number)):1;}
+function render(){
+  const fp=document.getElementById('filter-players').value;
+  const fd=document.getElementById('filter-duration').value;
+  const fa=document.getElementById('filter-age').value;
+  const fc=document.getElementById('filter-complexity').value;
+  const fn=document.getElementById('filter-note').value;
+  let g=allGames.filter(g=>{
+    if(activeType!=='all'&&!g.tags.includes(activeType))return false;
+    if(fp){const n=parseInt(fp);
+      if(n===1&&minP(g.players)>1)return false;
+      if(n>1&&n<5&&(minP(g.players)>n||maxP(g.players)<n))return false;
+      if(n===5&&maxP(g.players)<5)return false;}
+    if(fd&&maxDur(g.duration)>parseInt(fd))return false;
+    if(fa&&maxAge(g.age)>parseInt(fa))return false;
+    if(fc&&g.complexity!==fc&&!(fc==='Elevee'&&g.complexity==='Élevée'))return false;
+    if(fn&&g.note<parseInt(fn))return false;
+    return true;
+  });
+  document.getElementById('results-count').textContent=g.length+' jeu'+(g.length>1?'x':'');
+  const grid=document.getElementById('games-grid');
+  const empty=document.getElementById('empty-state');
+  if(!g.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML=g.map(g=>`<article class="jeu-card">
+    <div class="jeu-card-visual" style="background:${g.bg}">${g.emoji}</div>
+    <div class="jeu-card-body">
+      <div class="jeu-meta"><span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span><span class="jeu-note">★ ${g.note}/10</span></div>
+      <h3><a href="${g.slug}.html">${g.title}</a></h3>
+      <p class="jeu-desc">${g.tagline}</p>
+      <div class="jeu-infos">
+        <span class="jeu-info-pill">👥 ${g.players}</span>
+        <span class="jeu-info-pill">⏱ ${g.duration}</span>
+        <span class="jeu-info-pill">🎯 ${g.age}</span>
+        <span class="jeu-info-pill">🧩 ${g.complexity}</span>
+      </div>
+      <div class="jeu-actions"><a href="${g.slug}.html" class="link-fiche">Voir la fiche →</a><a href="https://www.philibert.fr/search?q=${g.search}" class="link-acheter" rel="sponsored" target="_blank">Acheter</a></div>
+    </div></article>`).join('');
+}
+function resetFilters(){
+  activeType='all';
+  document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type==='all'));
+  ['filter-players','filter-duration','filter-age','filter-complexity','filter-note'].forEach(id=>document.getElementById(id).value='');
+  render();
+}
+document.querySelectorAll('.filter-tag').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    activeType=btn.dataset.type;
+    document.querySelectorAll('.filter-tag').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');render();});
+});
+['filter-players','filter-duration','filter-age','filter-complexity','filter-note'].forEach(id=>document.getElementById(id).addEventListener('change',render));
+const params=new URLSearchParams(window.location.search);
+const urlType=params.get('type'),urlPlayers=params.get('players');
+fetch('../games_data.json').then(r=>r.json()).then(games=>{
+  allGames=games;
+  if(urlType){activeType=urlType;document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type===urlType));}
+  if(urlPlayers)document.getElementById('filter-players').value=urlPlayers;
+  render();
+});
 </script>
 </body>
 </html>
