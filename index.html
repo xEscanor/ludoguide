@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LudoGuide — fiches de règles simplifiées, guides stratégiques et comparatifs pour choisir vos jeux de société. Plus de 100 jeux analysés.">
-<meta name="keywords" content="jeux de société, règles jeux, guide jeux, stratégie jeux de société, meilleurs jeux">
-<meta property="og:title" content="LudoGuide — Le guide des jeux de société">
-<meta property="og:description" content="Fiches de règles, guides stratégiques et comparatifs pour tous les joueurs.">
+<meta name="description" content="LudoGuide — fiches de règles simplifiées, guides stratégiques et comparatifs pour choisir vos jeux de société. 50+ jeux analysés.">
 <title>LudoGuide — Le guide des jeux de société</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,254 +13,299 @@
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo">🎲 LudoGuide</a>
+    <a href="index.html" class="logo"><span class="logo-icon">🎲</span> LudoGuide</a>
     <nav>
-      <a href="jeux/">Fiches jeux</a>
-      <a href="guides/">Guides</a>
+      <a href="jeux/index.html">Fiches jeux</a>
+      <a href="guides/index.html">Guides</a>
       <a href="comparatifs.html">Comparatifs</a>
+      <a href="jeux/index.html" class="nav-cta">Trouver un jeu</a>
     </nav>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
-    <p class="hero-eyebrow">Votre compagnon de jeu</p>
-    <h1>Les règles claires.<br>Les stratégies qui gagnent.<br>Les bons choix.</h1>
-    <p class="hero-sub">Fiches de règles simplifiées, guides tactiques et comparatifs honnêtes pour choisir et maîtriser vos jeux de société.</p>
-    <div class="hero-actions">
-      <a href="jeux/" class="btn-primary">Parcourir les fiches</a>
-      <a href="guides/" class="btn-secondary">Guides stratégiques</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><span class="hstat-n">50+</span><span class="hstat-l">Fiches jeux</span></div>
-      <div class="hstat"><span class="hstat-n">15+</span><span class="hstat-l">Guides stratégiques</span></div>
-      <div class="hstat"><span class="hstat-n">100%</span><span class="hstat-l">Gratuit</span></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">🎲 Le guide indépendant francophone</div>
+        <h1>Les règles <em>claires</em>.<br>Les stratégies qui gagnent.</h1>
+        <p class="hero-sub">Fiches de règles simplifiées, guides tactiques et comparatifs honnêtes pour choisir et maîtriser vos jeux de société.</p>
+        <div class="hero-actions">
+          <a href="jeux/index.html" class="btn-primary">🔍 Parcourir les 50 fiches</a>
+          <a href="comparatifs.html" class="btn-secondary">📊 Comparatifs</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><span class="hstat-n">50</span><span class="hstat-l">Fiches jeux</span></div>
+          <div class="hstat"><span class="hstat-n">8</span><span class="hstat-l">Guides complets</span></div>
+          <div class="hstat"><span class="hstat-n">100%</span><span class="hstat-l">Indépendant</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-board">
+          <p class="hero-board-title">⭐ Coups de cœur du moment</p>
+          <div class="hero-card-row">
+            <div class="hero-game-card">
+              <div class="hgc-emoji">🏜️</div>
+              <div class="hgc-name">Dune Imperium</div>
+              <div class="hgc-tag">Stratégie · 1–4j</div>
+              <div class="hgc-note">★★★★★ 9/10</div>
+            </div>
+            <div class="hero-game-card">
+              <div class="hgc-emoji">🦫</div>
+              <div class="hgc-name">Cascadia</div>
+              <div class="hgc-tag">Famille · 1–4j</div>
+              <div class="hgc-note">★★★★☆ 8/10</div>
+            </div>
+          </div>
+          <div class="hero-card-row">
+            <div class="hero-game-card">
+              <div class="hgc-emoji">🗺️</div>
+              <div class="hgc-name">Ruines d'Arnak</div>
+              <div class="hgc-tag">Stratégie · 1–4j</div>
+              <div class="hgc-note">★★★★★ 9/10</div>
+            </div>
+            <div class="hero-game-card">
+              <div class="hgc-emoji">🏎️</div>
+              <div class="hgc-name">Heat</div>
+              <div class="hgc-tag">Famille · 1–6j</div>
+              <div class="hgc-note">★★★★☆ 8/10</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-icon">🏆</div>
+          <div class="hero-badge-text">
+            <strong>Brass Birmingham</strong>
+            <span>#1 BGG — Note 10/10</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CATEGORIES -->
 <section class="section-categories">
   <div class="container">
-    <h2 class="section-title">Trouver le jeu qu'il vous faut</h2>
+    <div class="section-header">
+      <h2 class="section-title">Trouver le jeu qu'il vous faut</h2>
+      <a href="jeux/index.html" class="section-link">Tous les jeux →</a>
+    </div>
     <div class="cat-grid">
-      <a href="comparatifs.html#famille" class="cat-card">
-        <span class="cat-icon">👨‍👩‍👧</span>
-        <h3>Jeux familiaux</h3>
+      <a href="jeux/index.html?type=fam" class="cat-card">
+        <div class="cat-icon">👨‍👩‍👧</div>
+        <h3>Familiaux</h3>
         <p>Dès 7 ans, accessibles à tous</p>
+        <span class="cat-count">12 jeux</span>
       </a>
-      <a href="comparatifs.html#strategie" class="cat-card">
-        <span class="cat-icon">♟️</span>
+      <a href="jeux/index.html?type=strat" class="cat-card">
+        <div class="cat-icon">♟️</div>
         <h3>Stratégie</h3>
-        <p>Pour les joueurs qui aiment réfléchir</p>
+        <p>Pour ceux qui aiment réfléchir</p>
+        <span class="cat-count">22 jeux</span>
       </a>
-      <a href="comparatifs.html#cooperatif" class="cat-card">
-        <span class="cat-icon">🤝</span>
+      <a href="jeux/index.html?type=coop" class="cat-card">
+        <div class="cat-icon">🤝</div>
         <h3>Coopératifs</h3>
         <p>Tous ensemble contre le jeu</p>
+        <span class="cat-count">10 jeux</span>
       </a>
-      <a href="comparatifs.html#party" class="cat-card">
-        <span class="cat-icon">🎉</span>
+      <a href="jeux/index.html?type=party" class="cat-card">
+        <div class="cat-icon">🎉</div>
         <h3>Party games</h3>
         <p>Soirées et grands groupes</p>
+        <span class="cat-count">6 jeux</span>
       </a>
-      <a href="comparatifs.html#2joueurs" class="cat-card">
-        <span class="cat-icon">⚔️</span>
+      <a href="jeux/index.html?players=2" class="cat-card">
+        <div class="cat-icon">⚔️</div>
         <h3>Jeux à 2</h3>
         <p>Duels et tête-à-tête</p>
+        <span class="cat-count">8 jeux</span>
       </a>
-      <a href="comparatifs.html#deck" class="cat-card">
-        <span class="cat-icon">🃏</span>
+      <a href="jeux/index.html?type=deck" class="cat-card">
+        <div class="cat-icon">🃏</div>
         <h3>Deck-building</h3>
         <p>Construire son jeu de cartes</p>
+        <span class="cat-count">5 jeux</span>
       </a>
     </div>
   </div>
 </section>
 
+<!-- FEATURED GAMES -->
 <section class="section-featured">
   <div class="container">
-    <h2 class="section-title">Fiches populaires</h2>
-    <div class="jeux-grid">
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-strat">Stratégie</span>
-          <span class="jeu-note">★ 9/10</span>
-        </div>
-        <h3><a href="jeux/wingspan.html">Wingspan</a></h3>
-        <p class="jeu-desc">Construisez un refuge pour oiseaux dans ce jeu de collection aux mécaniques élégantes.</p>
-        <div class="jeu-infos">
-          <span>👥 1–5 joueurs</span>
-          <span>⏱ 40–70 min</span>
-          <span>🎯 Dès 14 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/wingspan.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=wingspan" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-fam">Famille</span>
-          <span class="jeu-note">★ 8/10</span>
-        </div>
-        <h3><a href="jeux/catan.html">Les Colons de Catane</a></h3>
-        <p class="jeu-desc">Le classique indétrônable. Commercez, construisez et prenez le contrôle de l'île de Catane.</p>
-        <div class="jeu-infos">
-          <span>👥 3–4 joueurs</span>
-          <span>⏱ 60–120 min</span>
-          <span>🎯 Dès 10 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/catan.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=catan" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-coop">Coopératif</span>
-          <span class="jeu-note">★ 9/10</span>
-        </div>
-        <h3><a href="jeux/pandemic.html">Pandemic</a></h3>
-        <p class="jeu-desc">Stoppez l'épidémie mondiale avant qu'il ne soit trop tard. Un coopératif haletant.</p>
-        <div class="jeu-infos">
-          <span>👥 2–4 joueurs</span>
-          <span>⏱ 45 min</span>
-          <span>🎯 Dès 8 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/pandemic.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=pandemic" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-strat">Stratégie</span>
-          <span class="jeu-note">★ 9/10</span>
-        </div>
-        <h3><a href="jeux/7wonders.html">7 Wonders</a></h3>
-        <p class="jeu-desc">Bâtissez la plus grande civilisation antique à travers trois âges de draft de cartes.</p>
-        <div class="jeu-infos">
-          <span>👥 2–7 joueurs</span>
-          <span>⏱ 30 min</span>
-          <span>🎯 Dès 10 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/7wonders.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=7+wonders" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-party">Party</span>
-          <span class="jeu-note">★ 8/10</span>
-        </div>
-        <h3><a href="jeux/dixit.html">Dixit</a></h3>
-        <p class="jeu-desc">Le jeu de l'imagination et du bluff. Racontez une histoire à travers de sublimes illustrations.</p>
-        <div class="jeu-infos">
-          <span>👥 3–6 joueurs</span>
-          <span>⏱ 30 min</span>
-          <span>🎯 Dès 8 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/dixit.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=dixit" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
-      <article class="jeu-card">
-        <div class="jeu-meta">
-          <span class="tag tag-fam">Famille</span>
-          <span class="jeu-note">★ 9/10</span>
-        </div>
-        <h3><a href="jeux/ticket-to-ride.html">Les Aventuriers du Rail</a></h3>
-        <p class="jeu-desc">Reliez les villes d'Europe par train dans ce must-have de tout ludothèque familiale.</p>
-        <div class="jeu-infos">
-          <span>👥 2–5 joueurs</span>
-          <span>⏱ 45–75 min</span>
-          <span>🎯 Dès 8 ans</span>
-        </div>
-        <div class="jeu-actions">
-          <a href="jeux/ticket-to-ride.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=aventuriers+du+rail" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
-        </div>
-      </article>
-
+    <div class="section-header">
+      <h2 class="section-title">Fiches populaires</h2>
+      <a href="jeux/index.html" class="section-link">Voir toutes →</a>
     </div>
+    <div class="jeux-grid" id="featured-grid"></div>
   </div>
 </section>
 
+<!-- GUIDES -->
 <section class="section-guides">
   <div class="container">
-    <h2 class="section-title">Guides & comparatifs</h2>
-    <div class="guides-list">
-      <a href="guides/meilleurs-jeux-famille.html" class="guide-item">
-        <span class="guide-tag">Sélection</span>
-        <h3>Les 10 meilleurs jeux de société pour la famille en 2024</h3>
-        <p>De 7 à 77 ans, voici les jeux qui feront l'unanimité autour de la table.</p>
+    <div class="section-header">
+      <h2 class="section-title">Guides & stratégies</h2>
+      <a href="guides/index.html" class="section-link">Tous les guides →</a>
+    </div>
+    <div class="guides-grid">
+      <a href="guides/meilleurs-jeux-famille.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#e1f5ee,#c8eddf)">👨‍👩‍👧</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Sélection</span>
+          <h3>Les 10 meilleurs jeux pour la famille</h3>
+          <p>De 7 à 77 ans, les jeux qui font l'unanimité autour de la table.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
       </a>
-      <a href="guides/jeux-2-joueurs.html" class="guide-item">
-        <span class="guide-tag">Comparatif</span>
-        <h3>Top 8 jeux pour 2 joueurs — soirées en amoureux ou défis entre amis</h3>
-        <p>Les meilleurs duels pour ne jamais s'ennuyer à deux.</p>
+      <a href="guides/jeux-2-joueurs.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#e6f1fb,#d0e4f7)">⚔️</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Comparatif</span>
+          <h3>Top 8 jeux pour 2 joueurs</h3>
+          <p>Les meilleurs duels pour ne jamais s'ennuyer à deux.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
       </a>
-      <a href="guides/debuter-jeux-societe.html" class="guide-item">
-        <span class="guide-tag">Guide débutant</span>
-        <h3>Comment bien débuter dans le hobby jeux de société ?</h3>
-        <p>Par où commencer, quoi acheter, où jouer — le guide complet pour les nouveaux joueurs.</p>
+      <a href="guides/debuter-jeux-societe.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#faeeda,#f5ddb0)">🎓</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Débutants</span>
+          <h3>Comment débuter dans le hobby ?</h3>
+          <p>Par où commencer, quoi acheter, où jouer — le guide complet.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
       </a>
-      <a href="guides/strategie-wingspan.html" class="guide-item">
-        <span class="guide-tag">Stratégie</span>
-        <h3>Wingspan — stratégies avancées pour gagner à tous les coups</h3>
-        <p>Combos, moteurs à points, priorités de tour : maîtrisez Wingspan en profondeur.</p>
+      <a href="guides/strategie-wingspan.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#e6f1fb,#d0e4f7)">🦅</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Stratégie</span>
+          <h3>Wingspan — stratégies avancées</h3>
+          <p>Combos, moteurs à points, priorités de tour : maîtrisez Wingspan.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
+      </a>
+      <a href="guides/jeux-cooperatifs.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#eeedfe,#d8d6fc)">🤝</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Sélection</span>
+          <h3>Les meilleurs jeux coopératifs</h3>
+          <p>Jouez ensemble contre le jeu — les titres incontournables.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
+      </a>
+      <a href="guides/budget-jeux.html" class="guide-card">
+        <div class="guide-card-visual" style="background:linear-gradient(135deg,#e8f5e0,#c8e6c0)">💶</div>
+        <div class="guide-card-body">
+          <span class="guide-tag">Pratique</span>
+          <h3>Les meilleurs jeux selon votre budget</h3>
+          <p>De 10 € à 80 €, les meilleures options à chaque prix.</p>
+          <span class="guide-link">Lire le guide →</span>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
+<!-- NEWSLETTER -->
 <section class="section-newsletter">
   <div class="container">
     <div class="newsletter-box">
-      <h2>Une nouvelle fiche chaque semaine</h2>
-      <p>Recevez nos analyses, guides et bons plans jeux directement dans votre boîte mail. Gratuit, sans spam.</p>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="votre@email.fr" />
-        <button type="submit">Je m'abonne</button>
-      </form>
+      <div class="newsletter-left">
+        <h2>Une fiche par semaine dans votre boîte mail</h2>
+        <p>Analyses, guides exclusifs et bons plans jeux. Gratuit, sans spam, désabonnement en 1 clic.</p>
+      </div>
+      <div>
+        <div class="newsletter-features" style="margin-bottom:24px">
+          <div class="nf-item"><span class="nf-icon">📋</span><span class="nf-text">1 fiche complète par semaine</span></div>
+          <div class="nf-item"><span class="nf-icon">🎯</span><span class="nf-text">Conseils stratégiques exclusifs</span></div>
+          <div class="nf-item"><span class="nf-icon">💶</span><span class="nf-text">Bons plans et promos jeux</span></div>
+        </div>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email" placeholder="votre@email.fr" />
+          <button type="submit">Je m'abonne gratuitement</button>
+          <p class="newsletter-note">Pas de spam. Désabonnement en 1 clic.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-cols">
+    <div class="footer-top">
       <div>
         <p class="footer-logo">🎲 LudoGuide</p>
-        <p class="footer-desc">Le guide indépendant des jeux de société francophones.</p>
+        <p class="footer-desc">Le guide indépendant des jeux de société francophones. Fiches, stratégies et comparatifs honnêtes.</p>
       </div>
       <div>
         <p class="footer-heading">Explorer</p>
         <ul>
-          <li><a href="jeux/">Toutes les fiches</a></li>
-          <li><a href="guides/">Guides stratégiques</a></li>
+          <li><a href="jeux/index.html">Toutes les fiches</a></li>
+          <li><a href="guides/index.html">Guides stratégiques</a></li>
           <li><a href="comparatifs.html">Comparatifs</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Catégories</p>
+        <ul>
+          <li><a href="jeux/index.html?type=fam">Jeux familiaux</a></li>
+          <li><a href="jeux/index.html?type=strat">Stratégie</a></li>
+          <li><a href="jeux/index.html?type=coop">Coopératifs</a></li>
+          <li><a href="jeux/index.html?type=party">Party games</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-heading">Légal</p>
         <ul>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="affiliation.html">Notre politique d'affiliation</a></li>
+          <li><a href="affiliation.html">Politique d'affiliation</a></li>
         </ul>
       </div>
     </div>
-    <p class="footer-copy">© 2024 LudoGuide · Certains liens sont affiliés — cela ne change pas notre avis.</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 LudoGuide · Certains liens sont affiliés — cela ne change pas notre avis indépendant.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">100% Indépendant</span>
+        <span class="footer-badge">Liens affiliés déclarés</span>
+      </div>
+    </div>
   </div>
 </footer>
 
+<script>
+const featured = ["brass-birmingham","dune-imperium","lost-ruins-arnak","wingspan","cascadia","gloomhaven"];
+const tagClass = {strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j"};
+const tagLabel = {strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs"};
+
+fetch('games_data.json').then(r=>r.json()).then(games => {
+  const sel = games.filter(g => featured.includes(g.slug));
+  sel.sort((a,b) => featured.indexOf(a.slug) - featured.indexOf(b.slug));
+  document.getElementById('featured-grid').innerHTML = sel.map(g => `
+    <article class="jeu-card">
+      <div class="jeu-card-visual" style="background:${g.bg}">${g.emoji}</div>
+      <div class="jeu-card-body">
+        <div class="jeu-meta">
+          <span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span>
+          <span class="jeu-note">★ ${g.note}/10</span>
+        </div>
+        <h3><a href="jeux/${g.slug}.html">${g.title}</a></h3>
+        <p class="jeu-desc">${g.tagline}</p>
+        <div class="jeu-infos">
+          <span class="jeu-info-pill">👥 ${g.players}</span>
+          <span class="jeu-info-pill">⏱ ${g.duration}</span>
+          <span class="jeu-info-pill">🎯 ${g.age}</span>
+        </div>
+        <div class="jeu-actions">
+          <a href="jeux/${g.slug}.html" class="link-fiche">Voir la fiche →</a>
+          <a href="https://www.philibert.fr/search?q=${g.search}" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
+        </div>
+      </div>
+    </article>`).join('');
+});
+</script>
 </body>
 </html>
