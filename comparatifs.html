@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comparatifs de jeux de société — familles, 2 joueurs, coopératifs, stratégie. Trouvez le meilleur jeu selon vos besoins.">
+<title>Comparatifs — LudoGuide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-icon">🎲</span> LudoGuide</a>
+    <nav><a href="jeux/index.html">Fiches jeux</a><a href="guides/index.html">Guides</a><a href="comparatifs.html">Comparatifs</a><a href="jeux/index.html" class="nav-cta">Trouver un jeu</a></nav>
+  </div>
+</header>
+
+<div class="comp-hero">
+  <div class="container">
+    <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px"><a href="index.html" style="color:var(--accent)">Accueil</a> › Comparatifs</p>
+    <h1>Comparatifs</h1>
+    <p>Quel jeu choisir selon votre situation ? On compare pour vous.</p>
+  </div>
+</div>
+
+<div class="comp-content">
+  <div class="container">
+
+    <!-- TOP NOTES -->
+    <div class="comp-section" id="top">
+      <h2 class="comp-section-title">🏆 Le classement LudoGuide — Top 10</h2>
+      <p class="comp-section-sub">Les jeux les mieux notés de notre base, tous critères confondus.</p>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>#</th><th>Jeu</th><th>Type</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Note</th><th></th></tr></thead>
+          <tbody id="top-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAMILLE -->
+    <div class="comp-section" id="famille">
+      <h2 class="comp-section-title">👨‍👩‍👧 Meilleurs jeux familiaux</h2>
+      <p class="comp-section-sub">Accessibles dès 8 ans, fun pour tous les âges.</p>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Âge</th><th>Prix</th><th>Note</th><th>Notre avis</th><th></th></tr></thead>
+          <tbody id="fam-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 2 JOUEURS -->
+    <div class="comp-section" id="2joueurs">
+      <h2 class="comp-section-title">⚔️ Meilleurs jeux à 2 joueurs</h2>
+      <p class="comp-section-sub">Les duels les plus intenses et satisfaisants.</p>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Jeu</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th>Atout principal</th><th></th></tr></thead>
+          <tbody id="deux-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COOPERATIFS -->
+    <div class="comp-section" id="cooperatif">
+      <h2 class="comp-section-title">🤝 Meilleurs jeux coopératifs</h2>
+      <p class="comp-section-sub">Jouez ensemble contre le jeu — les titres incontournables.</p>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
+          <tbody id="coop-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- STRATEGIE -->
+    <div class="comp-section" id="strategie">
+      <h2 class="comp-section-title">♟️ Jeux de stratégie — Par niveau</h2>
+      <p class="comp-section-sub">Du plus accessible au plus complexe.</p>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
+          <tbody id="strat-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><p class="footer-logo">🎲 LudoGuide</p><p class="footer-desc">Le guide indépendant des jeux de société francophones.</p></div>
+      <div><p class="footer-heading">Explorer</p><ul><li><a href="jeux/index.html">Fiches jeux</a></li><li><a href="guides/index.html">Guides</a></li><li><a href="comparatifs.html">Comparatifs</a></li></ul></div>
+      <div><p class="footer-heading">Légal</p><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="affiliation.html">Affiliation</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2024 LudoGuide · Liens affiliés déclarés.</p></div>
+  </div>
+</footer>
+
+<script>
+const tagClass={strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck"};
+const tagLabel={strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building"};
+const avis={
+  "ticket-to-ride":"Idéal pour débuter","cascadia":"Nature & accessibilité","carcassonne":"Ultra classique",
+  "takenoko":"Coloré et zen","azul":"Abstrait parfait","dixit":"Créativité pure",
+  "7-wonders-duel":"Le meilleur duel","patchwork":"Élégant et court","7wonders":"Draft parfait",
+  "concordia":"Gestion de main","wingspan":"Thème unique","splendor":"Simple et profond",
+  "pandemic":"Référence du genre","pandemic-legacy-s1":"Expérience narrative","spirit-island":"Le plus complexe",
+  "gloomhaven":"Campagne ultime","the-crew":"Plis coopératif","robinson-crusoe":"Survie intense",
+  "brass-birmingham":"Économie pure","dune-imperium":"Intrigues et deck","lost-ruins-arnak":"Exploration","scythe":"Diesel-punk","terraforming-mars":"Sci-fi profond","root":"Asymétrie totale","viticulture":"Gestion élégante"
+};
+fetch('games_data.json').then(r=>r.json()).then(games=>{
+  // Top 10
+  const top10=[...games].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
+  document.getElementById('top-table').innerHTML=top10.map((g,i)=>`<tr>
+    <td><strong>#${i+1}</strong></td>
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a>${g.note===10?'<span class="comp-best" style="margin-left:8px">Chef-d\'œuvre</span>':''}</td>
+    <td><span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span></td>
+    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
+    <td class="comp-note">${g.note}/10</td>
+    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
+  </tr>`).join('');
+
+  // Famille
+  const fam=games.filter(g=>g.tags.includes('fam')).sort((a,b)=>b.note-a.note);
+  document.getElementById('fam-table').innerHTML=fam.map(g=>`<tr>
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
+    <td>${g.players}</td><td>${g.duration}</td><td>Dès ${g.age}</td>
+    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
+    <td style="font-size:13px;color:var(--ink-mid)">${avis[g.slug]||'Incontournable'}</td>
+    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
+  </tr>`).join('');
+
+  // 2 joueurs
+  const deux=games.filter(g=>g.players.includes('2')||g.players==='2').sort((a,b)=>b.note-a.note).slice(0,8);
+  document.getElementById('deux-table').innerHTML=deux.map(g=>`<tr>
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
+    <td>${g.duration}</td><td>${g.complexity}</td>
+    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
+    <td style="font-size:13px;color:var(--ink-mid)">${avis[g.slug]||'Excellent duel'}</td>
+    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
+  </tr>`).join('');
+
+  // Coopératifs
+  const coop=games.filter(g=>g.tags.includes('coop')).sort((a,b)=>b.note-a.note);
+  document.getElementById('coop-table').innerHTML=coop.map(g=>`<tr>
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
+    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
+    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
+    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
+  </tr>`).join('');
+
+  // Stratégie par complexité
+  const strat=games.filter(g=>g.tags.includes('strat')).sort((a,b)=>{
+    const order={'Facile':0,'Moyenne':1,'Élevée':2};
+    return (order[a.complexity]||0)-(order[b.complexity]||0);
+  });
+  document.getElementById('strat-table').innerHTML=strat.map(g=>`<tr>
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
+    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
+    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
+    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
+  </tr>`).join('');
+});
+</script>
+</body>
+</html>
