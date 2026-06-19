@@ -1,1 +1,1 @@
-# LudoRef — AdSense integration
+# LudoRef — pages légales
