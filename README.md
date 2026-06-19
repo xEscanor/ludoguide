@@ -1,1 +1,1 @@
-# LudoRef — affiliation Amazon active
+# LudoRef — fix amazon + BGG
