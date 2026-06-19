@@ -1,1 +1,1 @@
-# LudoRef — Philibert affiliate links
+# LudoRef — AdSense integration
