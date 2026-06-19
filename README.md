@@ -1,1 +1,1 @@
-# LudoRef — amazon URLs fixed
+# LudoRef — sitemap + robots
