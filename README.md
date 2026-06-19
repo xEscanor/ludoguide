@@ -1,1 +1,1 @@
-# LudoRef 200 jeux
+# LudoRef 200 jeux avec regles
