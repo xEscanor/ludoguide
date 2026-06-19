@@ -1,1 +1,1 @@
-# LudoRef — pages légales
+# LudoRef — 200 jeux + 6 guides complets
