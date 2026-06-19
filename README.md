@@ -1,1 +1,1 @@
-# LudoRef — sitemap + robots
+# LudoRef — redesign ludique + favicon
