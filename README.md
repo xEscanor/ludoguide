@@ -1,1 +1,1 @@
-# LudoRef — fix amazon + BGG
+# LudoRef — sidebar fix + BGG images
