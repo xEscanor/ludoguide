@@ -1,1 +1,1 @@
-# LudoRef — redesign ludique + favicon
+# LudoRef — Philibert affiliate links
