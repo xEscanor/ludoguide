@@ -23,7 +23,8 @@
     "emoji": "🦅",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/yLZJCVLlIx4c7eJEWUNJ7w__imagepagezoom/img/uIjeoKgHMcRtzLD-Y_yqnJzHSAM=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic4458123.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Wingspan+jeu+société+Stonemaier&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Wingspan+jeu+société+Stonemaier&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan&ae=1256"
   },
   {
     "slug": "catan",
@@ -49,7 +50,8 @@
     "emoji": "🏝️",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/W3Bsga_uLP9kO91gZ7H8yw__imagepagezoom/img/M7fdogOuEFJTfFByiM_4PEXD9fA=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2419375.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Colons+Catane+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Colons+Catane+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=catane+colons&ae=1256"
   },
   {
     "slug": "pandemic",
@@ -75,7 +77,8 @@
     "emoji": "🦠",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/S3ybV1LAp-8sMQ6RHpIhsA__imagepagezoom/img/a4lfE5vFHi2BoSs5fkT1HBHQ1pE=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1534148.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+jeu+société+Z-Man&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+jeu+société+Z-Man&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic&ae=1256"
   },
   {
     "slug": "7wonders",
@@ -101,7 +104,8 @@
     "emoji": "🏛️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/RvFVTEpnbb4NM7k0IF8V7A__imagepagezoom/img/kFOEqCCJtFJXBsFkFJ9u9CeaRdk=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic860217.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=7+Wonders+jeu+société+Repos&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=7+Wonders+jeu+société+Repos&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=7+wonders&ae=1256"
   },
   {
     "slug": "dixit",
@@ -128,7 +132,8 @@
     "emoji": "🌙",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/7Y_LFNsaE5HLWlMEJLgH_g__imagepagezoom/img/yIJP6j-5p8yQ1K2zRPiEoMx31T8=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3483909.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Dixit+jeu+société+Libellud&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Dixit+jeu+société+Libellud&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dixit&ae=1256"
   },
   {
     "slug": "ticket-to-ride",
@@ -154,7 +159,8 @@
     "emoji": "🚂",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/ZWJg0dCdrWHxVnc0eFXK8w__imagepagezoom/img/v5gNRBUGqVkNu7IqZMqYgjWlxis=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic38668.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Aventuriers+Rail+Europe+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Aventuriers+Rail+Europe+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=aventuriers+rail&ae=1256"
   },
   {
     "slug": "azul",
@@ -181,7 +187,8 @@
     "emoji": "🔷",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/aMt3xMvHmvYGNJKRXp6RTQ__imagepagezoom/img/JTwZDEDkSaHGUWm07-BmQqpENdg=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3718275.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Azul+jeu+société+Plan+B&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Azul+jeu+société+Plan+B&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=azul&ae=1256"
   },
   {
     "slug": "terraforming-mars",
@@ -207,7 +214,8 @@
     "emoji": "🔴",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/wg9oOLcsKvDesSUdZQ4rxw__imagepagezoom/img/N4RrTxaB-LIDyHtOdBPiXmO6pFI=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3536616.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Terraforming+Mars+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Terraforming+Mars+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=terraforming+mars&ae=1256"
   },
   {
     "slug": "root",
@@ -233,7 +241,8 @@
     "emoji": "🦊",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/JUAUWaVUzeBgzirhZNmHHw__imagepagezoom/img/wHbFkFiNYxD0QPyNGOnuqmEfhkM=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic4254509.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Root+jeu+société+Leder+Games&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Root+jeu+société+Leder+Games&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=root&ae=1256"
   },
   {
     "slug": "gloomhaven",
@@ -260,7 +269,8 @@
     "emoji": "⚔️",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/sZYp_3BTDGjh2unaZfZmuA__imagepagezoom/img/T4MUGbyxovJ6AQrGb8HXVekU_aA=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2437871.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Gloomhaven+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Gloomhaven+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=gloomhaven&ae=1256"
   },
   {
     "slug": "spirit-island",
@@ -286,7 +296,8 @@
     "emoji": "🌿",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/kjfRMDEt9HLQFuCOBBlFaQ__imagepagezoom/img/bYPLWiXEFWBpZtCYTQSHRBh-8xM=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3615739.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Spirit+Island+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Spirit+Island+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=spirit+island&ae=1256"
   },
   {
     "slug": "dominion",
@@ -312,7 +323,8 @@
     "emoji": "👑",
     "bg": "linear-gradient(135deg,#fbeaf0,#f5c8d8)",
     "bgg_img": "https://cf.geekdo-images.com/j6iQpZ4XkemZP07HNCODBA__imagepagezoom/img/CiEMIQRl1B8FqPVsOIFBf4YNHYE=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic394356.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Dominion+jeu+société+cartes&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Dominion+jeu+société+cartes&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dominion&ae=1256"
   },
   {
     "slug": "everdell",
@@ -338,7 +350,8 @@
     "emoji": "🌳",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/BlRkhUmFW4GZTXxUkWTF9A__imagepagezoom/img/6n_IA0EP2oKxMkPWDkXbG3dBPiA=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3918905.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Everdell+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Everdell+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=everdell&ae=1256"
   },
   {
     "slug": "arkham-horror",
@@ -364,7 +377,8 @@
     "emoji": "🐙",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/69nCfFBjlEMhMHBNOXBmBw__imagepagezoom/img/cjpqvMiMMVJ8FTBV0Tf0C0K6sXA=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5765549.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Arkham+Horror+LCG+jeu+cartes&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Arkham+Horror+LCG+jeu+cartes&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=arkham+horror&ae=1256"
   },
   {
     "slug": "carcassonne",
@@ -390,7 +404,8 @@
     "emoji": "🏰",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/okJpnGbCjMkGWdHt5hVGsw__imagepagezoom/img/ATRiX6pXfFW2D-4Ibt1HXJJB1D0=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5246415.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Carcassonne+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Carcassonne+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=carcassonne&ae=1256"
   },
   {
     "slug": "splendor",
@@ -417,7 +432,8 @@
     "emoji": "💎",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/rwOMxx3q5yuElIvo-1-OFg__imagepagezoom/img/n5A9i7OX4XqNMwkgxaJSKPBNkAg=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1904079.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Splendor+jeu+société+Space+Cowboys&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Splendor+jeu+société+Space+Cowboys&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=splendor&ae=1256"
   },
   {
     "slug": "viticulture",
@@ -443,7 +459,8 @@
     "emoji": "🍇",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/l_PRU2e3hRHIRkFaFV-dBg__imagepagezoom/img/aTDC6r1N_pz3BFzJOCGQFNhqJeo=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2574600.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Viticulture+jeu+société+Stonemaier&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Viticulture+jeu+société+Stonemaier&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=viticulture&ae=1256"
   },
   {
     "slug": "concordia",
@@ -469,7 +486,8 @@
     "emoji": "⛵",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/WX8WZSMoJqH3FXW5bDECDw__imagepagezoom/img/mPdIlR4FRkixiVdqzAzLbJXb3DY=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1774396.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Concordia+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Concordia+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=concordia&ae=1256"
   },
   {
     "slug": "brass-birmingham",
@@ -495,7 +513,8 @@
     "emoji": "⚙️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/x3zxjr-G89OLIar5NTRSsA__imagepagezoom/img/t56k8fAHODuIGGYYb_fv9uyV0r4=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3490053.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Brass+Birmingham+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Brass+Birmingham+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=brass+birmingham&ae=1256"
   },
   {
     "slug": "scythe",
@@ -521,7 +540,8 @@
     "emoji": "🌾",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/7k_nOxpO9OGIjhLq2BvynA__imagepagezoom/img/kUHkBkDKy-KOcIBCGBLh1w9t4Ns=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3163924.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Scythe+jeu+société+Stonemaier&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Scythe+jeu+société+Stonemaier&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=scythe&ae=1256"
   },
   {
     "slug": "puerto-rico",
@@ -547,7 +567,8 @@
     "emoji": "🌴",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/gDSZySFnhS3KUJ6mMCqFaA__imagepagezoom/img/MgJSBlDHfMSB8gSEjY1fS3LV2rE=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic158548.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Puerto+Rico+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Puerto+Rico+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=puerto+rico&ae=1256"
   },
   {
     "slug": "agricola",
@@ -573,7 +594,8 @@
     "emoji": "🌾",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/dDDo2SOdgd1PQbgVBoJITw__imagepagezoom/img/RMN6oXaBFmBEq4qV84pnMJPBIek=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic831744.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Agricola+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Agricola+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=agricola&ae=1256"
   },
   {
     "slug": "codenames",
@@ -599,7 +621,8 @@
     "emoji": "🔍",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/F_KDEu0GjdClSgMSMCFe_A__imagepagezoom/img/vJ9vXW1vOGZjXpGxHkAVkiJdmDw=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2582929.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Codenames+jeu+société+Czech+Games&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Codenames+jeu+société+Czech+Games&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=codenames&ae=1256"
   },
   {
     "slug": "mysterium",
@@ -626,7 +649,8 @@
     "emoji": "👻",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/d8d69AH7DjPOYj5RBP3qKg__imagepagezoom/img/1eeqT5VHCA1OhNvFZklFQU6CXSQ=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2508098.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Mysterium+jeu+société+Libellud&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Mysterium+jeu+société+Libellud&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=mysterium&ae=1256"
   },
   {
     "slug": "smallworld",
@@ -653,7 +677,8 @@
     "emoji": "⚔️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/aoPM07XzoceB-RydLh08zA__imagepagezoom/img/7n-uPo9uqQ1TsOxhx0LqGlz1pCY=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic428828.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Small+World+jeu+société+Days+Wonder&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Small+World+jeu+société+Days+Wonder&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=small+world&ae=1256"
   },
   {
     "slug": "hanabi",
@@ -680,7 +705,8 @@
     "emoji": "🎆",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/7ZVFTE43KWiXiHPhe688TA__imagepagezoom/img/uRoxs_XRfhHHBMjVFGFGBu5YNuI=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3364849.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Hanabi+jeu+société+cartes&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Hanabi+jeu+société+cartes&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=hanabi&ae=1256"
   },
   {
     "slug": "coup",
@@ -706,7 +732,8 @@
     "emoji": "🎭",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/oHEAHMKGaJxB9Ja4drDNog__imagepagezoom/img/U7uTe-wBCRsMYJjNS17r__pBNl0=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2BCP056.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Coup+jeu+société+bluff&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Coup+jeu+société+bluff&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=coup&ae=1256"
   },
   {
     "slug": "7-wonders-duel",
@@ -733,7 +760,8 @@
     "emoji": "⚔️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/small/pic2576399.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=7+Wonders+Duel+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=7+Wonders+Duel+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=7+wonders+duel&ae=1256"
   },
   {
     "slug": "patchwork",
@@ -761,7 +789,8 @@
     "emoji": "🧵",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/wOpTcOT-oxHEF5Am5A3NICA__imagepagezoom/img/oWZ2vLRJ-FyvEqcwJH25VpNKQ54=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2543509.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Patchwork+jeu+société+Lookout&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Patchwork+jeu+société+Lookout&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=patchwork&ae=1256"
   },
   {
     "slug": "lords-of-waterdeep",
@@ -787,7 +816,8 @@
     "emoji": "🧙",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/F47vAHKFBRbpvjYAZhRNXA__imagepagezoom/img/2-GgAMmfWyJSLB3HAnMtq_7cXeY=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1163344.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Lords+Waterdeep+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Lords+Waterdeep+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=lords+waterdeep&ae=1256"
   },
   {
     "slug": "king-of-tokyo",
@@ -814,7 +844,8 @@
     "emoji": "🦖",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/nHiCxFVRcl0r-IXNOmwDpA__imagepagezoom/img/7b9qRFfTiGFJsLLMBFtdJIcbLNQ=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5719264.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=King+Tokyo+jeu+société+Iello&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=King+Tokyo+jeu+société+Iello&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=king+of+tokyo&ae=1256"
   },
   {
     "slug": "pandemic-legacy-s1",
@@ -840,7 +871,8 @@
     "emoji": "🦠",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/e-Gj6gal7kMNqI3l-TH6MQ__imagepagezoom/img/nPdz6XhBuCZFmYaXaWjLo1UGKTU=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2452831.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+Legacy+Saison+1+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+Legacy+Saison+1+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+legacy+saison+1&ae=1256"
   },
   {
     "slug": "robinson-crusoe",
@@ -866,7 +898,8 @@
     "emoji": "🏝️",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/t5TxF3UgYL3mfBjYDIrWNA__imagepagezoom/img/o3J4Db0hHKq9TmfGbAW0aSFBkJA=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1610525.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Robinson+Crusoe+jeu+société+Portal&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Robinson+Crusoe+jeu+société+Portal&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=robinson+crusoe&ae=1256"
   },
   {
     "slug": "dead-of-winter",
@@ -892,7 +925,8 @@
     "emoji": "❄️",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/2Jbo6gmAJNDdBNWcDFOq5g__imagepagezoom/img/1K1ERhQeG8HzRAUzv_wkNyiEORM=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2026734.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Dead+Winter+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Dead+Winter+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dead+of+winter&ae=1256"
   },
   {
     "slug": "the-crew",
@@ -918,7 +952,8 @@
     "emoji": "🚀",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/98LnQShydr15UlrZiLwMpg__imagepagezoom/img/o1Oa3lIBx7W0sFnREFEL5V-lNpk=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5400472.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=The+Crew+jeu+société+coopératif&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=The+Crew+jeu+société+coopératif&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=the+crew&ae=1256"
   },
   {
     "slug": "sheriff-nottingham",
@@ -944,7 +979,8 @@
     "emoji": "⚖️",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/YAhAODo2W1RzCGiGRDHoNw__imagepagezoom/img/m_GHFJJXGMzM0bCi_KHZHhQw84w=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2075830.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Sheriff+Nottingham+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Sheriff+Nottingham+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=sheriff+nottingham&ae=1256"
   },
   {
     "slug": "resistance-avalon",
@@ -970,7 +1006,8 @@
     "emoji": "🗡️",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "https://cf.geekdo-images.com/TBMTFAQQdCGIBq4b2RGHSA__imagepagezoom/img/6D5KzYtZsxVlCXNm7HijjXLNyDQ=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1383987.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Résistance+Avalon+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Résistance+Avalon+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=resistance+avalon&ae=1256"
   },
   {
     "slug": "pandemic-iberia",
@@ -996,7 +1033,8 @@
     "emoji": "🌍",
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "https://cf.geekdo-images.com/k-SBiAiJVFTFBJnSWiK8hQ__imagepagezoom/img/PNmGUiGCKXDDSnLGW4fJCGlbNwQ=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3069575.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+Iberia+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Pandemic+Iberia+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+iberia&ae=1256"
   },
   {
     "slug": "quoridor",
@@ -1023,7 +1061,8 @@
     "emoji": "🧩",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/GNMBb_x4vHDMHdQyMQSaSw__imagepagezoom/img/mUFHFNFJqwqJEJI4JCv0SXXIVGI=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1773812.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Quoridor+jeu+société+Gigamic&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Quoridor+jeu+société+Gigamic&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=quoridor&ae=1256"
   },
   {
     "slug": "takenoko",
@@ -1049,7 +1088,8 @@
     "emoji": "🐼",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/Hb8z7RIRoHo65B2oRuaUCg__imagepagezoom/img/MZPGCNQ9sOHY2XhqUrjkNs0L68s=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2703528.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Takenoko+jeu+société+Bombyx&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Takenoko+jeu+société+Bombyx&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=takenoko&ae=1256"
   },
   {
     "slug": "tokaido",
@@ -1075,7 +1115,8 @@
     "emoji": "⛩️",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/uCMkOZFQz0Ie6r6XdCkXCw__imagepagezoom/img/GIlPAiA1OJyPBfSTpjgGq2Gc4GE=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic1738258.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Tokaido+jeu+société+Funforge&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Tokaido+jeu+société+Funforge&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=tokaido&ae=1256"
   },
   {
     "slug": "istanbul",
@@ -1102,7 +1143,8 @@
     "emoji": "🕌",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/PHH9Mko_L2KPTbNFsiWdaQ__imagepagezoom/img/8B5YPrFR8UpyoXVLhKmIQmfKGWg=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic2296777.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Istanbul+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Istanbul+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=istanbul&ae=1256"
   },
   {
     "slug": "clank",
@@ -1129,7 +1171,8 @@
     "emoji": "🗡️",
     "bg": "linear-gradient(135deg,#fbeaf0,#f5c8d8)",
     "bgg_img": "https://cf.geekdo-images.com/QRjJGS9cDEEBrKqYOhvbHg__imagepagezoom/img/zzasOy3qdD0x4QWHKM9IxvM1e6s=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5765599.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Clank+jeu+société+deck+building&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Clank+jeu+société+deck+building&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=clank&ae=1256"
   },
   {
     "slug": "sagrada",
@@ -1156,7 +1199,8 @@
     "emoji": "🌈",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/PZt3EAAGV3b0R8MSzITFIg__imagepagezoom/img/v-4Q7I9FU90D6VLLF2LK0_7jYK4=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3525464.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Sagrada+jeu+société+dés&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Sagrada+jeu+société+dés&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=sagrada&ae=1256"
   },
   {
     "slug": "century-spice-road",
@@ -1183,7 +1227,8 @@
     "emoji": "🌶️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/XRd6EIfLl2kGPCxWZbL5Gg__imagepagezoom/img/MX7sHQC94F8RRJDLTgQnk9A0Wgk=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic3495553.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Century+Route+Épices+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Century+Route+Épices+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=century+epices&ae=1256"
   },
   {
     "slug": "tapestry",
@@ -1209,7 +1254,8 @@
     "emoji": "🏗️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/4RlJZr1h6ZVFTSM7ZMECsA__imagepagezoom/img/hUB5ByjPf4TkFZWWJmBhtyxMueo=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic4740727.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Tapestry+jeu+société+Stonemaier&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Tapestry+jeu+société+Stonemaier&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=tapestry&ae=1256"
   },
   {
     "slug": "cascadia",
@@ -1236,7 +1282,8 @@
     "emoji": "🦫",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/MnjteZHNMHOIfQNMYbmF-w__imagepagezoom/img/0eSY29kRy8QbPDjQXsRtGJMwLLM=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5765849.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Cascadia+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Cascadia+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=cascadia&ae=1256"
   },
   {
     "slug": "lost-ruins-arnak",
@@ -1263,7 +1310,8 @@
     "emoji": "🗺️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/7MpQdMmAn5AHqwFGYlGKXg__imagepagezoom/img/PflLNKoC4SFpPCmDlXIXSd5L3F4=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5765850.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Ruines+Perdues+Arnak+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Ruines+Perdues+Arnak+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=arnak&ae=1256"
   },
   {
     "slug": "dune-imperium",
@@ -1290,7 +1338,8 @@
     "emoji": "🏜️",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "https://cf.geekdo-images.com/PhjygpWSo-0labeFcolMBg__imagepagezoom/img/IkwJRvmxRf6E6vI5I4P7VmgZeSQ=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic5666597.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Dune+Imperium+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Dune+Imperium+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dune+imperium&ae=1256"
   },
   {
     "slug": "heat",
@@ -1317,6 +1366,7 @@
     "emoji": "🏎️",
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "https://cf.geekdo-images.com/TeRHDEPedthP-4hs1Lv5kA__imagepagezoom/img/1TxX9mFdQ4MNPB_7OcyKMrLjyro=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic6940449.jpg",
-    "amazon_url": "https://www.amazon.fr/s?k=Heat+Pedal+Metal+jeu+société&tag=ludoref-21"
+    "amazon_url": "https://www.amazon.fr/s?k=Heat+Pedal+Metal+jeu+société&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=heat+pedal+metal&ae=1256"
   }
 ]
