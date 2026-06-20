@@ -25,24 +25,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ludoref.fr/mentions-legales.html</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://ludoref.fr/politique-confidentialite.html</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://ludoref.fr/affiliation.html</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://ludoref.fr/guides/meilleurs-jeux-famille.html</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
