@@ -1,1 +1,1 @@
-# LudoRef - barre de recherche deplacee dans le header
+# LudoRef - fix 7 guides visibles + compteur homepage
