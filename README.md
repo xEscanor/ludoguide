@@ -1,1 +1,1 @@
-# LudoRef - 214 jeux, 100% des regles personnalisees
+# LudoRef - recherche + extensions liees + jeux similaires + boutons achat corriges
