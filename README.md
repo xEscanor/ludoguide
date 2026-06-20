@@ -1,1 +1,1 @@
-# LudoRef - 214 jeux + guide jeux rapides famille
+# LudoRef - 214 jeux, 100% des regles personnalisees
