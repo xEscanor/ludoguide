@@ -3824,31 +3824,31 @@
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=underwater+cities&ae=1256"
   },
   {
-    "slug": "oink-games",
-    "title": "Bohnanza",
-    "tagline": "Cultivez et commercez des haricots dans ce classique de négociation.",
+    "slug": "love-letter",
+    "title": "Love Letter",
+    "tagline": "Le jeu de déduction minimaliste qui tient dans 16 cartes.",
     "cat": "party",
     "cat_label": "Party",
-    "players": "2–7",
-    "duration": "45 min",
-    "age": "12 ans",
+    "players": "2–4",
+    "duration": "20 min",
+    "age": "10 ans",
     "complexity": "Facile",
     "note": 7,
-    "author": "U. Rosenberg",
-    "publisher": "Amigo",
-    "year": 1997,
-    "price": "15",
-    "bgg": "7.0",
+    "author": "S. Kanai",
+    "publisher": "Oink Games / Iello",
+    "year": 2012,
+    "price": "10",
+    "bgg": "7.1",
     "tags": [
       "party",
-      "fam"
+      "deck"
     ],
-    "search": "bohnanza+jeu",
-    "emoji": "🫘",
+    "search": "love+letter+jeu+cartes",
+    "emoji": "💌",
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "",
-    "amazon_url": "https://www.amazon.fr/s?k=bohnanza+jeu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=bohnanza+jeu&ae=1256"
+    "amazon_url": "https://www.amazon.fr/s?k=love+letter+jeu+cartes&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=love+letter&ae=1256"
   },
   {
     "slug": "century-new-world",
