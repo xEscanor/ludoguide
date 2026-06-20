@@ -1,1 +1,1 @@
-# LudoRef - fix 7 guides visibles + compteur homepage
+# LudoRef - sections comparatif repliables
