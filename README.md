@@ -1,1 +1,1 @@
-# LudoRef - recherche + extensions liees + jeux similaires + boutons achat corriges
+# LudoRef - barre de recherche deplacee dans le header
