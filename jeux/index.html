@@ -28,7 +28,12 @@
 <div class="jeux-page-hero">
   <div class="container">
     <h1>Toutes les fiches jeux</h1>
-    <p>200 jeux analysés — règles simplifiées, stratégies et avis honnêtes.</p>
+    <p>214 jeux analysés — règles simplifiées, stratégies et avis honnêtes.</p>
+    <div class="search-bar-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" class="search-input" placeholder="Rechercher un jeu par son nom… (ex: Wingspan, Catan, Skyjo)">
+      <button class="search-clear" id="search-clear" style="display:none" onclick="clearSearch()">✕</button>
+    </div>
   </div>
 </div>
 <div class="filters-bar">
@@ -129,11 +134,12 @@
 <script>
 const tagClass={strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j",abs:"tag-abs"};
 const tagLabel={strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs",abs:"Abstrait"};
-let allGames=[],activeType='all';
+let allGames=[],activeType='all',searchQuery='';
 function maxDur(d){const n=d.match(/\d+/g);return n?Math.max(...n.map(Number)):999;}
 function maxAge(a){const n=a.match(/\d+/);return n?parseInt(n[0]):99;}
 function minP(p){const n=p.match(/\d+/);return n?parseInt(n[0]):1;}
 function maxP(p){const n=p.match(/\d+/g);return n?Math.max(...n.map(Number)):1;}
+function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 function render(){
   const fp=document.getElementById('filter-players').value;
   const fd=document.getElementById('filter-duration').value;
@@ -142,6 +148,7 @@ function render(){
   const fn=document.getElementById('filter-note').value;
   let g=allGames.filter(g=>{
     if(activeType!=='all'&&!g.tags.includes(activeType))return false;
+    if(searchQuery&&!normalize(g.title).includes(normalize(searchQuery)))return false;
     if(fp){const n=parseInt(fp);
       if(n===1&&minP(g.players)>1)return false;
       if(n>1&&n<5&&(minP(g.players)>n||maxP(g.players)<n))return false;
@@ -169,15 +176,34 @@ function render(){
         <span class="jeu-info-pill">🎯 ${g.age}</span>
         <span class="jeu-info-pill">🧩 ${g.complexity}</span>
       </div>
-      <div class="jeu-actions"><a href="${g.slug}.html" class="link-fiche">Voir la fiche →</a><a href="https://www.philibert.fr/search?q=${g.search}" class="link-acheter" rel="sponsored" target="_blank">Acheter</a></div>
+      <div class="jeu-actions">
+        <a href="${g.slug}.html" class="link-fiche">Voir la fiche →</a>
+        <span class="jeu-buy-group">
+          <a href="${g.philibert_url}" class="link-acheter link-acheter-phil" rel="sponsored" target="_blank" title="Acheter sur Philibert">🎲 Philibert</a>
+          <a href="${g.amazon_url}" class="link-acheter link-acheter-amz" rel="sponsored" target="_blank" title="Acheter sur Amazon">🛒 Amazon</a>
+        </span>
+      </div>
     </div></article>`).join('');
 }
 function resetFilters(){
-  activeType='all';
+  activeType='all';searchQuery='';
+  document.getElementById('search-input').value='';
+  document.getElementById('search-clear').style.display='none';
   document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type==='all'));
   ['filter-players','filter-duration','filter-age','filter-complexity','filter-note'].forEach(id=>document.getElementById(id).value='');
   render();
 }
+function clearSearch(){
+  searchQuery='';
+  document.getElementById('search-input').value='';
+  document.getElementById('search-clear').style.display='none';
+  render();
+}
+document.getElementById('search-input').addEventListener('input',(e)=>{
+  searchQuery=e.target.value;
+  document.getElementById('search-clear').style.display=searchQuery?'block':'none';
+  render();
+});
 document.querySelectorAll('.filter-tag').forEach(btn=>{
   btn.addEventListener('click',()=>{
     activeType=btn.dataset.type;
@@ -186,11 +212,12 @@ document.querySelectorAll('.filter-tag').forEach(btn=>{
 });
 ['filter-players','filter-duration','filter-age','filter-complexity','filter-note'].forEach(id=>document.getElementById(id).addEventListener('change',render));
 const params=new URLSearchParams(window.location.search);
-const urlType=params.get('type'),urlPlayers=params.get('players');
+const urlType=params.get('type'),urlPlayers=params.get('players'),urlSearch=params.get('q');
 fetch('../games_data.json').then(r=>r.json()).then(games=>{
   allGames=games;
   if(urlType){activeType=urlType;document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type===urlType));}
   if(urlPlayers)document.getElementById('filter-players').value=urlPlayers;
+  if(urlSearch){searchQuery=urlSearch;document.getElementById('search-input').value=urlSearch;document.getElementById('search-clear').style.display='block';}
   render();
 });
 </script>
