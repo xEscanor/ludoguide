@@ -598,3 +598,79 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
   font-size: 11px;
   color: var(--ink-light);
 }
+
+/* ── COMPARATIF — SECTIONS REPLIABLES ── */
+.comp-section {
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.comp-section-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s;
+}
+.comp-section-toggle:hover { background: var(--bg-alt); }
+.comp-toggle-title {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  flex: 1;
+}
+.comp-toggle-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-light);
+  background: var(--bg-alt);
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.comp-section-toggle[aria-expanded="true"] .comp-toggle-count {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.comp-toggle-icon {
+  font-size: 14px;
+  color: var(--ink-light);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.comp-section-toggle[aria-expanded="true"] .comp-toggle-icon {
+  transform: rotate(180deg);
+}
+.comp-section-body {
+  padding: 0 24px 24px;
+  max-height: 6000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+.comp-section-body.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.comp-section-sub {
+  font-size: 14px;
+  color: var(--ink-mid);
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  .comp-section-toggle { padding: 16px 18px; gap: 8px; }
+  .comp-toggle-title { font-size: 16px; }
+  .comp-toggle-count { font-size: 11px; padding: 3px 9px; }
+  .comp-section-body { padding: 0 18px 18px; }
+}
