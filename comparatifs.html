@@ -34,61 +34,91 @@
 
     <!-- TOP NOTES -->
     <div class="comp-section" id="top">
-      <h2 class="comp-section-title">🏆 Le classement LudoRef — Top 10</h2>
-      <p class="comp-section-sub">Les jeux les mieux notés de notre base, tous critères confondus.</p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead><tr><th>#</th><th>Jeu</th><th>Type</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Note</th><th></th></tr></thead>
-          <tbody id="top-table"></tbody>
-        </table>
+      <button class="comp-section-toggle" data-target="top-body" aria-expanded="true">
+        <span class="comp-toggle-title">🏆 Le classement LudoRef — Top 10</span>
+        <span class="comp-toggle-count" id="top-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body" id="top-body">
+        <p class="comp-section-sub">Les jeux les mieux notés de notre base, tous critères confondus.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>#</th><th>Jeu</th><th>Type</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Note</th><th></th></tr></thead>
+            <tbody id="top-table"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- FAMILLE -->
     <div class="comp-section" id="famille">
-      <h2 class="comp-section-title">👨‍👩‍👧 Meilleurs jeux familiaux</h2>
-      <p class="comp-section-sub">Accessibles dès 8 ans, fun pour tous les âges.</p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Âge</th><th>Prix</th><th>Note</th><th>Notre avis</th><th></th></tr></thead>
-          <tbody id="fam-table"></tbody>
-        </table>
+      <button class="comp-section-toggle" data-target="fam-body" aria-expanded="false">
+        <span class="comp-toggle-title">👨‍👩‍👧 Meilleurs jeux familiaux</span>
+        <span class="comp-toggle-count" id="fam-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body collapsed" id="fam-body">
+        <p class="comp-section-sub">Accessibles dès 8 ans, fun pour tous les âges.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Âge</th><th>Prix</th><th>Note</th><th>Notre avis</th><th></th></tr></thead>
+            <tbody id="fam-table"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 2 JOUEURS -->
     <div class="comp-section" id="2joueurs">
-      <h2 class="comp-section-title">⚔️ Meilleurs jeux à 2 joueurs</h2>
-      <p class="comp-section-sub">Les duels les plus intenses et satisfaisants.</p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead><tr><th>Jeu</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th>Atout principal</th><th></th></tr></thead>
-          <tbody id="deux-table"></tbody>
-        </table>
+      <button class="comp-section-toggle" data-target="deux-body" aria-expanded="false">
+        <span class="comp-toggle-title">⚔️ Meilleurs jeux à 2 joueurs</span>
+        <span class="comp-toggle-count" id="deux-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body collapsed" id="deux-body">
+        <p class="comp-section-sub">Les duels les plus intenses et satisfaisants.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>Jeu</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th>Atout principal</th><th></th></tr></thead>
+            <tbody id="deux-table"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- COOPERATIFS -->
     <div class="comp-section" id="cooperatif">
-      <h2 class="comp-section-title">🤝 Meilleurs jeux coopératifs</h2>
-      <p class="comp-section-sub">Jouez ensemble contre le jeu — les titres incontournables.</p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
-          <tbody id="coop-table"></tbody>
-        </table>
+      <button class="comp-section-toggle" data-target="coop-body" aria-expanded="false">
+        <span class="comp-toggle-title">🤝 Meilleurs jeux coopératifs</span>
+        <span class="comp-toggle-count" id="coop-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body collapsed" id="coop-body">
+        <p class="comp-section-sub">Jouez ensemble contre le jeu — les titres incontournables.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
+            <tbody id="coop-table"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- STRATEGIE -->
     <div class="comp-section" id="strategie">
-      <h2 class="comp-section-title">♟️ Jeux de stratégie — Par niveau</h2>
-      <p class="comp-section-sub">Du plus accessible au plus complexe.</p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
-          <tbody id="strat-table"></tbody>
-        </table>
+      <button class="comp-section-toggle" data-target="strat-body" aria-expanded="false">
+        <span class="comp-toggle-title">♟️ Jeux de stratégie — Par niveau</span>
+        <span class="comp-toggle-count" id="strat-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body collapsed" id="strat-body">
+        <p class="comp-section-sub">Du plus accessible au plus complexe.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>Jeu</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Prix</th><th>Note</th><th></th></tr></thead>
+            <tbody id="strat-table"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -170,6 +200,22 @@ fetch('games_data.json').then(r=>r.json()).then(games=>{
     <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
     <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
   </tr>`).join('');
+
+  // Compteurs sur les en-têtes repliables
+  document.getElementById('top-count').textContent=top10.length+' jeux';
+  document.getElementById('fam-count').textContent=fam.length+' jeux';
+  document.getElementById('deux-count').textContent=deux.length+' jeux';
+  document.getElementById('coop-count').textContent=coop.length+' jeux';
+  document.getElementById('strat-count').textContent=strat.length+' jeux';
+});
+
+// Accordéon : toggle ouverture/fermeture des sections
+document.querySelectorAll('.comp-section-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const body=document.getElementById(btn.dataset.target);
+    const isCollapsed=body.classList.toggle('collapsed');
+    btn.setAttribute('aria-expanded',isCollapsed?'false':'true');
+  });
 });
 </script>
 </body>
