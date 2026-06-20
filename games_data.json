@@ -2160,7 +2160,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=wingspan+extension+europe+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+extension+europe&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+extension+europe&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "paleo",
@@ -2239,7 +2240,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=wingspan+extension+oceanie+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+extension+oceanie&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+extension+oceanie&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "barrage",
@@ -2503,7 +2505,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+dans+le+labo+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+dans+le+labo&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+dans+le+labo&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "ohanami",
@@ -3163,7 +3166,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=wingspan+nesting+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+nesting&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+nesting&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "agricola-revised",
@@ -3294,7 +3298,8 @@
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=cascadia+horizons+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=cascadia+horizons&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=cascadia+horizons&ae=1256",
+    "base_game": "cascadia"
   },
   {
     "slug": "lords-waterdeep-corruption",
@@ -3320,7 +3325,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=lords+waterdeep+scoundrels+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=lords+waterdeep+scoundrels&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=lords+waterdeep+scoundrels&ae=1256",
+    "base_game": "lords-of-waterdeep"
   },
   {
     "slug": "sentinels",
@@ -3425,7 +3431,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=raiders+north+sea+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=raiders+north+sea&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=raiders+north+sea&ae=1256",
+    "base_game": "brass-birmingham"
   },
   {
     "slug": "architects-west-kingdom",
@@ -3478,7 +3485,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+zone+chaude+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+zone+chaude&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+zone+chaude&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "calico",
@@ -3531,7 +3539,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+cthulhu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+cthulhu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+cthulhu&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "botanik",
@@ -3584,7 +3593,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=ginkgopolis+jeu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=ginkgopolis+jeu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=ginkgopolis+jeu&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "arboretum",
@@ -3637,7 +3647,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=wingspan+promo+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+promo&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=wingspan+promo&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "clank-legacy",
@@ -3903,7 +3914,8 @@
     "bg": "linear-gradient(135deg,#fbeaf0,#f5c8d8)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=imperium+classiques+jeu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=imperium+classiques+jeu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=imperium+classiques+jeu&ae=1256",
+    "base_game": "wingspan"
   },
   {
     "slug": "captain-flip",
@@ -4061,7 +4073,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+chute+rome+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+chute+rome&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+chute+rome&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "aeon-trespass",
@@ -4194,7 +4207,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=spirit+island+jagged+earth+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=spirit+island+jagged+earth&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=spirit+island+jagged+earth&ae=1256",
+    "base_game": "spirit-island"
   },
   {
     "slug": "dorfromantik",
@@ -4300,7 +4314,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+maree+montante+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+maree+montante&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+maree+montante&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "viticulture-tuscany",
@@ -4326,7 +4341,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=viticulture+toscana+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=viticulture+toscana&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=viticulture+toscana&ae=1256",
+    "base_game": "viticulture"
   },
   {
     "slug": "flamecraft",
@@ -4404,7 +4420,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+etat+urgence+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+etat+urgence&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+etat+urgence&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "era",
@@ -4640,7 +4657,8 @@
     "bg": "linear-gradient(135deg,#e1f5ee,#c8eddf)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=catane+explorateurs+pirates+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=catane+explorateurs+pirates&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=catane+explorateurs+pirates&ae=1256",
+    "base_game": "catan"
   },
   {
     "slug": "warhammer-underworlds",
@@ -4797,7 +4815,8 @@
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=sagrada+artisans+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=sagrada+artisans&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=sagrada+artisans&ae=1256",
+    "base_game": "sagrada"
   },
   {
     "slug": "dixit-odyssey",
@@ -4824,7 +4843,8 @@
     "bg": "linear-gradient(135deg,#faeeda,#f5ddb0)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=dixit+odyssey+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dixit+odyssey&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dixit+odyssey&ae=1256",
+    "base_game": "dixit"
   },
   {
     "slug": "sushi-go",
@@ -5059,7 +5079,8 @@
     "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=pandemic+mutations+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+mutations&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=pandemic+mutations&ae=1256",
+    "base_game": "pandemic"
   },
   {
     "slug": "abyss",
