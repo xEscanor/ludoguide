@@ -1,1 +1,1 @@
-# LudoRef - sections comparatif repliables
+# LudoRef - Phase 1 SEO: Schema.org, OG, canonical, image partage
