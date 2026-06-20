@@ -17,6 +17,7 @@
 <header class="site-header">
   <div class="container">
     <a href="../index.html" class="logo"><span class="logo-icon">🎲</span> LudoRef</a>
+    <form class="nav-search-form" action="index.html" onsubmit="return true"><span class="nav-search-icon">🔍</span><input type="text" name="q" class="nav-search-input" placeholder="Rechercher un jeu…" autocomplete="off"></form>
     <nav>
       <a href="index.html">Fiches jeux</a>
       <a href="../guides/index.html">Guides</a>
@@ -29,11 +30,6 @@
   <div class="container">
     <h1>Toutes les fiches jeux</h1>
     <p>214 jeux analysés — règles simplifiées, stratégies et avis honnêtes.</p>
-    <div class="search-bar-wrap">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="search-input" class="search-input" placeholder="Rechercher un jeu par son nom… (ex: Wingspan, Catan, Skyjo)">
-      <button class="search-clear" id="search-clear" style="display:none" onclick="clearSearch()">✕</button>
-    </div>
   </div>
 </div>
 <div class="filters-bar">
@@ -106,7 +102,10 @@
         </select>
       </div>
       <button class="filters-reset" onclick="resetFilters()">✕ Réinitialiser</button>
-      <span class="results-count" id="results-count">200 jeux</span>
+      <span class="results-count" id="results-count">214 jeux</span>
+    </div>
+    <div id="search-active-badge" style="display:none;margin-top:10px;font-size:13px;color:var(--ink-mid)">
+      Résultats pour « <strong id="search-active-term"></strong> » <button onclick="clearSearch()" style="background:none;border:none;color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline">effacer</button>
     </div>
   </div>
 </div>
@@ -187,23 +186,46 @@ function render(){
 }
 function resetFilters(){
   activeType='all';searchQuery='';
-  document.getElementById('search-input').value='';
-  document.getElementById('search-clear').style.display='none';
+  const headerSearch=document.querySelector('.nav-search-form input[name="q"]');
+  if(headerSearch)headerSearch.value='';
+  document.getElementById('search-active-badge').style.display='none';
   document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type==='all'));
   ['filter-players','filter-duration','filter-age','filter-complexity','filter-note'].forEach(id=>document.getElementById(id).value='');
   render();
 }
 function clearSearch(){
   searchQuery='';
-  document.getElementById('search-input').value='';
-  document.getElementById('search-clear').style.display='none';
+  const headerSearch=document.querySelector('.nav-search-form input[name="q"]');
+  if(headerSearch)headerSearch.value='';
+  document.getElementById('search-active-badge').style.display='none';
   render();
 }
-document.getElementById('search-input').addEventListener('input',(e)=>{
-  searchQuery=e.target.value;
-  document.getElementById('search-clear').style.display=searchQuery?'block':'none';
-  render();
-});
+function setSearchBadge(term){
+  const badge=document.getElementById('search-active-badge');
+  if(term){
+    document.getElementById('search-active-term').textContent=term;
+    badge.style.display='block';
+  } else {
+    badge.style.display='none';
+  }
+}
+const headerSearchInput=document.querySelector('.nav-search-form input[name="q"]');
+const headerSearchForm=document.querySelector('.nav-search-form');
+if(headerSearchForm){
+  headerSearchForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    searchQuery=headerSearchInput.value;
+    setSearchBadge(searchQuery);
+    render();
+  });
+}
+if(headerSearchInput){
+  headerSearchInput.addEventListener('input',(e)=>{
+    searchQuery=e.target.value;
+    setSearchBadge(searchQuery);
+    render();
+  });
+}
 document.querySelectorAll('.filter-tag').forEach(btn=>{
   btn.addEventListener('click',()=>{
     activeType=btn.dataset.type;
@@ -217,7 +239,7 @@ fetch('../games_data.json').then(r=>r.json()).then(games=>{
   allGames=games;
   if(urlType){activeType=urlType;document.querySelectorAll('.filter-tag').forEach(b=>b.classList.toggle('active',b.dataset.type===urlType));}
   if(urlPlayers)document.getElementById('filter-players').value=urlPlayers;
-  if(urlSearch){searchQuery=urlSearch;document.getElementById('search-input').value=urlSearch;document.getElementById('search-clear').style.display='block';}
+  if(urlSearch&&headerSearchInput){searchQuery=urlSearch;headerSearchInput.value=urlSearch;setSearchBadge(urlSearch);}
   render();
 });
 </script>
