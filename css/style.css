@@ -674,3 +674,25 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
   .comp-toggle-count { font-size: 11px; padding: 3px 9px; }
   .comp-section-body { padding: 0 18px 18px; }
 }
+
+/* ── PDF OFFICIEL LINK (sidebar) ── */
+.pdf-officiel-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--border);
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.15s;
+}
+.pdf-officiel-link:hover {
+  background: var(--border-light);
+  color: var(--ink);
+  border-color: var(--ink-light);
+}
