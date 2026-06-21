@@ -1,1 +1,1 @@
-# LudoRef - Phase 1 SEO: Schema.org, OG, canonical, image partage
+# LudoRef - liens PDF officiels + SEO titles top 20
