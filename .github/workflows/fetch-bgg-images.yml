@@ -1,0 +1,31 @@
+name: Fetch BGG Images
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch-images:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch BGG images
+        run: python3 fetch_bgg_images.py
+
+      - name: Inject images into HTML fiches
+        run: python3 inject_bgg_images.py
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add bgg_images.json games_data.json jeux/*.html
+          git diff --staged --quiet || git commit -m "Auto: injection images BGG"
+          git push
