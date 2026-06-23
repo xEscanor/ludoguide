@@ -50,62 +50,6 @@
 <link rel="stylesheet" href="css/style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5932497075053847" crossorigin="anonymous"></script>
 
-  <!-- Brevo Newsletter -->
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-  <style>
-    /* Surcharges Brevo pour s'intégrer au style LudoRef */
-    #sib-form-container { background: transparent !important; }
-    #sib-container {
-      background: transparent !important;
-      border: none !important;
-      max-width: 100% !important;
-      text-align: left !important;
-      direction: ltr;
-    }
-    #sib-form { width: 100%; }
-    #sib-container input[type="text"]#EMAIL {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: var(--radius);
-      border: none;
-      font-size: 15px;
-      color: var(--ink);
-      background: rgba(255,255,255,0.95);
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    #sib-container .sib-form-block__button {
-      width: 100%;
-      padding: 14px 22px;
-      background: var(--accent-yellow, #f5c842) !important;
-      color: #1a1a2e !important;
-      border: none !important;
-      border-radius: var(--radius) !important;
-      font-size: 15px !important;
-      font-weight: 700 !important;
-      cursor: pointer;
-      transition: all 0.15s;
-      font-family: 'Inter', sans-serif !important;
-      text-align: center !important;
-    }
-    #sib-container .sib-form-block__button:hover { background: #f0bc30 !important; transform: translateY(-1px); }
-    #sib-container .entry__label { display: none !important; }
-    #sib-container .entry__specification { color: rgba(255,255,255,0.45) !important; font-size: 12px !important; font-family: 'Inter', sans-serif !important; }
-    #sib-container .entry__error { font-family: 'Inter', sans-serif !important; }
-    .sib-form { background: transparent !important; padding: 0 !important; text-align: left !important; }
-    .sib-form-block { padding: 0 !important; }
-    .sib-form-block p { display: none; } /* Masquer titre/description Brevo (on garde les nôtres) */
-    .sib-form-block:has(p[data-form-type="text"]) { display: none; }
-    #sib-container .sib-form-block:first-child { display: none; } /* Masquer "Newsletter" title */
-    .sib-form > div > div:nth-child(1) { display: none; } /* titre */
-    .sib-form > div > div:nth-child(2) { display: none; } /* description */
-    #error-message, #success-message {
-      max-width: 100% !important;
-      font-family: 'Inter', sans-serif !important;
-    }
-    #success-message { color: #fff !important; background: rgba(19,206,102,0.2) !important; border-color: #13ce66 !important; }
-    #error-message { background: rgba(255,73,73,0.2) !important; border-color: #ff4949 !important; color: #ffeded !important; }
-  </style>
 </head>
 <body>
 
@@ -323,42 +267,15 @@
           <div class="nf-item"><span class="nf-icon">🎯</span><span class="nf-text">Conseils stratégiques exclusifs</span></div>
           <div class="nf-item"><span class="nf-icon">💶</span><span class="nf-text">Bons plans et promos jeux</span></div>
         </div>
-        <div id="sib-form-container" class="sib-form-container">
-          <div id="error-message" class="sib-form-message-panel" style="font-family:Inter,sans-serif;font-size:14px;text-align:left;color:#ffeded;background-color:rgba(255,73,73,0.2);border-color:#ff4949;border-radius:6px;max-width:100%;display:none;">
-            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <span class="sib-form-message-panel__inner-text">Nous n&#39;avons pas pu confirmer votre inscription.</span>
-            </div>
-          </div>
-          <div id="success-message" class="sib-form-message-panel" style="font-family:Inter,sans-serif;font-size:14px;text-align:left;color:#fff;background-color:rgba(19,206,102,0.2);border-color:#13ce66;border-radius:6px;max-width:100%;display:none;">
-            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <span class="sib-form-message-panel__inner-text">✅ Votre inscription est confirmée !</span>
-            </div>
-          </div>
-          <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:left;background-color:transparent;border:none;direction:ltr">
-            <form id="sib-form" method="POST" action="https://a8df6109.sibforms.com/serve/MUIFABk1K8eNPsuV8O6Wl8UrVXSbza0ITXcEsTtJpw3jb8BgmAtkO5i0Rsgz993hbtYpZbpZNcgXEUAm30YK3MfmL2Klc9dL7wSlLm-a2ocQtDAwNUcyMXJSBSrqdZubNtydalp7qC346SYvO3cWBjKJja0eKJnCZOMxOlA-MNMg406y0WktpfN1dIe1PHz00Z5GCv_gy9NypfL5LQ==" data-type="subscription" class="newsletter-form" style="display:flex;flex-direction:column;gap:10px;">
-              <div class="sib-input sib-form-block" style="padding:0">
-                <div class="form__entry entry_block">
-                  <div class="form__label-row">
-                    <div class="entry__field">
-                      <input class="input newsletter-form input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="votre@email.fr" data-required="true" required style="width:100%;padding:14px 16px;border-radius:var(--radius);border:none;font-size:15px;color:var(--ink);background:rgba(255,255,255,0.95);box-sizing:border-box;font-family:Inter,sans-serif;" />
-                    </div>
-                  </div>
-                  <label class="entry__error entry__error--primary" style="font-family:Inter,sans-serif;font-size:13px;color:#ffeded;"></label>
-                </div>
-              </div>
-              <div class="sib-form-block" style="text-align:left;padding:0">
-                <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit" style="width:100%;padding:14px 22px;background:var(--accent-yellow,#f5c842);color:#1a1a2e;border:none;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">
-                  <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="width:16px;height:16px;display:none;">
-                    <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                  </svg>
-                  Je m&#39;abonne gratuitement
-                </button>
-              </div>
-              <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-              <input type="hidden" name="locale" value="fr">
-            </form>
-          </div>
-        </div>
+        <form
+            method="POST"
+            action="https://a8df6109.sibforms.com/serve/MUIFABk1K8eNPsuV8O6Wl8UrVXSbza0ITXcEsTtJpw3jb8BgmAtkO5i0Rsgz993hbtYpZbpZNcgXEUAm30YK3MfmL2Klc9dL7wSlLm-a2ocQtDAwNUcyMXJSBSrqdZubNtydalp7qC346SYvO3cWBjKJja0eKJnCZOMxOlA-MNMg406y0WktpfN1dIe1PHz00Z5GCv_gy9NypfL5LQ=="
+            class="newsletter-form">
+            <input type="email" name="EMAIL" placeholder="votre@email.fr" required />
+            <input type="hidden" name="locale" value="fr">
+            <input type="text" name="email_address_check" value="" style="display:none;">
+            <button type="submit">Je m'abonne gratuitement</button>
+          </form>
         <p class="newsletter-note">Pas de spam. Désabonnement en 1 clic.</p>
       </div>
     </div>
@@ -439,18 +356,5 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
 });
 </script>
 
-  <!-- Brevo Newsletter Scripts -->
-  <script>
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-    window.LOCALE = 'fr';
-    window.EMAIL_INVALID_MESSAGE = "Adresse email invalide. Vérifiez le format et réessayez.";
-    window.REQUIRED_ERROR_MESSAGE = "Ce champ est obligatoire.";
-    window.GENERIC_INVALID_MESSAGE = "Informations invalides. Vérifiez et réessayez.";
-    window.translation = {
-      common: { selectedList: '{quantity} liste sélectionnée', selectedLists: '{quantity} listes sélectionnées' }
-    };
-    var AUTOHIDE = Boolean(0);
-  </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
