@@ -1,9 +1,18 @@
-/* LudoRef — BGG Image Loader v3 */
+/* LudoRef — BGG Image Loader v4
+ * Utilise allorigins.win comme proxy CORS pour contourner la restriction BGG.
+ * IDs BGG embarqués, cache localStorage 30 jours.
+ */
 (function() {
   'use strict';
   const CACHE_PREFIX = 'ludoref_bgg_img_';
   const CACHE_TTL = 30 * 24 * 60 * 60 * 1000;
   const BGG_IDS = {"wingspan":"266192","ark-nova":"341254","terraforming-mars":"167791","cascadia":"295947","dune-imperium":"316554","spirit-island":"162886","root":"237182","scythe":"169786","7-wonders-duel":"173346","7wonders":"68448","azul":"230802","carcassonne":"822","ticket-to-ride":"9209","dominion":"36218","pandemic":"30549","gloomhaven":"174430","everdell":"199792","viticulture":"128621","agricola-revised":"31260","lords-of-waterdeep":"110327","lost-ruins-arnak":"312484","heat":"366013","sky-team":"373106","harmonies":"414317","living-forest":"360692","meadow":"314742","paleo":"300531","great-western-trail":"193738","brass-birmingham":"224517","brass-lancashire":"28720","blood-rage":"170216","concordia":"124361","smallworld":"40692","cosmic-encounter":"39463","dead-of-winter":"150376","tapestry":"286096","eldritch-horror":"146021","istanbul":"148949","splendor":"148228","kingdomino":"204583","takenoko":"70919","tokaido":"96960","dixit":"39856","mysterium":"181304","cartographers":"263918","res-arcana":"262712","dice-forge":"198994","clank":"201808","resistance-avalon":"128882","sagrada":"199561","architects-west-kingdom":"236457","obsession":"231733","aeons-end":"191189","robinson-crusoe":"121921","wingspan-europe":"302260","wingspan-oceania":"300580","wingspan-asia":"366161","viticulture-tuscany":"190318","catan":"13","king-of-tokyo":"70323","century-spice-road":"209685","century-golem":"232832","pandemic-legacy-s1":"161936","pandemic-legacy-s2":"221107","7-wonders-architects":"346703","the-crew":"284083","codenames":"178900","coup":"131357","just-one":"254640","hanabi":"98778","sushi-go":"133473","love-letter":"129622","saboteur":"9220","perudo":"2971","sheriff-nottingham":"144379","patchwork":"163412","hive":"2655","calico":"283155","ohanami":"270673","mindbug":"345584","star-wars-unlimited":"392712","lorcana":"370595","disney-villainous":"256382","horrified":"282524","harry-potter-hogwarts-battle":"199042","star-realms":"147020","camel-up":"153938","marrakech":"29223","marvel-champions":"285774","ascension":"69789","outfoxed":"197172","cat-in-the-box":"345972","chronicles-of-crime":"255430","time-stories":"146508","jaws":"262731","marvel-snap":"384085","unlock-enchanted-adventures":"270571","first-rat":"292681","horreur-arkham-jce":"215399","valse-des-fantomes":"371942","fourmis":"390359","civolution":"369526","vroom":"398249","communaute-anneau-plis":"372698","tag-team":"391453","got-five":"398150","eternal-decks":"387684","archeo":"393758","ile-des-mookies":"386792","mythologies":"401923","frosted-blooms":"399561","ark-nova-marine-worlds":"369793","dune-imperium-uprising":"397598","terraforming-mars-prelude":"247030","spirit-island-jagged-earth":"282114","scythe-rise-of-fenris":"233284","arnak-expedition-leaders":"341254","heat-heavy-rain":"391571","sky-team-night-flights":"407377","root-underworld":"317695","aeons-end-war-eternal":"265736","cascadia-landmarks":"375945","everdell-pearlbrook":"284122","finspan":"396413","living-forest-kodama":"359459","great-western-trail-argentina":"348068","paleo-un-monde-nouveau":"349604","meadow-downstream":"339658","7wonders-leaders":"88241","7wonders-cities":"111661","7wonders-armada":"245661","7wonders-babel":"156066","7wonders-duel-pantheon":"232198","7wonders-duel-agora":"312988","everdell-spirecrest":"246784","everdell-bellfaire":"323190","everdell-newleaf":"366966","everdell-mistwood":"393411","gloomhaven-jaws-of-the-lion":"291457","gloomhaven-forgotten-circles":"291436","frosthaven":"295770","scythe-invaders-from-afar":"199727","scythe-wind-gambit":"220385","spirit-island-branch-claw":"242314","spirit-island-nature-incarnate":"368966","root-exiles-partisans":"300677","root-marauder":"368677","carcassonne-inns-cathedrals":"10553","carcassonne-traders-builders":"10554","catan-cities-knights":"1061","catan-seafarers":"325","king-of-tokyo-power-up":"130994","ticket-to-ride-europe":"14996","terraforming-mars-venus":"231965","terraforming-mars-turmoil":"273473","terraforming-mars-hellas":"218868","dominion-intrigue":"40834","dominion-seaside":"65025","dominion-prosperity":"65040","concordia-salsa":"210202","mysterium-hidden-signs":"181830","kingdomino-age-of-giants":"245672","splendor-cities-splendor":"178765","takenoko-chibis":"158600","pandemic-on-the-brink":"55043","dixit-quest":"71015","res-arcana-lux-tenebrae":"313088","architects-age-artisans":"290867","agricola-farmers-moor":"83203","obsession-wessex":"294945","smallworld-underground":"116057","tapestry-plans-ploys":"318559","dice-forge-rebellion":"240941","clank-sunken-treasures":"224951","eldritch-horror-forsaken-lore":"157354","cosmic-encounter-cosmic-conflict":"54137","wyrmspan":"410201","dune-imperium-immortality":"397599","great-western-trail-new-zealand":"395588","6-qui-prend":"432","7th-continent":"241386","abyss":"147151","aeon-trespass":"256710","aeons-end-new-age":"273390","aeons-end-outer-dark":"270818","age-of-steam":"4098","agricola":"31260","akropolis":"357563","arboretum":"140934","arkham-horror":"215399","arkham-horror-3":"257499","azul-pavillon-ete":"287954","azul-vitral":"256226","bang":"37111","barrage":"251247","bohnanza":"11","botanist":"340778","bruges":"136888","captain-flip":"381682","carcassonne-princess-dragon":"27307","cartographers-heroes":"315767","cascadia-horizons":"409418","castles-mad-king-ludwig":"155426","catan-explorers":"5419","century-new-world":"270971","chateau-combo":"380366","cinq-rois":"13","clank-legacy":"272413","clank-mummies-curse":"256680","cluedo":"1294","coloretto":"5782","colt-express":"158899","concept":"147151","concordia-aegyptus":"176173","cortex-challenge":"188426","cryptid":"246784","dead-of-winter-long-night":"193037","decrypto":"225694","detective":"247023","dixit-daydreams":"108949","dixit-harmonies":"367220","dixit-odyssey":"92415","dominion-hinterlands":"85852","dorfromantik":"351842","duel-pour-cardia":"392901","dungeon-petz":"97207","eldritch-horror-mountains-madness":"169239","evacuation":"339988","exit-le-jeu":"203416","exploding-kittens":"172225","faraway":"397598","feast-for-odin":"177736","flamecraft":"336038","flip-7":"397018","food-chain-magnate":"175914","for-sale":"172","forest-shuffle":"384667","gaia-project":"220308","harmonies-pulse":"414317","hp-hogwarts-battle-defence":"271307","hp-hogwarts-battle-monstrous":"315987","imhotep":"192135","inis":"155821","innovation":"63888","istanbul-letters-seals":"217201","jungle-speed":"7965","king-of-tokyo-halloween":"140137","lords-waterdeep-corruption":"144397","loups-garous":"25821","mage-knight":"96848","magic-maze":"209778","mechs-vs-minions":"209010","messina-1347":"315494","mille-bornes":"2799","mind-mgmt":"317972","molkky":"26551","monopoly":"1406","mysterium-park":"323288","mysterium-secrets-lies":"196906","mystic-vale":"194607","nidavellir":"293014","non-merci":"12942","oath":"291572","orleans":"164928","pandemic-cure":"150949","pandemic-fall-rome":"253241","pandemic-hot-zone":"313386","pandemic-in-the-lab":"149969","pandemic-legacy-s0":"314906","pandemic-mutations":"131813","pandemic-reign-of-cthulhu":"205637","pandemic-state-of-emergency":"149068","parks":"266524","pax-pamir":"256960","pax-renaissance":"155924","pictionary":"2281","pictureka":"28522","power-grid":"2651","puerto-rico":"3076","queendomino":"231438","quoridor":"624","qwixx":"131260","regicide":"307002","resistance-plot-cards":"128882","risk":"181","root-homeland":"400313","rummikub":"53","sagrada-artisans":"256932","saint-petersburg":"9215","sea-salt-paper":"367220","secret-hitler":"188834","seti":"368666","skull-king":"250818","skyjo":"232650","slay-the-spire":"374173","sleeping-gods":"322289","smallworld-realms":"242738","spirit-island-horizons":"359324","star-wars-rebellion":"187645","story-cubes":"68460","stranger-things":"280435","taco-chat":"254792","tainted-grail":"264220","tapestry-arts-architecture":"329069","terraforming-mars-ares":"328871","terraforming-mars-colonies":"216293","the-castles-of-burgundy":"84876","the-mind":"244992","through-the-ages":"182028","tichu":"39","ticket-to-ride-germany":"143571","ticket-to-ride-nordic":"37746","ticket-to-ride-pennsylvania":"256986","ticket-to-ride-usa":"9209","tigris-euphrates":"42","times-up":"26163","tokaido-crossroads":"193840","trio":"390452","trivial-pursuit":"1515","twilight-imperium":"233078","twilight-struggle":"12333","under-falling-skies":"317511","underwater-cities":"247763","uno":"2223","village":"104006","viticulture-arboriculture":"380546","viticulture-moors-stones":"351488","war-of-the-ring":"115746","wavelength":"262543","welcome-to":"233867","werewords":"228079","wingspan-end-of-round":"302261","wingspan-nesting":"302265","blood-rage-5th-player":"196217","great-western-trail-rails-north":"215954","scythe-encounters":"261622","7wonders-duel-symphony":"390788","res-arcana-perlae-imperii":"313088"};
+
+  // Proxies CORS en fallback chain
+  const PROXIES = [
+    (id) => 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://boardgamegeek.com/xmlapi2/thing?id=' + id + '&type=boardgame'),
+    (id) => 'https://corsproxy.io/?' + encodeURIComponent('https://boardgamegeek.com/xmlapi2/thing?id=' + id + '&type=boardgame'),
+  ];
 
   function getSlug() {
     const m = window.location.pathname.match(/\/jeux\/([^\/]+)\.html/);
@@ -32,7 +41,7 @@
       let u = el.textContent.trim();
       if (u.startsWith('//')) u = 'https:' + u;
       return u;
-    } catch(e) { console.log('[LudoRef] parseImg error:', e); return null; }
+    } catch(e) { return null; }
   }
 
   function showImg(container, url) {
@@ -42,63 +51,58 @@
     img.alt = document.title.replace(' — LudoRef', '');
     img.style.cssText = 'width:100%;display:block;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.3);';
     img.loading = 'lazy';
-    img.onerror = function() { console.log('[LudoRef] Image load error, URL:', url); showPlaceholder(container); };
+    img.onerror = () => showPlaceholder(container);
     container.appendChild(img);
-    console.log('[LudoRef] Image affichée:', url.substring(0, 60));
   }
 
   function showPlaceholder(container) {
-    const emoji = document.querySelector('[class*="emoji"]');
-    const em = emoji ? emoji.textContent.trim() : '🎲';
+    const emojiEl = document.querySelector('[class*="emoji"]');
+    const em = emojiEl ? emojiEl.textContent.trim() : '🎲';
     container.innerHTML = '<div style="width:100%;aspect-ratio:1;max-height:180px;background:var(--surface-2,#1e1e3a);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:3rem;">' + em + '</div>';
   }
 
-  async function loadImg(slug, bggId, container, attempt) {
-    attempt = attempt || 1;
-    console.log('[LudoRef] Tentative', attempt, 'pour', slug, '(BGG ID:', bggId + ')');
-    if (attempt > 3) { showPlaceholder(container); return; }
+  async function tryProxy(proxyFn, bggId) {
+    const url = proxyFn(bggId);
+    const r = await fetch(url, { signal: AbortSignal.timeout(8000) });
+    if (r.status === 202) return null; // BGG building
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const xml = await r.text();
+    // Vérifier que c'est bien du XML BGG et pas une erreur proxy
+    if (!xml.includes('<items')) throw new Error('Not BGG XML');
+    return parseImg(xml);
+  }
 
-    try {
-      const r = await fetch('https://boardgamegeek.com/xmlapi2/thing?id=' + bggId + '&type=boardgame', {
-        mode: 'cors',
-        credentials: 'omit',
-        signal: AbortSignal.timeout(10000)
-      });
-      console.log('[LudoRef] BGG response status:', r.status);
-      if (r.status === 202) {
-        console.log('[LudoRef] BGG 202 (building), retry dans', attempt * 3, 's');
-        setTimeout(() => loadImg(slug, bggId, container, attempt + 1), attempt * 3000);
-        return;
+  async function loadImg(slug, bggId, container) {
+    for (let i = 0; i < PROXIES.length; i++) {
+      try {
+        const imgUrl = await tryProxy(PROXIES[i], bggId);
+        if (imgUrl) {
+          setCache(slug, imgUrl);
+          showImg(container, imgUrl);
+          return;
+        }
+      } catch(e) {
+        // Essayer proxy suivant
+        continue;
       }
-      if (!r.ok) { console.log('[LudoRef] BGG error HTTP:', r.status); showPlaceholder(container); return; }
-      const xml = await r.text();
-      console.log('[LudoRef] XML reçu, longueur:', xml.length);
-      const imgUrl = parseImg(xml);
-      console.log('[LudoRef] URL image extraite:', imgUrl ? imgUrl.substring(0, 60) : 'null');
-      if (imgUrl) { setCache(slug, imgUrl); showImg(container, imgUrl); }
-      else showPlaceholder(container);
-    } catch(e) {
-      console.log('[LudoRef] Fetch error:', e.message);
-      if (attempt < 3) setTimeout(() => loadImg(slug, bggId, container, attempt + 1), 2000);
-      else showPlaceholder(container);
     }
+    // Tous les proxies ont échoué
+    showPlaceholder(container);
   }
 
   async function init() {
     const slug = getSlug();
     const container = document.getElementById('bgg-image-container');
-    console.log('[LudoRef] init - slug:', slug, '- container:', container ? 'trouvé' : 'ABSENT');
     if (!slug || !container) return;
 
     const cached = getCache(slug);
-    if (cached) { console.log('[LudoRef] Cache hit:', cached.substring(0, 60)); showImg(container, cached); return; }
+    if (cached) { showImg(container, cached); return; }
 
     const bggId = BGG_IDS[slug];
-    console.log('[LudoRef] BGG ID pour', slug + ':', bggId || 'ABSENT du mapping');
     if (!bggId) { showPlaceholder(container); return; }
 
     showPlaceholder(container);
-    loadImg(slug, bggId, container, 1);
+    loadImg(slug, bggId, container);
   }
 
   document.readyState === 'loading'
