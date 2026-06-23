@@ -267,15 +267,16 @@
           <div class="nf-item"><span class="nf-icon">🎯</span><span class="nf-text">Conseils stratégiques exclusifs</span></div>
           <div class="nf-item"><span class="nf-icon">💶</span><span class="nf-text">Bons plans et promos jeux</span></div>
         </div>
-        <form
-            method="POST"
-            action="https://a8df6109.sibforms.com/serve/MUIFABk1K8eNPsuV8O6Wl8UrVXSbza0ITXcEsTtJpw3jb8BgmAtkO5i0Rsgz993hbtYpZbpZNcgXEUAm30YK3MfmL2Klc9dL7wSlLm-a2ocQtDAwNUcyMXJSBSrqdZubNtydalp7qC346SYvO3cWBjKJja0eKJnCZOMxOlA-MNMg406y0WktpfN1dIe1PHz00Z5GCv_gy9NypfL5LQ=="
-            class="newsletter-form">
-            <input type="email" name="EMAIL" placeholder="votre@email.fr" required />
-            <input type="hidden" name="locale" value="fr">
-            <input type="text" name="email_address_check" value="" style="display:none;">
-            <button type="submit">Je m'abonne gratuitement</button>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="submitNewsletter(event)">
+            <input type="email" id="newsletter-email" placeholder="votre@email.fr" required />
+            <button type="submit" id="newsletter-btn">Je m'abonne gratuitement</button>
           </form>
+          <div id="newsletter-success" style="display:none;padding:12px 16px;background:rgba(19,206,102,0.2);border:1px solid #13ce66;border-radius:8px;color:#fff;font-size:14px;font-weight:600;">
+            ✅ Inscription confirmée ! Vérifiez votre boîte mail.
+          </div>
+          <div id="newsletter-error" style="display:none;padding:12px 16px;background:rgba(255,73,73,0.2);border:1px solid #ff4949;border-radius:8px;color:#ffeded;font-size:14px;">
+            ❌ Une erreur est survenue. Réessayez dans un instant.
+          </div>
         <p class="newsletter-note">Pas de spam. Désabonnement en 1 clic.</p>
       </div>
     </div>
@@ -356,5 +357,38 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
 });
 </script>
 
+
+<script>
+function submitNewsletter(e) {
+  e.preventDefault();
+  var email = document.getElementById('newsletter-email').value;
+  var btn = document.getElementById('newsletter-btn');
+  var form = document.getElementById('newsletter-form');
+  var success = document.getElementById('newsletter-success');
+  var error = document.getElementById('newsletter-error');
+
+  btn.textContent = 'Inscription en cours...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('EMAIL', email);
+  formData.append('locale', 'fr');
+  formData.append('email_address_check', '');
+
+  fetch('https://a8df6109.sibforms.com/serve/MUIFABk1K8eNPsuV8O6Wl8UrVXSbza0ITXcEsTtJpw3jb8BgmAtkO5i0Rsgz993hbtYpZbpZNcgXEUAm30YK3MfmL2Klc9dL7wSlLm-a2ocQtDAwNUcyMXJSBSrqdZubNtydalp7qC346SYvO3cWBjKJja0eKJnCZOMxOlA-MNMg406y0WktpfN1dIe1PHz00Z5GCv_gy9NypfL5LQ==', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(function() {
+    form.style.display = 'none';
+    success.style.display = 'block';
+    error.style.display = 'none';
+  }).catch(function() {
+    btn.textContent = "Je m'abonne gratuitement";
+    btn.disabled = false;
+    error.style.display = 'block';
+  });
+}
+</script>
 </body>
 </html>
