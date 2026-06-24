@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorties jeux de société — Semaine du 22 juin 2026 — LudoRef</title>
-  <meta name="description" content="Les nouveautés jeux de société de la semaine : 4 Keys, Harmonies Pulse, La Vallée des Tori et les autres sorties à ne pas manquer.">
+  <meta name="description" content="Les nouveautés jeux de société de la semaine : 4 Keys, <a href="../jeux/harmonies-pulse.html" style="color:var(--accent);font-weight:600;">Harmonies Pulse</a>, La Vallée des Tori et les autres sorties à ne pas manquer.">
   <link rel="canonical" href="https://ludoref.fr/actus/sorties-semaine-juin-2026.html">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Sorties jeux de société — Semaine du 22 juin 2026",
-    "description": "Les nouveautés jeux de société de la semaine : 4 Keys, Harmonies Pulse, La Vallée des Tori.",
+    "description": "Les nouveautés jeux de société de la semaine : 4 Keys, <a href="../jeux/harmonies.html" style="color:var(--accent);font-weight:600;">Harmonies</a> Pulse, La Vallée des Tori.",
     "datePublished": "2026-06-22",
     "publisher": { "@type": "Organization", "name": "LudoRef", "url": "https://ludoref.fr" },
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ludoref.fr/actus/sorties-semaine-juin-2026.html" }
@@ -54,6 +54,7 @@
         <a href="../comparatifs.html">Comparatifs</a>
         <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
       </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
     </div>
   </header>
 
@@ -118,5 +119,13 @@
       </div>
     </div>
   </footer>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+  <a href="../jeux/index.html">Fiches jeux</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="../actus/index.html">Actus</a>
+  <a href="../comparatifs.html">Comparatifs</a>
+  <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
+</div>
 </body>
 </html>

@@ -25,6 +25,7 @@
       <a href="../comparatifs.html">Comparatifs</a>
       <a href="index.html" class="nav-cta">Trouver un jeu</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
   </div>
 </header>
 <div class="jeux-page-hero">
@@ -244,5 +245,13 @@ fetch('../games_data.json').then(r=>r.json()).then(games=>{
   render();
 });
 </script>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+  <a href="index.html">Fiches jeux</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="../actus/index.html">Actus</a>
+  <a href="../comparatifs.html">Comparatifs</a>
+  <a href="index.html" class="nav-cta">Trouver un jeu</a>
+</div>
 </body>
 </html>

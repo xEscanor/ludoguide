@@ -17,6 +17,7 @@
     <form class="nav-search-form" action="jeux/index.html" onsubmit="return true"><span class="nav-search-icon">🔍</span><input type="text" name="q" class="nav-search-input" placeholder="Rechercher un jeu…" autocomplete="off"></form>
     <nav><a href="jeux/index.html">Fiches jeux</a><a href="guides/index.html">Guides</a>
         <a href="actus/index.html">Actus</a><a href="comparatifs.html">Comparatifs</a><a href="jeux/index.html" class="nav-cta">Trouver un jeu</a></nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
   </div>
 </header>
 
@@ -105,5 +106,13 @@
     <div class="footer-bottom"><p class="footer-copy">© 2024 LudoRef · Liens affiliés Philibert &amp; Amazon déclarés.</p></div>
   </div>
 </footer>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+  <a href="jeux/index.html">Fiches jeux</a>
+  <a href="guides/index.html">Guides</a>
+  <a href="actus/index.html">Actus</a>
+  <a href="comparatifs.html">Comparatifs</a>
+  <a href="jeux/index.html" class="nav-cta">Trouver un jeu</a>
+</div>
 </body>
 </html>

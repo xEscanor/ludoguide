@@ -55,6 +55,7 @@
         <a href="../comparatifs.html">Comparatifs</a>
         <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
       </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
     </div>
   </header>
 
@@ -75,7 +76,7 @@
     <p>Chaque année en octobre, la ville d'Essen en Allemagne se transforme en capitale mondiale du jeu de société. <strong>Spiel</strong> — surnommé affectueusement "Essen" par la communauté — rassemble plus de 200 000 visiteurs sur quatre jours pour découvrir des milliers de nouveautés, rencontrer les auteurs et se jeter sur les exclusivités salon. Mais 2026, c'est différent.</p>
 
     <h2>Une édition anniversaire très attendue</h2>
-    <p>2016 a été une année extraordinaire pour le jeu de société : Scythe, Pandemic Legacy Saison 1, Spirit Island, Great Western Trail, A Feast for Odin et bien d'autres ont tous vu le jour cette année-là. Dix ans plus tard, <strong>Essen 2026 fêtera cet "âge d'or"</strong> avec une vague de rééditions anniversaire luxueuses qui s'annoncent spectaculaires.</p>
+    <p>2016 a été une année extraordinaire pour le jeu de société : <a href="../jeux/scythe.html" style="color:var(--accent);font-weight:600;">Scythe</a>, <a href="../jeux/pandemic-legacy-s1.html" style="color:var(--accent);font-weight:600;">Pandemic Legacy</a> Saison 1, <a href="../jeux/spirit-island.html" style="color:var(--accent);font-weight:600;">Spirit Island</a>, <a href="../jeux/great-western-trail.html" style="color:var(--accent);font-weight:600;">Great Western Trail</a>, A Feast for Odin et bien d'autres ont tous vu le jour cette année-là. Dix ans plus tard, <strong>Essen 2026 fêtera cet "âge d'or"</strong> avec une vague de rééditions anniversaire luxueuses qui s'annoncent spectaculaires.</p>
     <p>Les rumeurs vont bon train : plusieurs éditeurs auraient prévu des éditions 10 ans avec du matériel premium, des compendiums d'extensions et des contenus inédits pour marquer l'occasion. Stonemaier Games a déjà laissé entendre que Scythe aurait droit à un traitement spécial. À surveiller.</p>
 
     <div class="info-box">
@@ -117,5 +118,13 @@
       </div>
     </div>
   </footer>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+  <a href="../jeux/index.html">Fiches jeux</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="../actus/index.html">Actus</a>
+  <a href="../comparatifs.html">Comparatifs</a>
+  <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
+</div>
 </body>
 </html>
