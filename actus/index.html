@@ -1,8 +1,12 @@
 <script>
-  var _actus = [];
+  var _actus = [{"slug": "labyrinth-chronicles-awaken-realms", "title": "Labyrinth Chronicles : Awaken Realms réinvente le Labyrinthe en campagne coopérative 3D", "excerpt": "Ravensburger et Awaken Realms transforment le classique Labyrinthe en campagne coopérative avec un plateau 3D spectaculaire, 17 figurines et des gobelins adversaires. Livraison prévue été 2026.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "sorties-semaine-juin-2026", "title": "Sorties jeux de société — Semaine du 22 juin 2026", "excerpt": "4 Keys, LEDA, La Vallée des Tori, Harmonies Pulse… Voici les nouveautés de la semaine 25 avec nos coups de cœur et les jeux à ne pas manquer.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "essen-spiel-2026-a-surveiller", "title": "Essen Spiel 2026 : ce qu'on attend du plus grand salon jeux du monde", "excerpt": "Octobre approche et avec lui le pèlerinage des joueurs. Essen 2026 fête les 10 ans de l'âge d'or 2016 avec des rééditions anniversaire très attendues et des annonces majeures.", "tag": "evenement", "date": "22 juin 2026"}];
 
   function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
   }
 
   function renderActus(filter) {
@@ -10,7 +14,7 @@
     var empty = document.getElementById('actus-empty');
     var filtered = filter === 'all' ? _actus : _actus.filter(function(a) { return a.tag === filter; });
 
-    if (filtered.length === 0) {
+    if (!filtered || filtered.length === 0) {
       grid.innerHTML = '';
       empty.style.display = 'block';
       return;
@@ -23,19 +27,16 @@
     var html = '';
     for (var i = 0; i < filtered.length; i++) {
       var a = filtered[i];
-      var tc = tagClasses[a.tag] || '';
-      var tl = tagLabels[a.tag] || a.tag;
       html += '<article class="actu-card">';
       html += '<div class="actu-card-tag">';
-      html += '<span class="tag-badge ' + tc + '">' + tl + '</span>';
+      html += '<span class="tag-badge ' + (tagClasses[a.tag]||'') + '">' + (tagLabels[a.tag]||a.tag) + '</span>';
       html += '<span class="actu-card-date">' + escHtml(a.date) + '</span>';
       html += '</div>';
       html += '<div class="actu-card-body">';
       html += '<h2 class="actu-card-title">' + escHtml(a.title) + '</h2>';
       html += '<p class="actu-card-excerpt">' + escHtml(a.excerpt) + '</p>';
       html += '<a href="' + escHtml(a.slug) + '.html" class="actu-card-link">Lire la suite →</a>';
-      html += '</div>';
-      html += '</article>';
+      html += '</div></article>';
     }
     grid.innerHTML = html;
   }
@@ -46,13 +47,7 @@
     renderActus(tag);
   }
 
-  fetch('../actus_data.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      _actus = data;
-      renderActus('all');
-    })
-    .catch(function() {
-      document.getElementById('actus-empty').style.display = 'block';
-    });
+  document.addEventListener('DOMContentLoaded', function() {
+    renderActus('all');
+  });
 </script>
