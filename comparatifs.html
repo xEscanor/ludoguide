@@ -157,104 +157,113 @@
 </footer>
 
 <script>
-// Mapping cat -> tag CSS et label
 const tagClass={
   strategie:"tag-strat", cooperatif:"tag-coop", famille:"tag-fam",
   ambiance:"tag-party", "deck-building":"tag-deck", "cartes-strategie":"tag-strat",
   cartes:"tag-strat", enfants:"tag-fam", abstrait:"tag-strat",
   economique:"tag-strat", lcg:"tag-deck", deduction:"tag-strat",
-  wargame:"tag-strat", "escape-game":"tag-coop", aventure:"tag-coop",
-  exterieur:"tag-fam", extension:"tag-ext"
+  wargame:"tag-strat", extension:"tag-ext"
 };
 const tagLabel={
   strategie:"Stratégie", cooperatif:"Coopératif", famille:"Famille",
-  ambiance:"Ambiance", "deck-building":"Deck-building", "cartes-strategie":"Cartes",
-  cartes:"Cartes", enfants:"Enfants", abstrait:"Abstrait",
-  economique:"Économique", lcg:"LCG", deduction:"Déduction",
-  wargame:"Wargame", "escape-game":"Escape game", aventure:"Aventure",
-  exterieur:"Extérieur", extension:"Extension"
-};
-const avis={
-  "ticket-to-ride":"Idéal pour débuter","cascadia":"Nature & accessibilité","carcassonne":"Ultra classique",
-  "takenoko":"Coloré et zen","azul":"Abstrait parfait","dixit":"Créativité pure",
-  "7-wonders-duel":"Le meilleur duel","patchwork":"Élégant et court","7wonders":"Draft parfait",
-  "concordia":"Gestion de main","wingspan":"Thème unique","splendor":"Simple et profond",
-  "pandemic":"Référence du genre","pandemic-legacy-s1":"Expérience narrative","spirit-island":"Le plus complexe",
-  "gloomhaven":"Campagne ultime","the-crew":"Plis coopératif","robinson-crusoe":"Survie intense",
-  "brass-birmingham":"Économie pure","dune-imperium":"Intrigues et deck","lost-ruins-arnak":"Exploration",
-  "scythe":"Diesel-punk","terraforming-mars":"Sci-fi profond","root":"Asymétrie totale",
-  "viticulture":"Gestion élégante","ark-nova":"Zoo expert","sky-team":"Duel de pilotes"
+  ambiance:"Ambiance", "deck-building":"Deck-building", "cartes-strategie":"Cartes & Strat",
+  cartes:"Cartes", enfants:"Enfants", abstrait:"Abstrait", economique:"Économique",
+  lcg:"LCG", deduction:"Déduction", wargame:"Wargame", extension:"Extension"
 };
 
 function makeTag(cat) {
-  const cls = tagClass[cat] || 'tag-strat';
-  const lbl = tagLabel[cat] || cat;
-  return `<span class="tag ${cls}">${lbl}</span>`;
+  return '<span class="tag ' + (tagClass[cat]||'tag-strat') + '">' + (tagLabel[cat]||cat) + '</span>';
 }
 
 function makeRow(g, i) {
-  const rank = i !== undefined ? `<td><strong>#${i+1}</strong></td>` : '';
+  const rank = (i !== undefined) ? '<td><strong>#'+(i+1)+'</strong></td>' : '';
   const best = g.note===10 ? '<span class="comp-best" style="margin-left:8px">Chef-d\'œuvre</span>' : '';
-  return `<tr>
-    ${rank}
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a>${best}</td>
-    <td>${makeTag(g.cat)}</td>
-    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
-    <td class="comp-note">${g.note}/10</td>
-    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`;
+  return '<tr>'
+    + rank
+    + '<td class="game-name"><span class="game-emoji">'+g.emoji+'</span>'
+    + '<a href="jeux/'+g.slug+'.html" style="color:var(--ink);font-weight:600">'+g.title+'</a>'+best+'</td>'
+    + '<td>'+makeTag(g.cat)+'</td>'
+    + '<td>'+g.players+'</td><td>'+g.duration+'</td><td>'+g.complexity+'</td>'
+    + '<td class="comp-note">'+g.note+'/10</td>'
+    + '<td><a href="jeux/'+g.slug+'.html" class="comp-link">Fiche →</a></td>'
+    + '</tr>';
 }
 
-fetch('games_data.json').then(r=>r.json()).then(games=>{
+function setTable(id, rows) {
+  var el = document.getElementById(id);
+  if (el) el.innerHTML = rows;
+}
+function setCount(id, txt) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = txt;
+}
 
-  const baseGames = games.filter(g => g.cat !== 'extension');
-  const extensions = games.filter(g => g.cat === 'extension');
+fetch('games_data.json')
+  .then(function(r) { return r.json(); })
+  .then(function(games) {
 
-  // Top 10 jeux de base uniquement
-  const top10 = [...baseGames].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
-  document.getElementById('top-table').innerHTML = top10.map((g,i) => makeRow(g,i)).join('');
-  document.getElementById('top-count').textContent = '10 jeux';
+    var base = games.filter(function(g) { return g.cat !== 'extension'; });
+    var exts = games.filter(function(g) { return g.cat === 'extension'; });
 
-  // Top 10 extensions
-  const top10ext = [...extensions].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
-  const topExtEl = document.getElementById('top-ext-table');
-  if (topExtEl) {
-    topExtEl.innerHTML = top10ext.map((g,i) => makeRow(g,i)).join('');
-    document.getElementById('top-ext-count').textContent = '10 extensions';
-  }
+    // Top 10 jeux
+    var top10 = base.slice().sort(function(a,b){ return (b.note-a.note) || (parseFloat(b.bgg||0)-parseFloat(a.bgg||0)); }).slice(0,10);
+    setTable('top-table', top10.map(function(g,i){ return makeRow(g,i); }).join(''));
+    setCount('top-count', '10 jeux');
 
-  // Famille
-  const fam = baseGames.filter(g=>['famille','enfants','ambiance'].includes(g.cat)).sort((a,b)=>b.note-a.note);
-  document.getElementById('fam-table').innerHTML = fam.map(g=>makeRow(g)).join('');
-  document.getElementById('fam-count').textContent = fam.length+' jeux';
+    // Top 10 extensions
+    var top10ext = exts.slice().sort(function(a,b){ return (b.note-a.note) || (parseFloat(b.bgg||0)-parseFloat(a.bgg||0)); }).slice(0,10);
+    setTable('top-ext-table', top10ext.map(function(g,i){ return makeRow(g,i); }).join(''));
+    setCount('top-ext-count', '10 extensions');
 
-  // Coopératif
-  const coop = baseGames.filter(g=>g.cat==='cooperatif').sort((a,b)=>b.note-a.note);
-  document.getElementById('coop-table').innerHTML = coop.map(g=>makeRow(g)).join('');
-  document.getElementById('coop-count').textContent = coop.length+' jeux';
+    // Famille
+    var fam = base.filter(function(g){ return ['famille','enfants','ambiance'].indexOf(g.cat) >= 0; })
+                  .sort(function(a,b){ return b.note-a.note; });
+    setTable('fam-table', fam.map(function(g){ return makeRow(g); }).join(''));
+    setCount('fam-count', fam.length+' jeux');
 
-  // Stratégie
-  const strat = baseGames.filter(g=>['strategie','cartes-strategie','economique','wargame'].includes(g.cat)).sort((a,b)=>b.note-a.note);
-  document.getElementById('strat-table').innerHTML = strat.map(g=>makeRow(g)).join('');
-  document.getElementById('strat-count').textContent = strat.length+' jeux';
+    // Coopératif
+    var coop = base.filter(function(g){ return g.cat==='cooperatif'; })
+                   .sort(function(a,b){ return b.note-a.note; });
+    setTable('coop-table', coop.map(function(g){ return makeRow(g); }).join(''));
+    setCount('coop-count', coop.length+' jeux');
 
-  // 2 joueurs
-  const deux = baseGames.filter(g=>{
-    const mn=parseInt(g.min_p||0), mx=parseInt((g.max_p||g.players||'').toString().replace(/[^0-9]/g,''));
-    return mn<=2 && mx>=2;
-  }).sort((a,b)=>b.note-a.note);
-  const deuxEl = document.getElementById('deux-table');
-  if(deuxEl){ deuxEl.innerHTML = deux.map(g=>makeRow(g)).join(''); document.getElementById('deux-count').textContent=deux.length+' jeux'; }
+    // Stratégie
+    var strat = base.filter(function(g){ return ['strategie','cartes-strategie','economique','wargame','deck-building'].indexOf(g.cat) >= 0; })
+                    .sort(function(a,b){ return b.note-a.note; });
+    setTable('strat-table', strat.map(function(g){ return makeRow(g); }).join(''));
+    setCount('strat-count', strat.length+' jeux');
 
-  // Rapides (< 30 min)
-  const rapides = baseGames.filter(g=>{
-    const d=parseInt(g.duration);
-    return !isNaN(d) && d<=30;
-  }).sort((a,b)=>b.note-a.note);
-  const rapEl = document.getElementById('rap-table');
-  if(rapEl){ rapEl.innerHTML = rapides.map(g=>makeRow(g)).join(''); document.getElementById('rap-count').textContent=rapides.length+' jeux'; }
+    // 2 joueurs
+    var deux = base.filter(function(g){
+      var mn = parseInt(g.min_p||0);
+      var mx = parseInt((g.max_p||g.players||'').toString().replace(/[^0-9]/g,''));
+      return mn<=2 && mx>=2;
+    }).sort(function(a,b){ return b.note-a.note; });
+    setTable('deux-table', deux.map(function(g){ return makeRow(g); }).join(''));
+    setCount('deux-count', deux.length+' jeux');
 
+    // Rapides
+    var rap = base.filter(function(g){
+      var d = parseInt(g.duration);
+      return !isNaN(d) && d<=30;
+    }).sort(function(a,b){ return b.note-a.note; });
+    setTable('rap-table', rap.map(function(g){ return makeRow(g); }).join(''));
+    setCount('rap-count', rap.length+' jeux');
 
+  })
+  .catch(function(e) { console.error('Erreur chargement games_data.json:', e); });
+
+// Toggles des sections
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.comp-section-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = document.getElementById(btn.dataset.target);
+      var isCollapsed = target.classList.contains('collapsed');
+      target.classList.toggle('collapsed');
+      btn.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+    });
+  });
+});
 </script>
 </body>
 </html>
