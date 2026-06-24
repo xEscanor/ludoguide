@@ -1,53 +1,118 @@
-<script>
-  var _actus = [{"slug": "labyrinth-chronicles-awaken-realms", "title": "Labyrinth Chronicles : Awaken Realms réinvente le Labyrinthe en campagne coopérative 3D", "excerpt": "Ravensburger et Awaken Realms transforment le classique Labyrinthe en campagne coopérative avec un plateau 3D spectaculaire, 17 figurines et des gobelins adversaires. Livraison prévue été 2026.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "sorties-semaine-juin-2026", "title": "Sorties jeux de société — Semaine du 22 juin 2026", "excerpt": "4 Keys, LEDA, La Vallée des Tori, Harmonies Pulse… Voici les nouveautés de la semaine 25 avec nos coups de cœur et les jeux à ne pas manquer.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "essen-spiel-2026-a-surveiller", "title": "Essen Spiel 2026 : ce qu'on attend du plus grand salon jeux du monde", "excerpt": "Octobre approche et avec lui le pèlerinage des joueurs. Essen 2026 fête les 10 ans de l'âge d'or 2016 avec des rééditions anniversaire très attendues et des annonces majeures.", "tag": "evenement", "date": "22 juin 2026"}];
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités Jeux de Société — LudoRef</title>
+  <meta name="description" content="Toute l'actualité jeux de société : nouvelles sorties, Kickstarters à surveiller, festivals et salons. Mis à jour chaque semaine.">
+  <link rel="canonical" href="https://ludoref.fr/actus/">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <style>
+    .actus-hero { background:linear-gradient(160deg,#1e3d2a 0%,#2d5a3d 100%); padding:56px 0 48px; text-align:center; }
+    .actus-hero h1 { font-family:'Fraunces',serif; font-size:clamp(28px,4vw,42px); font-weight:700; color:#fff; margin-bottom:12px; }
+    .actus-hero p { font-size:16px; color:rgba(255,255,255,.7); max-width:520px; margin:0 auto; line-height:1.6; }
+    .actus-filters { display:flex; gap:10px; flex-wrap:wrap; margin:32px 0 28px; }
+    .filter-btn { padding:7px 16px; border-radius:20px; border:1.5px solid var(--border); background:var(--bg-card); color:var(--ink-mid); font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; }
+    .filter-btn:hover,.filter-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .actus-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; margin-bottom:48px; }
+    .actu-card { background:var(--bg-card); border:1px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; transition:all .2s; display:flex; flex-direction:column; }
+    .actu-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--accent); }
+    .actu-card-tag { display:flex; align-items:center; gap:8px; padding:20px 20px 0; }
+    .tag-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:3px 10px; border-radius:12px; }
+    .tag-nouveaute { background:#dbeafe; color:#1d4ed8; }
+    .tag-kickstarter { background:#fde68a; color:#92400e; }
+    .tag-evenement { background:#ede9fe; color:#5b21b6; }
+    .actu-card-date { font-size:12px; color:var(--ink-light); }
+    .actu-card-body { padding:14px 20px 20px; flex:1; display:flex; flex-direction:column; }
+    .actu-card-title { font-family:'Fraunces',serif; font-size:18px; font-weight:700; color:var(--ink); margin:0 0 10px; line-height:1.3; }
+    .actu-card-excerpt { font-size:14px; color:var(--ink-mid); line-height:1.65; margin:0 0 18px; flex:1; }
+    .actu-card-link { font-size:13px; font-weight:700; color:var(--accent); }
+    .actus-empty { text-align:center; padding:80px 24px; color:var(--ink-light); display:none; }
+    @media(max-width:640px){ .actus-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
 
-  function escHtml(str) {
-    return String(str)
-      .replace(/&/g,'&amp;')
-      .replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;');
-  }
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo"><span class="logo-icon">🎲</span> LudoRef</a>
+      <nav>
+        <a href="../jeux/index.html">Fiches jeux</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="index.html" style="color:#fff;font-weight:600;">Actus</a>
+        <a href="../comparatifs.html">Comparatifs</a>
+        <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
+      </nav>
+    </div>
+  </header>
 
-  function renderActus(filter) {
-    var grid = document.getElementById('actus-grid');
-    var empty = document.getElementById('actus-empty');
-    var filtered = filter === 'all' ? _actus : _actus.filter(function(a) { return a.tag === filter; });
+  <section class="actus-hero">
+    <div class="container">
+      <div class="hero-eyebrow" style="display:inline-flex;margin-bottom:16px;">📰 Mis à jour chaque semaine</div>
+      <h1>Actualités Jeux de Société</h1>
+      <p>Nouvelles sorties, Kickstarters à surveiller et événements à ne pas manquer.</p>
+    </div>
+  </section>
 
-    if (!filtered || filtered.length === 0) {
-      grid.innerHTML = '';
-      empty.style.display = 'block';
-      return;
+  <main class="container" style="padding-top:40px;padding-bottom:64px;">
+    <div class="actus-filters">
+      <button class="filter-btn active" onclick="filterActus('all',this)">Tout voir</button>
+      <button class="filter-btn" onclick="filterActus('nouveaute',this)">🆕 Nouveautés</button>
+      <button class="filter-btn" onclick="filterActus('kickstarter',this)">🚀 Kickstarter</button>
+      <button class="filter-btn" onclick="filterActus('evenement',this)">🎪 Événements</button>
+    </div>
+    <div class="actus-grid" id="actus-grid"></div>
+    <div class="actus-empty" id="actus-empty">
+      <p style="font-size:32px;">📭</p>
+      <p>Aucune actualité dans cette catégorie.</p>
+    </div>
+    <div style="background:linear-gradient(135deg,#1e3d2a,#2d5a3d);border-radius:var(--radius-xl);padding:40px 48px;text-align:center;margin-top:16px;">
+      <h2 style="font-family:'Fraunces',serif;font-size:24px;color:#fff;margin-bottom:10px;">Ces actus chaque dimanche dans votre boîte mail</h2>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:24px;font-size:15px;">Plus les fiches jeux, conseils stratégiques et bons plans de la semaine.</p>
+      <a href="../index.html#newsletter" style="display:inline-block;background:var(--accent-yellow);color:#1a1a2e;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;">S'abonner gratuitement →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="text-align:center;padding:32px 0;color:var(--ink-light);font-size:14px;">
+        <p>© 2026 LudoRef · <a href="../mentions-legales.html" style="color:var(--ink-light);">Mentions légales</a> · <a href="../politique-confidentialite.html" style="color:var(--ink-light);">Confidentialité</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var ACTUS = [{"slug": "labyrinth-chronicles-awaken-realms", "title": "Labyrinth Chronicles : Awaken Realms réinvente le Labyrinthe en campagne coopérative 3D", "excerpt": "Ravensburger et Awaken Realms transforment le classique Labyrinthe en campagne coopérative avec un plateau 3D spectaculaire, 17 figurines et des gobelins adversaires. Livraison prévue été 2026.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "sorties-semaine-juin-2026", "title": "Sorties jeux de société — Semaine du 22 juin 2026", "excerpt": "4 Keys, LEDA, La Vallée des Tori, Harmonies Pulse… Voici les nouveautés de la semaine 25 avec nos coups de cœur et les jeux à ne pas manquer.", "tag": "nouveaute", "date": "22 juin 2026"}, {"slug": "essen-spiel-2026-a-surveiller", "title": "Essen Spiel 2026 : ce qu'on attend du plus grand salon jeux du monde", "excerpt": "Octobre approche et avec lui le pèlerinage des joueurs. Essen 2026 fête les 10 ans de l'âge d'or 2016 avec des rééditions anniversaire très attendues et des annonces majeures.", "tag": "evenement", "date": "22 juin 2026"}];
+    var TAG_LABELS = {nouveaute:'🆕 Nouveauté', kickstarter:'🚀 Kickstarter', evenement:'🎪 Événement'};
+    var TAG_CLASSES = {nouveaute:'tag-nouveaute', kickstarter:'tag-kickstarter', evenement:'tag-evenement'};
+
+    function filterActus(tag, btn) {
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var list = tag === 'all' ? ACTUS : ACTUS.filter(function(a){ return a.tag === tag; });
+      var grid = document.getElementById('actus-grid');
+      var empty = document.getElementById('actus-empty');
+      if (list.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      grid.innerHTML = list.map(function(a) {
+        return '<article class="actu-card">'
+          + '<div class="actu-card-tag">'
+          + '<span class="tag-badge ' + (TAG_CLASSES[a.tag]||'') + '">' + (TAG_LABELS[a.tag]||'') + '</span>'
+          + '<span class="actu-card-date">' + a.date + '</span>'
+          + '</div>'
+          + '<div class="actu-card-body">'
+          + '<h2 class="actu-card-title">' + a.title + '</h2>'
+          + '<p class="actu-card-excerpt">' + a.excerpt + '</p>'
+          + '<a href="' + a.slug + '.html" class="actu-card-link">Lire la suite →</a>'
+          + '</div></article>';
+      }).join('');
     }
-    empty.style.display = 'none';
 
-    var tagLabels = { nouveaute: '🆕 Nouveauté', kickstarter: '🚀 Kickstarter', evenement: '🎪 Événement' };
-    var tagClasses = { nouveaute: 'tag-nouveaute', kickstarter: 'tag-kickstarter', evenement: 'tag-evenement' };
+    filterActus('all', document.querySelector('.filter-btn.active'));
+  </script>
 
-    var html = '';
-    for (var i = 0; i < filtered.length; i++) {
-      var a = filtered[i];
-      html += '<article class="actu-card">';
-      html += '<div class="actu-card-tag">';
-      html += '<span class="tag-badge ' + (tagClasses[a.tag]||'') + '">' + (tagLabels[a.tag]||a.tag) + '</span>';
-      html += '<span class="actu-card-date">' + escHtml(a.date) + '</span>';
-      html += '</div>';
-      html += '<div class="actu-card-body">';
-      html += '<h2 class="actu-card-title">' + escHtml(a.title) + '</h2>';
-      html += '<p class="actu-card-excerpt">' + escHtml(a.excerpt) + '</p>';
-      html += '<a href="' + escHtml(a.slug) + '.html" class="actu-card-link">Lire la suite →</a>';
-      html += '</div></article>';
-    }
-    grid.innerHTML = html;
-  }
-
-  function filterActus(tag, btn) {
-    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    renderActus(tag);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    renderActus('all');
-  });
-</script>
+</body>
+</html>
