@@ -49,6 +49,24 @@
           </table>
         </div>
       </div>
+
+    <!-- TOP 10 EXTENSIONS -->
+    <div class="comp-section" id="top-ext">
+      <button class="comp-section-toggle" data-target="top-ext-body" aria-expanded="true">
+        <span class="comp-toggle-title">🧩 Top 10 Extensions</span>
+        <span class="comp-toggle-count" id="top-ext-count"></span>
+        <span class="comp-toggle-icon">▾</span>
+      </button>
+      <div class="comp-section-body" id="top-ext-body">
+        <p class="comp-section-sub">Les meilleures extensions pour enrichir vos jeux préférés.</p>
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead><tr><th>#</th><th>Extension</th><th>Type</th><th>Joueurs</th><th>Durée</th><th>Complexité</th><th>Note</th><th></th></tr></thead>
+            <tbody id="top-ext-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- FAMILLE -->
@@ -139,8 +157,23 @@
 </footer>
 
 <script>
-const tagClass={strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck"};
-const tagLabel={strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building"};
+// Mapping cat -> tag CSS et label
+const tagClass={
+  strategie:"tag-strat", cooperatif:"tag-coop", famille:"tag-fam",
+  ambiance:"tag-party", "deck-building":"tag-deck", "cartes-strategie":"tag-strat",
+  cartes:"tag-strat", enfants:"tag-fam", abstrait:"tag-strat",
+  economique:"tag-strat", lcg:"tag-deck", deduction:"tag-strat",
+  wargame:"tag-strat", "escape-game":"tag-coop", aventure:"tag-coop",
+  exterieur:"tag-fam", extension:"tag-ext"
+};
+const tagLabel={
+  strategie:"Stratégie", cooperatif:"Coopératif", famille:"Famille",
+  ambiance:"Ambiance", "deck-building":"Deck-building", "cartes-strategie":"Cartes",
+  cartes:"Cartes", enfants:"Enfants", abstrait:"Abstrait",
+  economique:"Économique", lcg:"LCG", deduction:"Déduction",
+  wargame:"Wargame", "escape-game":"Escape game", aventure:"Aventure",
+  exterieur:"Extérieur", extension:"Extension"
+};
 const avis={
   "ticket-to-ride":"Idéal pour débuter","cascadia":"Nature & accessibilité","carcassonne":"Ultra classique",
   "takenoko":"Coloré et zen","azul":"Abstrait parfait","dixit":"Créativité pure",
@@ -148,77 +181,80 @@ const avis={
   "concordia":"Gestion de main","wingspan":"Thème unique","splendor":"Simple et profond",
   "pandemic":"Référence du genre","pandemic-legacy-s1":"Expérience narrative","spirit-island":"Le plus complexe",
   "gloomhaven":"Campagne ultime","the-crew":"Plis coopératif","robinson-crusoe":"Survie intense",
-  "brass-birmingham":"Économie pure","dune-imperium":"Intrigues et deck","lost-ruins-arnak":"Exploration","scythe":"Diesel-punk","terraforming-mars":"Sci-fi profond","root":"Asymétrie totale","viticulture":"Gestion élégante"
+  "brass-birmingham":"Économie pure","dune-imperium":"Intrigues et deck","lost-ruins-arnak":"Exploration",
+  "scythe":"Diesel-punk","terraforming-mars":"Sci-fi profond","root":"Asymétrie totale",
+  "viticulture":"Gestion élégante","ark-nova":"Zoo expert","sky-team":"Duel de pilotes"
 };
-fetch('games_data.json').then(r=>r.json()).then(games=>{
-  // Top 10
-  const top10=[...games].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
-  document.getElementById('top-table').innerHTML=top10.map((g,i)=>`<tr>
-    <td><strong>#${i+1}</strong></td>
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a>${g.note===10?'<span class="comp-best" style="margin-left:8px">Chef-d\'œuvre</span>':''}</td>
-    <td><span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span></td>
+
+function makeTag(cat) {
+  const cls = tagClass[cat] || 'tag-strat';
+  const lbl = tagLabel[cat] || cat;
+  return `<span class="tag ${cls}">${lbl}</span>`;
+}
+
+function makeRow(g, i) {
+  const rank = i !== undefined ? `<td><strong>#${i+1}</strong></td>` : '';
+  const best = g.note===10 ? '<span class="comp-best" style="margin-left:8px">Chef-d\'œuvre</span>' : '';
+  return `<tr>
+    ${rank}
+    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a>${best}</td>
+    <td>${makeTag(g.cat)}</td>
     <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
     <td class="comp-note">${g.note}/10</td>
     <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`).join('');
+  </tr>`;
+}
+
+fetch('games_data.json').then(r=>r.json()).then(games=>{
+
+  const baseGames = games.filter(g => g.cat !== 'extension');
+  const extensions = games.filter(g => g.cat === 'extension');
+
+  // Top 10 jeux de base uniquement
+  const top10 = [...baseGames].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
+  document.getElementById('top-table').innerHTML = top10.map((g,i) => makeRow(g,i)).join('');
+  document.getElementById('top-count').textContent = '10 jeux';
+
+  // Top 10 extensions
+  const top10ext = [...extensions].sort((a,b)=>b.note-a.note||b.bgg-a.bgg).slice(0,10);
+  const topExtEl = document.getElementById('top-ext-table');
+  if (topExtEl) {
+    topExtEl.innerHTML = top10ext.map((g,i) => makeRow(g,i)).join('');
+    document.getElementById('top-ext-count').textContent = '10 extensions';
+  }
 
   // Famille
-  const fam=games.filter(g=>g.tags.includes('fam')).sort((a,b)=>b.note-a.note);
-  document.getElementById('fam-table').innerHTML=fam.map(g=>`<tr>
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
-    <td>${g.players}</td><td>${g.duration}</td><td>Dès ${g.age}</td>
-    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
-    <td style="font-size:13px;color:var(--ink-mid)">${avis[g.slug]||'Incontournable'}</td>
-    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`).join('');
+  const fam = baseGames.filter(g=>['famille','enfants','ambiance'].includes(g.cat)).sort((a,b)=>b.note-a.note);
+  document.getElementById('fam-table').innerHTML = fam.map(g=>makeRow(g)).join('');
+  document.getElementById('fam-count').textContent = fam.length+' jeux';
+
+  // Coopératif
+  const coop = baseGames.filter(g=>g.cat==='cooperatif').sort((a,b)=>b.note-a.note);
+  document.getElementById('coop-table').innerHTML = coop.map(g=>makeRow(g)).join('');
+  document.getElementById('coop-count').textContent = coop.length+' jeux';
+
+  // Stratégie
+  const strat = baseGames.filter(g=>['strategie','cartes-strategie','economique','wargame'].includes(g.cat)).sort((a,b)=>b.note-a.note);
+  document.getElementById('strat-table').innerHTML = strat.map(g=>makeRow(g)).join('');
+  document.getElementById('strat-count').textContent = strat.length+' jeux';
 
   // 2 joueurs
-  const deux=games.filter(g=>g.players.includes('2')||g.players==='2').sort((a,b)=>b.note-a.note).slice(0,8);
-  document.getElementById('deux-table').innerHTML=deux.map(g=>`<tr>
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
-    <td>${g.duration}</td><td>${g.complexity}</td>
-    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
-    <td style="font-size:13px;color:var(--ink-mid)">${avis[g.slug]||'Excellent duel'}</td>
-    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`).join('');
+  const deux = baseGames.filter(g=>{
+    const mn=parseInt(g.min_p||0), mx=parseInt((g.max_p||g.players||'').toString().replace(/[^0-9]/g,''));
+    return mn<=2 && mx>=2;
+  }).sort((a,b)=>b.note-a.note);
+  const deuxEl = document.getElementById('deux-table');
+  if(deuxEl){ deuxEl.innerHTML = deux.map(g=>makeRow(g)).join(''); document.getElementById('deux-count').textContent=deux.length+' jeux'; }
 
-  // Coopératifs
-  const coop=games.filter(g=>g.tags.includes('coop')).sort((a,b)=>b.note-a.note);
-  document.getElementById('coop-table').innerHTML=coop.map(g=>`<tr>
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
-    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
-    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
-    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`).join('');
+  // Rapides (< 30 min)
+  const rapides = baseGames.filter(g=>{
+    const d=parseInt(g.duration);
+    return !isNaN(d) && d<=30;
+  }).sort((a,b)=>b.note-a.note);
+  const rapEl = document.getElementById('rap-table');
+  if(rapEl){ rapEl.innerHTML = rapides.map(g=>makeRow(g)).join(''); document.getElementById('rap-count').textContent=rapides.length+' jeux'; }
 
-  // Stratégie par complexité
-  const strat=games.filter(g=>g.tags.includes('strat')).sort((a,b)=>{
-    const order={'Facile':0,'Moyenne':1,'Élevée':2};
-    return (order[a.complexity]||0)-(order[b.complexity]||0);
-  });
-  document.getElementById('strat-table').innerHTML=strat.map(g=>`<tr>
-    <td class="game-name"><span class="game-emoji">${g.emoji}</span><a href="jeux/${g.slug}.html" style="color:var(--ink);font-weight:600">${g.title}</a></td>
-    <td>${g.players}</td><td>${g.duration}</td><td>${g.complexity}</td>
-    <td>~${g.price} €</td><td class="comp-note">${g.note}/10</td>
-    <td><a href="jeux/${g.slug}.html" class="comp-link">Fiche →</a></td>
-  </tr>`).join('');
 
-  // Compteurs sur les en-têtes repliables
-  document.getElementById('top-count').textContent=top10.length+' jeux';
-  document.getElementById('fam-count').textContent=fam.length+' jeux';
-  document.getElementById('deux-count').textContent=deux.length+' jeux';
-  document.getElementById('coop-count').textContent=coop.length+' jeux';
-  document.getElementById('strat-count').textContent=strat.length+' jeux';
-});
-
-// Accordéon : toggle ouverture/fermeture des sections
-document.querySelectorAll('.comp-section-toggle').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const body=document.getElementById(btn.dataset.target);
-    const isCollapsed=body.classList.toggle('collapsed');
-    btn.setAttribute('aria-expanded',isCollapsed?'false':'true');
-  });
-});
 </script>
 </body>
 </html>
