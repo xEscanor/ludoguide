@@ -2668,7 +2668,7 @@
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dorfromantik+jeu&ae=1256"
   },
   {
-    "slug": "mini-rails",
+    "slug": "splendor-duel",
     "title": "Splendor Duel",
     "tagline": "Le duel à deux joueurs version Splendor avec plus de tension.",
     "cat": "strategie",
@@ -2691,7 +2691,7 @@
     "emoji": "🎮",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
     "bgg_img": "",
-    "amazon_url": "https://www.amazon.fr/s?k=splendor+duel+jeu+societe&tag=ludoref-21",
+    "amazon_url": "https://www.amazon.fr/s?k=splendor+duel&tag=ludoref-21",
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=splendor+duel&ae=1256"
   },
   {
@@ -3889,7 +3889,7 @@
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=century+nouveau+monde&ae=1256"
   },
   {
-    "slug": "wingspan-oceania-2",
+    "slug": "imperium-classiques",
     "title": "Imperium : Classiques",
     "tagline": "Construisez votre empire avec des decks asymétriques uniques.",
     "cat": "deck-building",
@@ -3913,8 +3913,8 @@
     "emoji": "👑",
     "bg": "linear-gradient(135deg,#fbeaf0,#f5c8d8)",
     "bgg_img": "",
-    "amazon_url": "https://www.amazon.fr/s?k=imperium+classiques+jeu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=imperium+classiques+jeu&ae=1256",
+    "amazon_url": "https://www.amazon.fr/s?k=imperium+classiques+jeu&tag=ludoref-21",
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=imperium+classiques&ae=1256",
     "base_game": "wingspan"
   },
   {
