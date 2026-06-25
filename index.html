@@ -368,7 +368,7 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
         </div>
         <div class="jeu-actions">
           <a href="jeux/${g.slug}.html" class="link-fiche">Voir la fiche →</a>
-          <a href="https://www.philibert.fr/search?q=${g.search}" class="link-acheter" rel="sponsored" target="_blank">Acheter</a>
+          <a href="${g.amazon_url}" class="link-acheter" rel="sponsored" target="_blank">Acheter →</a>
         </div>
       </div>
     </article>`).join('');
