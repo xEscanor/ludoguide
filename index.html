@@ -21,20 +21,32 @@
 <meta name="twitter:description" content="Fiches de règles simplifiées, guides stratégiques et comparatifs pour choisir vos jeux de société.">
 <meta name="twitter:image" content="https://ludoref.fr/og-image.png">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "LudoRef",
-  "url": "https://ludoref.fr/",
-  "description": "Le guide indépendant des jeux de société francophones : règles, stratégies et avis.",
-  "inLanguage": "fr-FR",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://ludoref.fr/jeux/index.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ludoref.fr/#website",
+        "url": "https://ludoref.fr",
+        "name": "LudoRef",
+        "description": "Le catalogue de référence des jeux de société en français — 420 fiches, 20 guides, actus hebdomadaires.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://ludoref.fr/jeux/index.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ludoref.fr/#organization",
+        "name": "LudoRef",
+        "url": "https://ludoref.fr",
+        "logo": "https://ludoref.fr/favicon.svg",
+        "description": "Catalogue de référence des jeux de société en français"
+      }
+    ]
   }
-}
-</script>
+  </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
