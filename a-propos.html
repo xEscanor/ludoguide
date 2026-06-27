@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos de LudoRef — Le catalogue jeux de société en français</title>
+  <meta name="description" content="LudoRef est un catalogue de référence des jeux de société en français — 420 fiches, 20 guides, actus hebdomadaires. Indépendant, sans pub, sans algorithme.">
+  <meta property="og:title" content="À propos de LudoRef">
+  <meta property="og:description" content="LudoRef est un catalogue de référence des jeux de société en français. Indépendant, sans pub, sans algorithme.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ludoref.fr/a-propos.html">
+  <link rel="canonical" href="https://ludoref.fr/a-propos.html">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "À propos de LudoRef",
+    "url": "https://ludoref.fr/a-propos.html",
+    "description": "LudoRef est un catalogue de référence des jeux de société en français.",
+    "publisher": { "@type": "Organization", "name": "LudoRef", "url": "https://ludoref.fr" }
+  }
+  </script>
+  <style>
+    .about-hero {
+      background: linear-gradient(160deg, #1e3d2a 0%, #2d5a3d 100%);
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+    .about-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .about-hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,.75);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .about-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    .about-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .about-content p {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .about-content strong { color: var(--ink); }
+    .about-content a { color: var(--accent); font-weight: 600; }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-n {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-l {
+      font-size: 13px;
+      color: var(--ink-light);
+      font-weight: 500;
+    }
+
+    /* Valeurs */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+    }
+    .value-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .value-card p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: linear-gradient(135deg, #1e3d2a, #2d5a3d);
+      border-radius: var(--radius-xl);
+      padding: 40px 48px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 12px;
+      border: none;
+      padding: 0;
+    }
+    .contact-box p {
+      color: rgba(255,255,255,.75);
+      margin-bottom: 24px;
+    }
+    .contact-btn {
+      display: inline-block;
+      background: var(--accent-yellow);
+      color: #1a1a2e;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-icon">🎲</span> LudoRef</a>
+      <nav>
+        <a href="jeux/index.html">Fiches jeux</a>
+        <a href="guides/index.html">Guides</a>
+        <a href="actus/index.html">Actus</a>
+        <a href="comparatifs.html">Comparatifs</a>
+        <a href="jeux/index.html" class="nav-cta">Trouver un jeu</a>
+      </nav>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="hero-eyebrow" style="display:inline-flex;margin-bottom:20px;">🎲 Le projet</div>
+      <h1>LudoRef, c'est quoi ?</h1>
+      <p>Un catalogue de référence des jeux de société en français — indépendant, sans algorithme, sans publicité intrusive.</p>
+    </div>
+  </section>
+
+  <main class="about-content">
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-box"><span class="stat-n">420</span><span class="stat-l">Fiches jeux</span></div>
+      <div class="stat-box"><span class="stat-n">20</span><span class="stat-l">Guides complets</span></div>
+      <div class="stat-box"><span class="stat-n">100%</span><span class="stat-l">Gratuit</span></div>
+      <div class="stat-box"><span class="stat-n">0</span><span class="stat-l">Algorithme</span></div>
+    </div>
+
+    <!-- QUI SOMMES-NOUS -->
+    <h2>Pourquoi LudoRef ?</h2>
+    <p>Le jeu de société connaît un âge d'or depuis une décennie. Des centaines de nouveaux jeux sortent chaque année, les mécaniques s'enrichissent, les univers se diversifient — et pourtant, <strong>trouver une ressource de référence sérieuse en français reste compliqué</strong>.</p>
+    <p>Les grandes plateformes anglophones comme BoardGameGeek sont excellentes mais peu accessibles. Les sites français existants sont souvent peu maintenus, orientés vente ou noyés sous les publicités. LudoRef est né de ce constat simple : <strong>les joueurs francophones méritent un catalogue fiable, clair et gratuit.</strong></p>
+    <p>Chaque fiche est rédigée pour répondre à une question concrète : est-ce que ce jeu est fait pour moi ? On y trouve les règles essentielles, le profil du jeu, ce qu'on aime et ce qu'on aime moins — sans langue de bois.</p>
+
+    <!-- CE QU'ON FAIT -->
+    <h2>Ce que contient LudoRef</h2>
+    <p>Le catalogue couvre l'essentiel de ce qui mérite d'être joué :</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card-title">📋 Fiches jeux complètes</div>
+        <p>Règles résumées, infos pratiques, verdict honnête et liens pour acheter. Jeux de base et extensions.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">📚 Guides stratégiques</div>
+        <p>20 guides thématiques : par profil, par budget, par jeu spécifique. Pour choisir et progresser.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">📰 Actus hebdomadaires</div>
+        <p>Sorties de la semaine, Kickstarters à suivre, événements ludiques — mis à jour chaque dimanche.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">🎯 Outils de recommandation</div>
+        <p>Deux quiz pour trouver votre prochain jeu : par critères pratiques ou par profil de joueur.</p>
+      </div>
+    </div>
+
+    <!-- NOS VALEURS -->
+    <h2>Nos engagements</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card-title">🔍 Indépendant</div>
+        <p>Aucun éditeur ne paie pour apparaître sur LudoRef. Nos notes et verdicts reflètent notre opinion réelle.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">🇫🇷 En français</div>
+        <p>Tout le contenu est rédigé en français, pour les joueurs francophones. Pas de traduction automatique.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">♻️ Mis à jour</div>
+        <p>Le catalogue grandit chaque semaine. Les actus sortent chaque dimanche. Le site évolue en permanence.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">💰 Transparent</div>
+        <p>LudoRef utilise des liens affiliés Amazon (tag ludoref-21). Cela ne change pas nos avis — c'est précisé clairement.</p>
+      </div>
+    </div>
+
+    <!-- AFFILIATION -->
+    <h2>Les liens affiliés</h2>
+    <p>LudoRef est gratuit et le restera. Pour couvrir les frais de fonctionnement, le site utilise des <strong>liens affiliés Amazon</strong> : quand vous achetez un jeu via un lien LudoRef, nous touchons une petite commission — sans surcoût pour vous.</p>
+    <p>Cette commission ne biaise jamais nos recommandations. Nous mettons en avant les jeux qu'on pense valoir le coup, point. Si un jeu est décevant, on le dit. Si un jeu bon marché est meilleur qu'un jeu cher, on le dit aussi.</p>
+    <p>Vous pouvez consulter notre <a href="affiliation.html">politique d'affiliation complète ici</a>.</p>
+
+    <!-- NEWSLETTER -->
+    <h2>La newsletter</h2>
+    <p>Chaque dimanche, LudoRef envoie un résumé des actus de la semaine, un jeu mis en avant et les bons plans du moment. <strong>Gratuit, sans spam, désabonnement en un clic.</strong></p>
+    <p>Si vous aimez le site et voulez soutenir le projet, vous abonner à la newsletter est la meilleure façon de le faire — ça nous aide à mesurer l'audience et à justifier de continuer à enrichir le contenu.</p>
+    <p><a href="index.html#newsletter">S'abonner à la newsletter →</a></p>
+
+    <!-- CONTACT -->
+    <div class="contact-box">
+      <h2>Une question, une suggestion ?</h2>
+      <p>Un jeu manque dans le catalogue ? Une erreur dans une fiche ? Une idée de guide ? On est à l'écoute.</p>
+      <a href="mailto:contact@ludoref.fr" class="contact-btn">Nous écrire →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="text-align:center;padding:32px 0;color:var(--ink-light);font-size:14px;">
+        <p>© 2026 LudoRef · <a href="mentions-legales.html" style="color:var(--ink-light);">Mentions légales</a> · <a href="politique-confidentialite.html" style="color:var(--ink-light);">Confidentialité</a> · <a href="affiliation.html" style="color:var(--ink-light);">Affiliation</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+    <a href="jeux/index.html">Fiches jeux</a>
+    <a href="guides/index.html">Guides</a>
+    <a href="actus/index.html">Actus</a>
+    <a href="comparatifs.html">Comparatifs</a>
+    <a href="jeux/index.html" class="nav-cta">Trouver un jeu</a>
+  </div>
+
+</body>
+</html>
