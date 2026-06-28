@@ -1531,32 +1531,6 @@
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=android+netrunner&ae=1256"
   },
   {
-    "slug": "robinson-crusoe-2",
-    "title": "Nemesis",
-    "tagline": "Survivez à votre vaisseau spatial infesté d'extraterrestres.",
-    "cat": "cooperatif",
-    "cat_label": "Semi-coop",
-    "players": "1–5",
-    "duration": "90–180 min",
-    "age": "16 ans",
-    "complexity": "Élevée",
-    "note": 8,
-    "author": "A. Kisilevsky",
-    "publisher": "Awaken Realms",
-    "year": 2018,
-    "price": "120",
-    "bgg": "8.0",
-    "tags": [
-      "coop"
-    ],
-    "search": "nemesis+jeu+societe",
-    "emoji": "👽",
-    "bg": "linear-gradient(135deg,#eeedfe,#d8d6fc)",
-    "bgg_img": "",
-    "amazon_url": "https://www.amazon.fr/s?k=nemesis+jeu+societe+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=nemesis+jeu+societe&ae=1256"
-  },
-  {
     "slug": "food-chain-magnate",
     "title": "Food Chain Magnate",
     "tagline": "Construisez l'empire du fast-food le plus impitoyable.",
@@ -5828,33 +5802,6 @@
     "bgg_img": ""
   },
   {
-    "slug": "6-qui-prend",
-    "title": "6 qui prend !",
-    "tagline": "Posez vos cartes sans être le sixième de la rangée.",
-    "cat": "famille",
-    "cat_label": "Famille",
-    "players": "2–10",
-    "duration": "30–45 min",
-    "age": "8 ans",
-    "complexity": "Facile",
-    "note": 8,
-    "author": "Wolfgang Kramer",
-    "publisher": "Amigo",
-    "year": 1994,
-    "price": "13",
-    "bgg": "6.9",
-    "tags": [
-      "fam",
-      "party"
-    ],
-    "emoji": "🐂",
-    "bg": "linear-gradient(135deg,#fde8d0,#f8c890)",
-    "search": "6 qui prend",
-    "amazon_url": "https://www.amazon.fr/s?k=6+qui+prend+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=6+qui+prend&ae=1256",
-    "bgg_img": ""
-  },
-  {
     "slug": "the-mind",
     "title": "The Mind",
     "tagline": "Posez vos cartes dans l'ordre, sans parler, en pure synchronisation.",
@@ -6598,33 +6545,6 @@
     "bgg_img": "",
     "amazon_url": "https://www.amazon.fr/s?k=bang+jeu+de+cartes&tag=ludoref-21",
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=bang&ae=1256"
-  },
-  {
-    "slug": "azul-pavillon-ete",
-    "title": "Azul : Pavillon d'Été",
-    "tagline": "Troisième volet de la saga Azul : composez des étoiles à 6 branches avec des tuiles en losange et des jokers stratégiques.",
-    "cat": "strategie",
-    "cat_label": "Stratégie",
-    "players": "2-4",
-    "duration": "30-45 min",
-    "age": "8 ans",
-    "complexity": "Intermédiaire",
-    "note": 8,
-    "author": "Michael Kiesling",
-    "publisher": "Plan B Games / Asmodee",
-    "year": 2019,
-    "price": 35,
-    "bgg": "7.6",
-    "tags": [
-      "strategie",
-      "abstrait"
-    ],
-    "search": "azul : pavillon d'été",
-    "emoji": "⭐",
-    "bg": "linear-gradient(135deg,#1a3a5a,#5a9aca)",
-    "bgg_img": "",
-    "amazon_url": "https://www.amazon.fr/s?k=azul+pavillon+d+ete&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=azul+pavillon+ete&ae=1256"
   },
   {
     "slug": "decrypto",
