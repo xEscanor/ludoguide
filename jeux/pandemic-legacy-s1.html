@@ -15,6 +15,8 @@ Comme Pandemic classique, le syndrome du quarterback reste un risque. En Legacy,
   <a href="index.html" class="nav-cta">Trouver un jeu</a>
 </div>
 
+
+
 <!-- Widget ludothèque LudoRef -->
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
@@ -23,47 +25,48 @@ Comme Pandemic classique, le syndrome du quarterback reste un risque. En Legacy,
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok'
   );
 
-  const slug = document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','');
-  const widget = document.getElementById('ludo-widget');
-  if (!widget) return;
+  // FIX: pas de return au top level dans type=module
+  (async function() {
+    const widget = document.getElementById('ludo-widget');
+    if (!widget) return;
 
-  async function init() {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      widget.innerHTML = `<a href="../mon-compte.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid var(--border);border-radius:var(--radius-lg);font-size:14px;font-weight:600;color:var(--ink-mid);text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-mid)'">🔖 Ajouter à ma ludothèque</a>`;
-      return;
+    const slug = (document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','')).replace(/^\/jeux\//, '');
+
+    async function render() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        widget.innerHTML = '<a href="../mon-compte.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;color:var(--ink-mid);text-decoration:none;">🔖 Ajouter à ma ludothèque</a>';
+        return;
+      }
+      const { data } = await supabase.from('user_games').select('*')
+        .eq('user_id', user.id).eq('game_slug', slug).maybeSingle();
+      const current = data?.status;
+      const labels = { owned:'🎲 Possédé', played:'✅ Joué', wishlist:'💛 Souhait' };
+      widget.innerHTML = '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">'
+        + '<span style="font-size:13px;font-weight:600;color:var(--ink-light);">Ma ludothèque :</span>'
+        + ['owned','played','wishlist'].map(s =>
+            '<button onclick="window.__ludo(\''+s+'\')" style="padding:8px 14px;border-radius:20px;border:1.5px solid '+(current===s?'var(--accent)':'var(--border)')+';background:'+(current===s?'var(--accent)':'var(--bg-card)')+';color:'+(current===s?'#fff':'var(--ink-mid)')+';font-size:13px;font-weight:600;cursor:pointer;">'+labels[s]+'</button>'
+          ).join('')
+        + (current ? '<button onclick="window.__ludo(\'remove\')" style="padding:8px 14px;border-radius:20px;border:1.5px solid #fecaca;background:#fef2f2;color:#dc2626;font-size:13px;font-weight:600;cursor:pointer;">✕ Retirer</button>' : '')
+        + '</div>';
     }
-    const { data } = await supabase.from('user_games').select('*')
-      .eq('user_id', user.id).eq('game_slug', slug).single();
 
-    const statusLabels = { owned: '🎲 Possédé', played: '✅ Joué', wishlist: '💛 Dans mes souhaits' };
-    const current = data?.status;
+    window.__ludo = async function(action) {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { location.href = '../mon-compte.html'; return; }
+      if (action === 'remove') {
+        await supabase.from('user_games').delete().eq('user_id', user.id).eq('game_slug', slug);
+      } else {
+        await supabase.from('user_games').upsert(
+          { user_id: user.id, game_slug: slug, status: action },
+          { onConflict: 'user_id,game_slug' }
+        );
+      }
+      render();
+    };
 
-    widget.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-      <span style="font-size:13px;font-weight:600;color:var(--ink-light);">Ma ludothèque :</span>
-      ${['owned','played','wishlist'].map(s => `
-        <button onclick="window._ludobtn('${s}')" style="padding:8px 14px;border-radius:20px;border:1.5px solid ${current===s?'var(--accent)':'var(--border)'};background:${current===s?'var(--accent)':'var(--bg-card)'};color:${current===s?'#fff':'var(--ink-mid)'};font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;">
-          ${statusLabels[s]}
-        </button>`).join('')}
-      ${current ? `<button onclick="window._ludobtn('remove')" style="padding:8px 14px;border-radius:20px;border:1.5px solid #fecaca;background:#fef2f2;color:#dc2626;font-size:13px;font-weight:600;cursor:pointer;">✕ Retirer</button>` : ''}
-    </div>`;
-  }
-
-  window._ludobtn = async function(action) {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) { location.href = '../mon-compte.html'; return; }
-    if (action === 'remove') {
-      await supabase.from('user_games').delete().eq('user_id', user.id).eq('game_slug', slug);
-    } else {
-      await supabase.from('user_games').upsert(
-        { user_id: user.id, game_slug: slug, status: action },
-        { onConflict: 'user_id,game_slug' }
-      );
-    }
-    init();
-  };
-
-  init();
+    render();
+  })();
 </script>
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';

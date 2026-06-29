@@ -210,7 +210,9 @@
     let currentTab = 'owned';
 
     // Charger le catalogue
-    fetch('games_data.json').then(r => r.json()).then(d => { GAMES = d; }).catch(e => console.error('games_data:', e));
+    fetch('../games_data.json').then(r => r.json()).then(d => { GAMES = d; }).catch(() => {
+      fetch('games_data.json').then(r => r.json()).then(d => { GAMES = d; });
+    });
 
     // ── AUTH ──────────────────────────────────────────────────────
     function showError(msg) {
@@ -266,7 +268,8 @@
 
     window.handleLogout = async function() {
       await supabase.auth.signOut();
-      window.location.reload();
+      document.getElementById('view-auth').style.display = 'block';
+      document.getElementById('view-compte').style.display = 'none';
     };
 
     // ── LUDOTHÈQUE ────────────────────────────────────────────────
