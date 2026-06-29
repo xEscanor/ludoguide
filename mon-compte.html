@@ -274,14 +274,13 @@
         logoutBtn.addEventListener('click', async () => {
           logoutBtn.textContent = 'Déconnexion...';
           logoutBtn.disabled = true;
-          const { error } = await supabase.auth.signOut();
-          if (error) {
-            console.error('Logout error:', error);
-            logoutBtn.textContent = 'Erreur - réessayer';
-            logoutBtn.disabled = false;
-          } else {
-            window.location.href = 'https://ludoref.fr/mon-compte.html';
+          try {
+            await supabase.auth.signOut({ scope: 'local' });
+          } catch(e) {
+            console.warn('signOut error (ignoré):', e);
           }
+          // Forcer le rechargement dans tous les cas
+          setTimeout(() => { location.reload(); }, 300);
         });
       }
     });
