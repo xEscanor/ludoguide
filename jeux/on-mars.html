@@ -4,55 +4,52 @@
 <div class="sidebar-box"><h3>Acheter On Mars</h3><a href="https://www.philibertnet.com/fr/recherche?search_query=on+mars&ae=1256" class="sidebar-buy" rel="sponsored" target="_blank">🎲 Philibert (~50 €)</a><a href="https://www.amazon.fr/s?k=on+mars+jeu&tag=ludoref-21" class="sidebar-buy-alt" rel="sponsored" target="_blank" style="background:#FF9900;color:#111;border-color:#FF9900;font-weight:700;display:block;text-align:center;padding:10px;border-radius:8px;margin-bottom:8px;">🛒 Amazon</a><p class="affil-note">Liens affiliés — même prix pour vous</p></div><div class="sidebar-box"><h3>Fiche rapide</h3><table class="info-table" style="width:100%;border-collapse:collapse"><tr><td>Auteur</td><td>Voir fiche</td></tr><tr><td>Éditeur</td><td>Eagle-Gryphon</td></tr><tr><td>Année</td><td>2020</td></tr><tr><td>Prix moyen</td><td>~50 €</td></tr><tr><td>BGG Score</td><td>7.5 / 10</td></tr></table></div><div class="sidebar-box"><h3>Navigation rapide</h3><ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;margin-bottom:16px"><li><a href="#regles" style="color:var(--accent);font-weight:600">📋 Voir les règles ↓</a></li><li><a href="index.html?type=strategie" style="color:var(--accent)">Tous les jeux Stratégie →</a></li></ul><div id="similar-games-placeholder"></div></div></aside></div></div></section><footer class="site-footer"><div class="container"><div class="footer-top"><div><p class="footer-logo">🎲 LudoRef</p><p class="footer-desc">Le guide indépendant des jeux de société francophones.</p></div><div><p class="footer-heading">Explorer</p><ul><li><a href="index.html">Fiches jeux</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../comparatifs.html">Comparatifs</a></li></ul></div><div><p class="footer-heading">Légal</p><ul><li><a href="../mentions-legales.html">Mentions légales</a></li><li><a href="../politique-confidentialite.html">Confidentialité</a></li><li><a href="../affiliation.html">Affiliation</a></li></ul></div></div><div class="footer-bottom"><p class="footer-copy">© 2024 LudoRef · Liens affiliés Philibert &amp; Amazon déclarés.</p></div></div></footer>
 
 
+
+
 <!-- Widget ludothèque LudoRef -->
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-  const supabase = createClient(
+  const sb = createClient(
     'https://nkjgsmbrjwlxijjljzne.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok'
   );
-
-  // FIX: pas de return au top level dans type=module
-  (async function() {
-    const widget = document.getElementById('ludo-widget');
-    if (!widget) return;
-
-    const slug = (document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','')).replace(/^\/jeux\//, '');
-
-    async function render() {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        widget.innerHTML = '<a href="../mon-compte.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;color:var(--ink-mid);text-decoration:none;">🔖 Ajouter à ma ludothèque</a>';
-        return;
-      }
-      const { data } = await supabase.from('user_games').select('*')
-        .eq('user_id', user.id).eq('game_slug', slug).maybeSingle();
-      const current = data?.status;
-      const labels = { owned:'🎲 Possédé', played:'✅ Joué', wishlist:'💛 Souhait' };
-      widget.innerHTML = '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">'
-        + '<span style="font-size:13px;font-weight:600;color:var(--ink-light);">Ma ludothèque :</span>'
-        + ['owned','played','wishlist'].map(s =>
-            '<button onclick="window.__ludo(\''+s+'\')" style="padding:8px 14px;border-radius:20px;border:1.5px solid '+(current===s?'var(--accent)':'var(--border)')+';background:'+(current===s?'var(--accent)':'var(--bg-card)')+';color:'+(current===s?'#fff':'var(--ink-mid)')+';font-size:13px;font-weight:600;cursor:pointer;">'+labels[s]+'</button>'
-          ).join('')
-        + (current ? '<button onclick="window.__ludo(\'remove\')" style="padding:8px 14px;border-radius:20px;border:1.5px solid #fecaca;background:#fef2f2;color:#dc2626;font-size:13px;font-weight:600;cursor:pointer;">✕ Retirer</button>' : '')
-        + '</div>';
+  (async () => {
+    const el = document.getElementById('ludo-widget');
+    if (!el) return;
+    const slug = document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','');
+    const { data:{ user } } = await sb.auth.getUser();
+    if (!user) {
+      el.innerHTML = '<a href="../mon-compte.html" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border:1.5px dashed #cbd5e1;border-radius:10px;font-size:13px;font-weight:600;color:#64748b;text-decoration:none;box-sizing:border-box;">🔖 Ajouter à ma ludothèque</a>';
+      return;
     }
-
-    window.__ludo = async function(action) {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) { location.href = '../mon-compte.html'; return; }
-      if (action === 'remove') {
-        await supabase.from('user_games').delete().eq('user_id', user.id).eq('game_slug', slug);
-      } else {
-        await supabase.from('user_games').upsert(
-          { user_id: user.id, game_slug: slug, status: action },
-          { onConflict: 'user_id,game_slug' }
-        );
-      }
-      render();
+    const { data } = await sb.from('user_games').select('status').eq('user_id',user.id).eq('game_slug',slug).maybeSingle();
+    const cur = data?.status || null;
+    const render = (c) => {
+      const btns = [
+        ['owned','🎲 Possédé','#15803d','#f0fdf4'],
+        ['played','✅ Joué','#1d4ed8','#eff6ff'],
+        ['wishlist','💛 Souhait','#92400e','#fefce8'],
+      ].map(([s,label,col,bg]) => {
+        const active = c === s;
+        return `<button data-s="${s}" style="flex:1;padding:8px 4px;border-radius:8px;border:1.5px solid ${active?col:'#e2e8f0'};background:${active?bg:'#fff'};color:${active?col:'#64748b'};font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;">${label}</button>`;
+      }).join('');
+      const remove = c ? `<button data-s="remove" style="width:100%;padding:7px;border-radius:8px;border:1px solid #fecaca;background:#fff;color:#dc2626;font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;">✕ Retirer de ma ludothèque</button>` : '';
+      el.innerHTML = `<div style="border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;background:#fff;">
+        <p style="margin:0 0 10px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;">Ma ludothèque</p>
+        <div style="display:flex;gap:6px;">${btns}</div>${remove}
+      </div>`;
+      el.querySelectorAll('button[data-s]').forEach(btn => btn.addEventListener('click', async () => {
+        const s = btn.dataset.s;
+        if (s === 'remove') {
+          await sb.from('user_games').delete().eq('user_id',user.id).eq('game_slug',slug);
+          render(null);
+        } else {
+          await sb.from('user_games').upsert({user_id:user.id,game_slug:slug,status:s},{onConflict:'user_id,game_slug'});
+          render(s);
+        }
+      }));
     };
-
-    render();
+    render(cur);
   })();
 </script>
 <script type="module">
