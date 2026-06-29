@@ -380,8 +380,8 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
           <span class="jeu-info-pill">🎯 ${g.age}</span>
         </div>
         <div class="jeu-actions">
-          <a href="jeux/${g.slug}.html" class="link-fiche">Voir la fiche →</a>
-          <a href="${g.amazon_url}" class="link-acheter" rel="sponsored" target="_blank">Acheter →</a>
+          <span class="link-fiche">Voir la fiche →</span>
+          <span class="link-acheter" onclick="event.stopPropagation();event.preventDefault();window.open('${g.amazon_url}','_blank')" style="cursor:pointer">Acheter →</span>
         </div>
       </div>
     </a>`).join('');

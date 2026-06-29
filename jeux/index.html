@@ -165,11 +165,11 @@ function render(){
   const empty=document.getElementById('empty-state');
   if(!g.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
-  grid.innerHTML=g.map(g=>`<article class="jeu-card">
+  grid.innerHTML=g.map(g=>`<article class="jeu-card" onclick="location.href='${g.slug}.html'" style="cursor:pointer">
     <div class="jeu-card-visual" style="background:${g.bg}">${g.emoji}</div>
     <div class="jeu-card-body">
       <div class="jeu-meta"><span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span><span class="jeu-note">★ ${g.note}/10</span></div>
-      <h3><a href="${g.slug}.html">${g.title}</a></h3>
+      <h3><a href="${g.slug}.html" class="card-main-link">${g.title}</a></h3>
       <p class="jeu-desc">${g.tagline}</p>
       <div class="jeu-infos">
         <span class="jeu-info-pill">👥 ${g.players}</span>
