@@ -412,7 +412,9 @@
     }
 
     // ── INIT ──────────────────────────────────────────────────────
-    supabase.auth.onAuthStateChange(async (event, session) => {
+    // Init au chargement — pas d'onAuthStateChange pour éviter les boucles
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
       if (session?.user) {
         const user = session.user;
         document.getElementById('view-auth').style.display = 'none';
@@ -420,17 +422,14 @@
         document.getElementById('user-name').textContent =
           user.user_metadata?.full_name || user.email.split('@')[0];
         document.getElementById('user-email').textContent = user.email;
-        // Charger GAMES si pas encore fait
-        if (GAMES.length === 0) {
-          GAMES = await GAMES_PROMISE;
-          console.log('GAMES chargés:', GAMES.length);
-        }
+        GAMES = await GAMES_PROMISE;
+        console.log('GAMES chargés:', GAMES.length);
         await loadUserGames(user.id);
       } else {
         document.getElementById('view-auth').style.display = 'block';
         document.getElementById('view-compte').style.display = 'none';
       }
-    });
+    })();
   </script>
 </body>
 </html>
