@@ -156,7 +156,7 @@
         <div class="user-avatar">🎲</div>
         <h1 id="user-name">Mon compte</h1>
         <p id="user-email"></p>
-        <button class="btn-logout" onclick="handleLogout()">Se déconnecter</button>
+        <button class="btn-logout" id="btn-logout">Se déconnecter</button>
       </div>
     </section>
 
@@ -267,10 +267,24 @@
       else showSuccess('Vérifie ta boîte mail pour confirmer ton inscription !');
     };
 
-    window.handleLogout = async function() {
-      await supabase.auth.signOut();
-      window.location.href = 'https://ludoref.fr/mon-compte.html';
-    };
+    // Logout via addEventListener (plus fiable que onclick inline dans type=module)
+    document.addEventListener('DOMContentLoaded', () => {
+      const logoutBtn = document.getElementById('btn-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+          logoutBtn.textContent = 'Déconnexion...';
+          logoutBtn.disabled = true;
+          const { error } = await supabase.auth.signOut();
+          if (error) {
+            console.error('Logout error:', error);
+            logoutBtn.textContent = 'Erreur - réessayer';
+            logoutBtn.disabled = false;
+          } else {
+            window.location.href = 'https://ludoref.fr/mon-compte.html';
+          }
+        });
+      }
+    });
 
     // ── LUDOTHÈQUE ────────────────────────────────────────────────
     async function loadUserGames(userId) {
