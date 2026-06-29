@@ -266,7 +266,7 @@
 
     window.handleLogout = async function() {
       await supabase.auth.signOut();
-      window.location.href = '/mon-compte.html';
+      window.location.href = 'https://ludoref.fr/mon-compte.html';
     };
 
     // ── LUDOTHÈQUE ────────────────────────────────────────────────
@@ -397,7 +397,6 @@
 
     // ── INIT ──────────────────────────────────────────────────────
     supabase.auth.onAuthStateChange(async (event, session) => {
-      if (!['INITIAL_SESSION','SIGNED_IN'].includes(event)) return;
       if (session?.user) {
         const user = session.user;
         document.getElementById('view-auth').style.display = 'none';
