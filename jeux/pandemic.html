@@ -23,10 +23,10 @@ L'<strong>assignation des rôles</strong> compte beaucoup. Le Médecin est quasi
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
 
-// NAV
+// NAV — onAuthStateChange pour capter INITIAL_SESSION dès le chargement
 const navBtn = document.getElementById('nav-compte-btn');
 if (navBtn) {
-  sb.auth.getSession().then(({data:{session}}) => {
+  sb.auth.onAuthStateChange((event, session) => {
     navBtn.textContent = session?.user ? '👤 Mon compte' : '👤 Se connecter';
   });
 }
