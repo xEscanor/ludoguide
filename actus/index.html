@@ -46,7 +46,8 @@
         <a href="../comparatifs.html">Comparatifs</a>
         <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
         <a href="../mon-compte.html" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:var(--accent-yellow);color:#1a1a2e;font-size:13px;font-weight:700;text-decoration:none;margin-left:4px;">👤 Mon compte</a>
-      </nav>
+      <a href="../mon-compte.html" id="nav-compte-btn" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:var(--accent-yellow);color:#1a1a2e;font-size:13px;font-weight:700;text-decoration:none;margin-left:4px;">👤 Se connecter</a>
+    </nav>
     <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
     </div>
   </header>
@@ -125,5 +126,11 @@
   <a href="../jeux/index.html" class="nav-cta">Trouver un jeu</a>
         <a href="../mon-compte.html" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:var(--accent-yellow);color:#1a1a2e;font-size:13px;font-weight:700;text-decoration:none;margin-left:4px;">👤 Mon compte</a>
 </div>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
+const btn = document.getElementById('nav-compte-btn');
+if (btn) sb.auth.onAuthStateChange((e,s) => { btn.textContent = s?.user ? '👤 Mon compte' : '👤 Se connecter'; });
+</script>
 </body>
 </html>
