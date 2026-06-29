@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon compte — LudoRef</title>
+  <meta name="description" content="Gérez votre ludothèque personnelle sur LudoRef — jeux possédés, joués, liste de souhaits et recommandations personnalisées.">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    /* Auth */
+    .auth-section { max-width: 480px; margin: 64px auto; padding: 0 24px 80px; }
+    .auth-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 40px; }
+    .auth-card h2 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+    .auth-card p { font-size: 15px; color: var(--ink-mid); margin: 0 0 28px; }
+    .btn-google { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 13px; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius-lg); font-size: 15px; font-weight: 600; color: var(--ink); cursor: pointer; transition: all .15s; margin-bottom: 16px; }
+    .btn-google:hover { border-color: #4285f4; box-shadow: 0 2px 8px rgba(66,133,244,.2); }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--ink-light); font-size: 13px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border-light); }
+    .form-field { margin-bottom: 16px; }
+    .form-field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .form-field input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-lg); font-size: 15px; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); box-sizing: border-box; transition: border-color .15s; }
+    .form-field input:focus { outline: none; border-color: var(--accent); }
+    .btn-primary-full { width: 100%; padding: 13px; background: linear-gradient(135deg,#1e3d2a,#2d5a3d); color: #f5c842; border: none; border-radius: var(--radius-lg); font-size: 15px; font-weight: 700; cursor: pointer; transition: all .2s; }
+    .btn-primary-full:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .auth-toggle { text-align: center; margin-top: 20px; font-size: 14px; color: var(--ink-mid); }
+    .auth-toggle a { color: var(--accent); font-weight: 600; cursor: pointer; }
+    .auth-error { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #dc2626; margin-bottom: 16px; display: none; }
+    .auth-success { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #15803d; margin-bottom: 16px; display: none; }
+
+    /* Compte */
+    .compte-hero { background: linear-gradient(135deg,#1e3d2a,#2d5a3d); padding: 48px 0 40px; }
+    .compte-hero .user-avatar { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; }
+    .compte-hero h1 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 6px; }
+    .compte-hero p { font-size: 15px; color: rgba(255,255,255,.65); margin: 0; }
+    .btn-logout { display: inline-block; margin-top: 20px; padding: 8px 18px; background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
+    .btn-logout:hover { background: rgba(255,255,255,.25); }
+
+    /* Stats */
+    .compte-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 32px 0; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px; text-align: center; }
+    .stat-card .stat-n { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 700; color: var(--accent); display: block; }
+    .stat-card .stat-l { font-size: 13px; color: var(--ink-light); }
+
+    /* Tabs ludothèque */
+    .ludo-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .ludo-tab { padding: 8px 18px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--bg-card); color: var(--ink-mid); font-size: 14px; font-weight: 600; cursor: pointer; transition: all .15s; }
+    .ludo-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .ludo-tab:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+
+    /* Grille mini jeux */
+    .ludo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .ludo-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; transition: all .2s; }
+    .ludo-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .ludo-card-header { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .ludo-card-body { padding: 12px 14px; }
+    .ludo-card-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ludo-card-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .ludo-chip { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 8px; border: none; cursor: pointer; transition: all .15s; }
+    .ludo-chip-owned { background: #dcfce7; color: #15803d; }
+    .ludo-chip-played { background: #dbeafe; color: #1d4ed8; }
+    .ludo-chip-wish { background: #fef9c3; color: #854d0e; }
+    .ludo-chip-remove { background: #fee2e2; color: #dc2626; }
+    .ludo-chip:hover { opacity: .8; transform: scale(.97); }
+    .ludo-empty { text-align: center; padding: 48px 24px; color: var(--ink-light); grid-column: 1/-1; }
+
+    /* Recommandations */
+    .reco-section { margin-top: 48px; }
+    .reco-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 20px; }
+    .reco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .reco-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; transition: all .2s; display: block; }
+    .reco-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .reco-card-header { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .reco-card-body { padding: 14px 16px; }
+    .reco-card-title { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .reco-card-meta { font-size: 12px; color: var(--ink-light); margin-bottom: 6px; }
+    .reco-card-why { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+    .compte-content { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    @media(max-width:600px) {
+      .compte-stats { grid-template-columns: repeat(3,1fr); gap: 10px; }
+      .stat-card { padding: 14px 10px; }
+      .stat-card .stat-n { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-icon">🎲</span> LudoRef</a>
+      <nav>
+        <a href="jeux/index.html">Fiches jeux</a>
+        <a href="guides/index.html">Guides</a>
+        <a href="actus/index.html">Actus</a>
+        <a href="comparatifs.html">Comparatifs</a>
+        <a href="mon-compte.html" class="nav-cta" style="background:var(--accent-yellow);color:#1a1a2e;">Mon compte</a>
+      </nav>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- VUE AUTH (non connecté) -->
+  <div id="view-auth">
+    <div class="auth-section">
+      <div class="auth-card">
+        <h2>Bienvenue sur LudoRef</h2>
+        <p>Connectez-vous pour gérer votre ludothèque et obtenir des recommandations personnalisées.</p>
+
+        <div class="auth-error" id="auth-error"></div>
+        <div class="auth-success" id="auth-success"></div>
+
+        <button class="btn-google" onclick="handleGoogle()">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Continuer avec Google
+        </button>
+
+        <div class="divider">ou</div>
+
+        <!-- Mode connexion -->
+        <div id="form-login">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" id="login-email" placeholder="vous@exemple.fr" autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label>Mot de passe</label>
+            <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
+          </div>
+          <button class="btn-primary-full" onclick="handleLogin()">Se connecter</button>
+          <div class="auth-toggle">Pas encore de compte ? <a onclick="toggleForm()">S'inscrire</a></div>
+        </div>
+
+        <!-- Mode inscription -->
+        <div id="form-signup" style="display:none">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" id="signup-email" placeholder="vous@exemple.fr" autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label>Mot de passe <span style="font-weight:400;color:var(--ink-light)">(8 caractères min.)</span></label>
+            <input type="password" id="signup-password" placeholder="••••••••" autocomplete="new-password">
+          </div>
+          <button class="btn-primary-full" onclick="handleSignup()">Créer mon compte</button>
+          <div class="auth-toggle">Déjà un compte ? <a onclick="toggleForm()">Se connecter</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VUE COMPTE (connecté) -->
+  <div id="view-compte" style="display:none">
+    <section class="compte-hero">
+      <div class="container">
+        <div class="user-avatar">🎲</div>
+        <h1 id="user-name">Mon compte</h1>
+        <p id="user-email"></p>
+        <button class="btn-logout" onclick="handleLogout()">Se déconnecter</button>
+      </div>
+    </section>
+
+    <div class="compte-content">
+
+      <!-- Stats -->
+      <div class="compte-stats">
+        <div class="stat-card"><span class="stat-n" id="count-owned">0</span><span class="stat-l">🎲 Possédés</span></div>
+        <div class="stat-card"><span class="stat-n" id="count-played">0</span><span class="stat-l">✅ Joués</span></div>
+        <div class="stat-card"><span class="stat-n" id="count-wish">0</span><span class="stat-l">💛 Souhaits</span></div>
+      </div>
+
+      <!-- Ludothèque -->
+      <div class="ludo-tabs">
+        <button class="ludo-tab active" onclick="showTab('owned',this)">🎲 Possédés</button>
+        <button class="ludo-tab" onclick="showTab('played',this)">✅ Joués</button>
+        <button class="ludo-tab" onclick="showTab('wishlist',this)">💛 Liste de souhaits</button>
+      </div>
+      <div class="ludo-grid" id="ludo-grid">
+        <div class="ludo-empty">Chargement…</div>
+      </div>
+
+      <!-- Recommandations -->
+      <div class="reco-section" id="reco-section" style="display:none">
+        <div class="reco-title">🎯 Recommandations pour toi</div>
+        <div class="reco-grid" id="reco-grid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
+    <a href="jeux/index.html">Fiches jeux</a>
+    <a href="guides/index.html">Guides</a>
+    <a href="actus/index.html">Actus</a>
+    <a href="comparatifs.html">Comparatifs</a>
+    <a href="mon-compte.html">Mon compte</a>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+    const supabase = createClient(
+      'https://nkjgsmbrjwlxijjljzne.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok'
+    );
+
+    let GAMES = [];
+    let userGames = [];
+    let currentTab = 'owned';
+
+    // Charger le catalogue
+    fetch('../games_data.json').then(r => r.json()).then(d => { GAMES = d; }).catch(() => {
+      fetch('games_data.json').then(r => r.json()).then(d => { GAMES = d; });
+    });
+
+    // ── AUTH ──────────────────────────────────────────────────────
+    function showError(msg) {
+      const el = document.getElementById('auth-error');
+      el.textContent = msg; el.style.display = 'block';
+      document.getElementById('auth-success').style.display = 'none';
+    }
+    function showSuccess(msg) {
+      const el = document.getElementById('auth-success');
+      el.textContent = msg; el.style.display = 'block';
+      document.getElementById('auth-error').style.display = 'none';
+    }
+
+    window.toggleForm = function() {
+      const login = document.getElementById('form-login');
+      const signup = document.getElementById('form-signup');
+      document.getElementById('auth-error').style.display = 'none';
+      if (login.style.display === 'none') {
+        login.style.display = 'block'; signup.style.display = 'none';
+      } else {
+        login.style.display = 'none'; signup.style.display = 'block';
+      }
+    };
+
+    window.handleGoogle = async function() {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: 'https://ludoref.fr/mon-compte.html' }
+      });
+      if (error) showError('Erreur Google : ' + error.message);
+    };
+
+    window.handleLogin = async function() {
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      if (!email || !password) return showError('Remplis tous les champs.');
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) showError('Email ou mot de passe incorrect.');
+    };
+
+    window.handleSignup = async function() {
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      if (!email || !password) return showError('Remplis tous les champs.');
+      if (password.length < 8) return showError('Le mot de passe doit faire au moins 8 caractères.');
+      const { error } = await supabase.auth.signUp({
+        email, password,
+        options: { emailRedirectTo: 'https://ludoref.fr/mon-compte.html' }
+      });
+      if (error) showError(error.message);
+      else showSuccess('Vérifie ta boîte mail pour confirmer ton inscription !');
+    };
+
+    window.handleLogout = async function() {
+      await supabase.auth.signOut();
+      document.getElementById('view-auth').style.display = 'block';
+      document.getElementById('view-compte').style.display = 'none';
+    };
+
+    // ── LUDOTHÈQUE ────────────────────────────────────────────────
+    async function loadUserGames(userId) {
+      const { data } = await supabase
+        .from('user_games')
+        .select('*')
+        .eq('user_id', userId);
+      userGames = data || [];
+      updateStats();
+      renderGrid(currentTab);
+      renderRecos();
+    }
+
+    function updateStats() {
+      document.getElementById('count-owned').textContent = userGames.filter(g => g.status === 'owned').length;
+      document.getElementById('count-played').textContent = userGames.filter(g => g.status === 'played').length;
+      document.getElementById('count-wish').textContent = userGames.filter(g => g.status === 'wishlist').length;
+    }
+
+    window.showTab = function(tab, btn) {
+      currentTab = tab;
+      document.querySelectorAll('.ludo-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(tab);
+    };
+
+    function renderGrid(tab) {
+      const filtered = userGames.filter(g => g.status === tab);
+      const grid = document.getElementById('ludo-grid');
+      if (filtered.length === 0) {
+        const labels = { owned: 'possédé', played: 'joué', wishlist: 'dans ta liste de souhaits' };
+        grid.innerHTML = `<div class="ludo-empty"><p style="font-size:32px">🎲</p><p>Aucun jeu ${labels[tab]} pour l'instant.<br><a href="jeux/index.html" style="color:var(--accent);font-weight:700;">Parcourir le catalogue →</a></p></div>`;
+        return;
+      }
+      grid.innerHTML = filtered.map(ug => {
+        const g = GAMES.find(x => x.slug === ug.game_slug);
+        if (!g) return '';
+        return `<div class="ludo-card">
+          <div class="ludo-card-header" style="background:${g.bg}">${g.emoji}</div>
+          <div class="ludo-card-body">
+            <div class="ludo-card-title"><a href="jeux/${g.slug}.html" style="color:var(--ink);text-decoration:none;">${g.title}</a></div>
+            <div class="ludo-card-actions">
+              ${tab !== 'owned' ? `<button class="ludo-chip ludo-chip-owned" onclick="changeStatus('${g.slug}','owned')">🎲 Possédé</button>` : ''}
+              ${tab !== 'played' ? `<button class="ludo-chip ludo-chip-played" onclick="changeStatus('${g.slug}','played')">✅ Joué</button>` : ''}
+              ${tab !== 'wishlist' ? `<button class="ludo-chip ludo-chip-wish" onclick="changeStatus('${g.slug}','wishlist')">💛 Souhait</button>` : ''}
+              <button class="ludo-chip ludo-chip-remove" onclick="removeGame('${g.slug}')">✕ Retirer</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    window.changeStatus = async function(slug, status) {
+      const { data: { user } } = await supabase.auth.getUser();
+      await supabase.from('user_games').upsert(
+        { user_id: user.id, game_slug: slug, status },
+        { onConflict: 'user_id,game_slug' }
+      );
+      await loadUserGames(user.id);
+    };
+
+    window.removeGame = async function(slug) {
+      const { data: { user } } = await supabase.auth.getUser();
+      await supabase.from('user_games').delete()
+        .eq('user_id', user.id).eq('game_slug', slug);
+      await loadUserGames(user.id);
+    };
+
+    // ── RECOMMANDATIONS ───────────────────────────────────────────
+    function renderRecos() {
+      if (userGames.length < 2) return;
+
+      const ownedSlugs = new Set(userGames.map(g => g.game_slug));
+      const ownedGames = GAMES.filter(g => ownedSlugs.has(g.slug));
+
+      // Calcul des catégories préférées
+      const catCount = {};
+      ownedGames.forEach(g => { catCount[g.cat] = (catCount[g.cat] || 0) + 1; });
+      const topCats = Object.entries(catCount).sort((a,b) => b[1]-a[1]).slice(0,3).map(e => e[0]);
+
+      // Complexité moyenne
+      const complexMap = { 'Facile': 1, 'Intermédiaire': 2, 'Élevée': 3, 'Expert': 3 };
+      const avgComplexity = ownedGames.reduce((s,g) => s + (complexMap[g.complexity] || 2), 0) / (ownedGames.length || 1);
+
+      // Score chaque jeu non possédé
+      const candidates = GAMES
+        .filter(g => !ownedSlugs.has(g.slug) && g.cat !== 'extension' && g.note >= 7)
+        .map(g => {
+          let score = g.note * 10;
+          if (topCats.includes(g.cat)) score += 30;
+          if (topCats[0] === g.cat) score += 20;
+          const c = complexMap[g.complexity] || 2;
+          score -= Math.abs(c - avgComplexity) * 15;
+          return { g, score };
+        })
+        .sort((a,b) => b.score - a.score)
+        .slice(0, 6);
+
+      if (candidates.length === 0) return;
+
+      const recoSection = document.getElementById('reco-section');
+      const recoGrid = document.getElementById('reco-grid');
+      recoSection.style.display = 'block';
+
+      const catLabels = { strategie:'Stratégie', cooperatif:'Coopératif', famille:'Famille', ambiance:'Ambiance', 'deck-building':'Deck-building', 'cartes-strategie':'Cartes', extension:'Extension' };
+
+      recoGrid.innerHTML = candidates.map(({ g }) => {
+        const why = topCats[0] === g.cat
+          ? `Correspond à ton profil ${catLabels[g.cat] || g.cat}`
+          : `Noté ${g.note}/10 · ${catLabels[g.cat] || g.cat}`;
+        return `<a href="jeux/${g.slug}.html" class="reco-card">
+          <div class="reco-card-header" style="background:${g.bg}">${g.emoji}</div>
+          <div class="reco-card-body">
+            <div class="reco-card-title">${g.title}</div>
+            <div class="reco-card-meta">${g.players} joueurs · ${g.duration}</div>
+            <div class="reco-card-why">✨ ${why}</div>
+          </div>
+        </a>`;
+      }).join('');
+    }
+
+    // ── INIT ──────────────────────────────────────────────────────
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.user) {
+        const user = session.user;
+        document.getElementById('view-auth').style.display = 'none';
+        document.getElementById('view-compte').style.display = 'block';
+        document.getElementById('user-name').textContent =
+          user.user_metadata?.full_name || user.email.split('@')[0];
+        document.getElementById('user-email').textContent = user.email;
+        // Attendre que GAMES soit chargé
+        if (GAMES.length === 0) {
+          await new Promise(r => setTimeout(r, 800));
+          try { GAMES = await fetch('games_data.json').then(r => r.json()); } catch(e) {}
+        }
+        await loadUserGames(user.id);
+      } else {
+        document.getElementById('view-auth').style.display = 'block';
+        document.getElementById('view-compte').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
