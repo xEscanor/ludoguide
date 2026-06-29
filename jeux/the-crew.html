@@ -19,58 +19,59 @@ Le jeton de communication est votre ressource la plus précieuse. Utilisez-le t�
 
 
 
-<!-- Widget ludothèque LudoRef -->
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-  const sb = createClient(
-    'https://nkjgsmbrjwlxijjljzne.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok'
-  );
-  (async () => {
-    const el = document.getElementById('ludo-widget');
-    if (!el) return;
-    const slug = document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','');
-    const { data:{ user } } = await sb.auth.getUser();
-    if (!user) {
-      el.innerHTML = '<a href="../mon-compte.html" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border:1.5px dashed #cbd5e1;border-radius:10px;font-size:13px;font-weight:600;color:#64748b;text-decoration:none;box-sizing:border-box;">🔖 Ajouter à ma ludothèque</a>';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
+
+// NAV
+const navBtn = document.getElementById('nav-compte-btn');
+if (navBtn) {
+  sb.auth.getSession().then(({data:{session}}) => {
+    navBtn.textContent = session?.user ? '👤 Mon compte' : '👤 Se connecter';
+  });
+}
+
+// WIDGET LUDOTHEQUE
+const el = document.getElementById('ludo-widget');
+if (el) {
+  const slug = document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','');
+
+  const render = (cur, uid) => {
+    const items = [
+      ['owned','🎲 Possédé','#15803d','#f0fdf4'],
+      ['played','✅ Joué','#1d4ed8','#eff6ff'],
+      ['wishlist','💛 Souhait','#92400e','#fefce8'],
+    ];
+    const btns = items.map(([s,label,col,bg]) => {
+      const a = cur === s;
+      return '<button data-s="'+s+'" style="flex:1;padding:8px 4px;border-radius:8px;border:1.5px solid '+(a?col:'#e2e8f0')+';background:'+(a?bg:'#fff')+';color:'+(a?col:'#64748b')+';font-size:12px;font-weight:700;cursor:pointer;">'+label+'</button>';
+    }).join('');
+    const rem = cur ? '<button data-s="remove" style="width:100%;padding:7px;border-radius:8px;border:1px solid #fecaca;background:#fff;color:#dc2626;font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;">✕ Retirer de ma ludothèque</button>' : '';
+    el.innerHTML = '<div style="border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;background:#fff;"><p style="margin:0 0 10px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;">Ma ludothèque</p><div style="display:flex;gap:6px;">'+btns+'</div>'+rem+'</div>';
+    el.querySelectorAll('button[data-s]').forEach(btn => btn.addEventListener('click', async () => {
+      const s = btn.dataset.s;
+      if (s === 'remove') {
+        await sb.from('user_games').delete().eq('user_id',uid).eq('game_slug',slug);
+        render(null, uid);
+      } else {
+        const {error} = await sb.from('user_games').upsert({user_id:uid,game_slug:slug,status:s},{onConflict:'user_id,game_slug'});
+        if (error) console.error('upsert error:', error);
+        else render(s, uid);
+      }
+    }));
+  };
+
+  sb.auth.getSession().then(async ({data:{session}}) => {
+    if (!session?.user) {
+      el.innerHTML = '<a href="../mon-compte.html" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;border:1.5px dashed #cbd5e1;border-radius:10px;font-size:13px;font-weight:600;color:#64748b;text-decoration:none;">🔖 Ajouter à ma ludothèque</a>';
       return;
     }
-    const { data } = await sb.from('user_games').select('status').eq('user_id',user.id).eq('game_slug',slug).maybeSingle();
-    const cur = data?.status || null;
-    const render = (c) => {
-      const btns = [
-        ['owned','🎲 Possédé','#15803d','#f0fdf4'],
-        ['played','✅ Joué','#1d4ed8','#eff6ff'],
-        ['wishlist','💛 Souhait','#92400e','#fefce8'],
-      ].map(([s,label,col,bg]) => {
-        const active = c === s;
-        return `<button data-s="${s}" style="flex:1;padding:8px 4px;border-radius:8px;border:1.5px solid ${active?col:'#e2e8f0'};background:${active?bg:'#fff'};color:${active?col:'#64748b'};font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;">${label}</button>`;
-      }).join('');
-      const remove = c ? `<button data-s="remove" style="width:100%;padding:7px;border-radius:8px;border:1px solid #fecaca;background:#fff;color:#dc2626;font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;">✕ Retirer de ma ludothèque</button>` : '';
-      el.innerHTML = `<div style="border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;background:#fff;">
-        <p style="margin:0 0 10px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;">Ma ludothèque</p>
-        <div style="display:flex;gap:6px;">${btns}</div>${remove}
-      </div>`;
-      el.querySelectorAll('button[data-s]').forEach(btn => btn.addEventListener('click', async () => {
-        const s = btn.dataset.s;
-        if (s === 'remove') {
-          await sb.from('user_games').delete().eq('user_id',user.id).eq('game_slug',slug);
-          render(null);
-        } else {
-          await sb.from('user_games').upsert({user_id:user.id,game_slug:slug,status:s},{onConflict:'user_id,game_slug'});
-          render(s);
-        }
-      }));
-    };
-    render(cur);
-  })();
-</script>
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-  const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
-  sb.auth.getUser().then(({data:{user}})=>{
-    const btn=document.getElementById('nav-compte-btn');
-    if(btn) btn.textContent = user ? '\u{1F464} Mon compte' : '\u{1F464} Se connecter';
+    const uid = session.user.id;
+    const {data, error} = await sb.from('user_games').select('status').eq('user_id',uid).eq('game_slug',slug).maybeSingle();
+    if (error) console.error('fetch status error:', error);
+    render(data?.status || null, uid);
   });
+}
+
 </script>
 </body></html>
