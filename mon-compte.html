@@ -267,9 +267,8 @@
     };
 
     window.handleLogout = async function() {
-      await supabase.auth.signOut();
-      document.getElementById('view-auth').style.display = 'block';
-      document.getElementById('view-compte').style.display = 'none';
+      const { error } = await supabase.auth.signOut();
+      if (!error) window.location.href = '/mon-compte.html';
     };
 
     // ── LUDOTHÈQUE ────────────────────────────────────────────────
