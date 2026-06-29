@@ -365,14 +365,14 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
   const sel = games.filter(g => featured.includes(g.slug));
   sel.sort((a,b) => featured.indexOf(a.slug) - featured.indexOf(b.slug));
   document.getElementById('featured-grid').innerHTML = sel.map(g => `
-    <article class="jeu-card">
+    <a class="jeu-card" href="jeux/${g.slug}.html">
       <div class="jeu-card-visual" style="background:${g.bg}">${g.emoji}</div>
       <div class="jeu-card-body">
         <div class="jeu-meta">
           <span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span>
           <span class="jeu-note">★ ${g.note}/10</span>
         </div>
-        <h3><a href="jeux/${g.slug}.html">${g.title}</a></h3>
+        <h3>${g.title}</h3>
         <p class="jeu-desc">${g.tagline}</p>
         <div class="jeu-infos">
           <span class="jeu-info-pill">👥 ${g.players}</span>
@@ -384,7 +384,7 @@ fetch('games_data.json').then(r=>r.json()).then(games => {
           <a href="${g.amazon_url}" class="link-acheter" rel="sponsored" target="_blank">Acheter →</a>
         </div>
       </div>
-    </article>`).join('');
+    </a>`).join('');
 });
 </script>
 
