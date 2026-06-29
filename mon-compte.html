@@ -209,8 +209,11 @@
     let userGames = [];
     let currentTab = 'owned';
 
-    // Charger le catalogue
-    fetch('games_data.json').then(r => r.json()).then(d => { GAMES = d; console.log('GAMES chargé:', d.length); }).catch(e => console.error('GAMES erreur:', e));
+    // Charger le catalogue EN PREMIER (await) avant tout le reste
+    const GAMES_PROMISE = fetch('https://ludoref.fr/games_data.json')
+      .then(r => r.json())
+      .catch(() => fetch('games_data.json').then(r => r.json()))
+      .catch(e => { console.error('GAMES erreur:', e); return []; });
 
     // ── AUTH ──────────────────────────────────────────────────────
     function showError(msg) {
@@ -404,10 +407,10 @@
         document.getElementById('user-name').textContent =
           user.user_metadata?.full_name || user.email.split('@')[0];
         document.getElementById('user-email').textContent = user.email;
-        // Attendre que GAMES soit chargé
+        // Charger GAMES si pas encore fait
         if (GAMES.length === 0) {
-          await new Promise(r => setTimeout(r, 800));
-          try { GAMES = await fetch('games_data.json').then(r => r.json()); } catch(e) {}
+          GAMES = await GAMES_PROMISE;
+          console.log('GAMES chargés:', GAMES.length);
         }
         await loadUserGames(user.id);
       } else {
