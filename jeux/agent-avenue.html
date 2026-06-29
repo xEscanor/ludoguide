@@ -27,7 +27,7 @@ if (navBtn) {
   });
 }
 
-// WIDGET LUDOTHEQUE
+// WIDGET
 const el = document.getElementById('ludo-widget');
 if (el) {
   const slug = document.body.dataset.slug || location.pathname.split('/').pop().replace('.html','');
@@ -40,19 +40,20 @@ if (el) {
     ];
     const btns = items.map(([s,label,col,bg]) => {
       const a = cur === s;
-      return '<button data-s="'+s+'" style="flex:1;padding:8px 4px;border-radius:8px;border:1.5px solid '+(a?col:'#e2e8f0')+';background:'+(a?bg:'#fff')+';color:'+(a?col:'#64748b')+';font-size:12px;font-weight:700;cursor:pointer;">'+label+'</button>';
+      return '<button data-s="'+s+'" style="flex:1;padding:8px 4px;border-radius:8px;border:1.5px solid '+(a?col:'#e2e8f0')+';background:'+(a?bg:'#fff')+';color:'+(a?col:'#64748b')+';font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;">'+label+'</button>';
     }).join('');
     const rem = cur ? '<button data-s="remove" style="width:100%;padding:7px;border-radius:8px;border:1px solid #fecaca;background:#fff;color:#dc2626;font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;">✕ Retirer de ma ludothèque</button>' : '';
     el.innerHTML = '<div style="border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;background:#fff;"><p style="margin:0 0 10px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;">Ma ludothèque</p><div style="display:flex;gap:6px;">'+btns+'</div>'+rem+'</div>';
     el.querySelectorAll('button[data-s]').forEach(btn => btn.addEventListener('click', async () => {
       const s = btn.dataset.s;
       if (s === 'remove') {
-        await sb.from('user_games').delete().eq('user_id',uid).eq('game_slug',slug);
+        const {error} = await sb.from('user_games').delete().eq('user_id',uid).eq('game_slug',slug);
+        if (error) { console.error('delete error:',error.message); alert('Erreur: '+error.message); return; }
         render(null, uid);
       } else {
         const {error} = await sb.from('user_games').upsert({user_id:uid,game_slug:slug,status:s},{onConflict:'user_id,game_slug'});
-        if (error) console.error('upsert error:', error);
-        else render(s, uid);
+        if (error) { console.error('upsert error:',error.message); alert('Erreur: '+error.message); return; }
+        render(s, uid);
       }
     }));
   };
@@ -64,7 +65,11 @@ if (el) {
     }
     const uid = session.user.id;
     const {data, error} = await sb.from('user_games').select('status').eq('user_id',uid).eq('game_slug',slug).maybeSingle();
-    if (error) console.error('fetch status error:', error);
+    if (error) {
+      console.error('fetch error:', error.message);
+      el.innerHTML = '<div style="padding:12px;border:1px solid #fecaca;border-radius:10px;background:#fef2f2;font-size:13px;color:#dc2626;">⚠️ Erreur Supabase : '+error.message+'</div>';
+      return;
+    }
     render(data?.status || null, uid);
   });
 }
