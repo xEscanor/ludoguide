@@ -176,7 +176,7 @@
         <button class="ludo-tab" onclick="showTab('wishlist',this)">💛 Liste de souhaits</button>
       </div>
       <div class="ludo-grid" id="ludo-grid">
-        <div class="ludo-empty">Chargement…</div>
+        
       </div>
 
       <!-- Recommandations -->
@@ -268,8 +268,7 @@
 
     window.handleLogout = async function() {
       await supabase.auth.signOut();
-      document.getElementById('view-auth').style.display = 'block';
-      document.getElementById('view-compte').style.display = 'none';
+      window.location.href = '/mon-compte.html';
     };
 
     // ── LUDOTHÈQUE ────────────────────────────────────────────────
@@ -394,6 +393,7 @@
 
     // ── INIT ──────────────────────────────────────────────────────
     supabase.auth.onAuthStateChange(async (event, session) => {
+      if (!['INITIAL_SESSION','SIGNED_IN'].includes(event)) return;
       if (session?.user) {
         const user = session.user;
         document.getElementById('view-auth').style.display = 'none';
