@@ -135,8 +135,8 @@
   </div>
 </footer>
 <script>
-const tagClass={strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j",abs:"tag-abs"};
-const tagLabel={strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs",abs:"Abstrait"};
+const tagClass = {strat:"tag-strat",strategie:"tag-strat","cartes-strategie":"tag-strat",fam:"tag-fam",famille:"tag-fam",enfants:"tag-fam",coop:"tag-coop",cooperatif:"tag-coop",party:"tag-party",ambiance:"tag-party",deck:"tag-deck","deck-building":"tag-deck",cartes:"tag-deck","2j":"tag-2j",duel:"tag-2j",asymetrique:"tag-strat",exterieur:"tag-fam",extension:"tag-deck"};
+const tagLabel = {strat:"Stratégie",strategie:"Stratégie","cartes-strategie":"Cartes",fam:"Famille",famille:"Famille",enfants:"Enfants",coop:"Coopératif",cooperatif:"Coopératif",party:"Ambiance",ambiance:"Ambiance",deck:"Deck-building","deck-building":"Deck-building",cartes:"Cartes","2j":"2 joueurs",duel:"Duel",asymetrique:"Asymétrique",exterieur:"Extérieur",extension:"Extension"};
 let allGames=[],activeType='all',searchQuery='';
 function maxDur(d){const n=d.match(/\d+/g);return n?Math.max(...n.map(Number)):999;}
 function maxAge(a){const n=a.match(/\d+/);return n?parseInt(n[0]):99;}
