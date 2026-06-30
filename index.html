@@ -365,8 +365,8 @@ function pickFeatured(games, poolMinNote, count) {
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count).map(g => g.slug);
 }
-const tagClass = {strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j"};
-const tagLabel = {strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs"};
+const tagClass = {strat:"tag-strat",strategie:"tag-strat","cartes-strategie":"tag-strat",fam:"tag-fam",famille:"tag-fam",enfants:"tag-fam",coop:"tag-coop",cooperatif:"tag-coop",party:"tag-party",ambiance:"tag-party",deck:"tag-deck","deck-building":"tag-deck",cartes:"tag-deck","2j":"tag-2j",duel:"tag-2j",asymetrique:"tag-strat",exterieur:"tag-fam",extension:"tag-deck"};
+const tagLabel = {strat:"Stratégie",strategie:"Stratégie","cartes-strategie":"Cartes",fam:"Famille",famille:"Famille",enfants:"Enfants",coop:"Coopératif",cooperatif:"Coopératif",party:"Ambiance",ambiance:"Ambiance",deck:"Deck-building","deck-building":"Deck-building",cartes:"Cartes","2j":"2 joueurs",duel:"Duel",asymetrique:"Asymétrique",exterieur:"Extérieur",extension:"Extension"};
 
 fetch('games_data.json').then(r=>r.json()).then(games => {
   const featured = pickFeatured(games, 9, 6);
