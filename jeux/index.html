@@ -24,7 +24,6 @@
       <a href="../actus/index.html">Actus</a>
       <a href="../comparatifs.html">Comparatifs</a>
       <a href="index.html" class="nav-cta">Trouver un jeu</a>
-    <a href="../mon-compte.html" id="nav-compte-btn" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:var(--accent-yellow);color:#1a1a2e;font-size:13px;font-weight:700;text-decoration:none;margin-left:4px;">👤 Se connecter</a>
     </nav>
     <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">☰</button>
   </div>
@@ -167,7 +166,7 @@ function render(){
   if(!g.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   grid.innerHTML=g.map(g=>`<article class="jeu-card" onclick="location.href='${g.slug}.html'" style="cursor:pointer">
-    <div class="jeu-card-visual" style="background:${g.bg}">${g.emoji}</div>
+    <div class="jeu-card-visual" style="background:${g.bg};padding:0;">${g.bgg_img ? `<img src="${g.bgg_img}" alt="${g.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">` : g.emoji}</div>
     <div class="jeu-card-body">
       <div class="jeu-meta"><span class="tag ${tagClass[g.tags[0]]}">${tagLabel[g.tags[0]]}</span><span class="jeu-note">★ ${g.note}/10</span></div>
       <h3><a href="${g.slug}.html" class="card-main-link">${g.title}</a></h3>
@@ -254,11 +253,5 @@ fetch('../games_data.json').then(r=>r.json()).then(games=>{
   <a href="../comparatifs.html">Comparatifs</a>
   <a href="index.html" class="nav-cta">Trouver un jeu</a>
 </div>
-<script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
-const btn = document.getElementById('nav-compte-btn');
-if (btn) sb.auth.onAuthStateChange((e,s) => { btn.textContent = s?.user ? '👤 Mon compte' : '👤 Se connecter'; });
-</script>
 </body>
 </html>
