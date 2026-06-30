@@ -103,40 +103,10 @@
       <div class="hero-visual">
         <div class="hero-board">
           <p class="hero-board-title">⭐ Coups de cœur du moment</p>
-          <div class="hero-card-row">
-            <div class="hero-game-card">
-              <div class="hgc-emoji">🏜️</div>
-              <div class="hgc-name">Dune Imperium</div>
-              <div class="hgc-tag">Stratégie · 1–4j</div>
-              <div class="hgc-note">★★★★★ 9/10</div>
-            </div>
-            <div class="hero-game-card">
-              <div class="hgc-emoji">🦫</div>
-              <div class="hgc-name">Cascadia</div>
-              <div class="hgc-tag">Famille · 1–4j</div>
-              <div class="hgc-note">★★★★☆ 8/10</div>
-            </div>
-          </div>
-          <div class="hero-card-row">
-            <div class="hero-game-card">
-              <div class="hgc-emoji">🗺️</div>
-              <div class="hgc-name">Ruines d'Arnak</div>
-              <div class="hgc-tag">Stratégie · 1–4j</div>
-              <div class="hgc-note">★★★★★ 9/10</div>
-            </div>
-            <div class="hero-game-card">
-              <div class="hgc-emoji">🏎️</div>
-              <div class="hgc-name">Heat</div>
-              <div class="hgc-tag">Famille · 1–6j</div>
-              <div class="hgc-note">★★★★☆ 8/10</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-badge">
-          <div class="hero-badge-icon">🏆</div>
-          <div class="hero-badge-text">
-            <strong>Brass Birmingham</strong>
-            <span>#1 BGG — Note 10/10</span>
+          <div id="hero-cards-grid" class="hero-card-row" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"></div>
+          <div class="hero-badge-inline">
+            <span class="hero-badge-icon">🏆</span>
+            <span><strong id="bgg1-title">Brass Birmingham</strong> · <span style="opacity:.8;">#1 BGG — Note 10/10</span></span>
           </div>
         </div>
       </div>
@@ -441,6 +411,38 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
 const btn = document.getElementById('nav-compte-btn');
 if (btn) sb.auth.onAuthStateChange((e,s) => { btn.textContent = s?.user ? '👤 Mon compte' : '👤 Se connecter'; });
+</script>
+
+<script>
+// Coups de cœur hero — 4 jeux parmi les mieux notés, rotation aléatoire
+fetch('games_data.json').then(r=>r.json()).then(games=>{
+  const catLabel = {strategie:'Stratégie',cooperatif:'Coopératif',famille:'Famille',
+    ambiance:'Ambiance','deck-building':'Deck-building',cartes:'Cartes',
+    'cartes-strategie':'Cartes',enfants:'Enfants',extension:'Extension',exterieur:'Extérieur'};
+
+  // Pool : jeux de base note >= 9, pas extensions
+  const pool = games.filter(g=>g.cat!=='extension'&&(g.note||0)>=9);
+  const shuffled = [...pool].sort(()=>Math.random()-.5).slice(0,4);
+
+  // Badge #1 BGG = le jeu noté 10 avec meilleur score BGG
+  const top = games.filter(g=>g.note===10&&g.cat!=='extension')
+    .sort((a,b)=>parseFloat(b.bgg||0)-parseFloat(a.bgg||0))[0];
+  if(top) document.getElementById('bgg1-title').textContent=top.title;
+
+  const grid = document.getElementById('hero-cards-grid');
+  if(!grid) return;
+  grid.innerHTML = shuffled.map(g=>{
+    const stars='★'.repeat(Math.round(g.note/2))+'☆'.repeat(5-Math.round(g.note/2));
+    const cat=catLabel[g.cat]||g.cat;
+    return `<a href="jeux/${g.slug}.html" style="text-decoration:none;display:block;">
+      <div class="hero-game-card" style="cursor:pointer;">
+        <div class="hgc-emoji">${g.emoji}</div>
+        <div class="hgc-name">${g.title}</div>
+        <div class="hgc-tag">${cat} · ${g.players}</div>
+        <div class="hgc-note">${stars} ${g.note}/10</div>
+      </div></a>`;
+  }).join('');
+});
 </script>
 </body>
 </html>
