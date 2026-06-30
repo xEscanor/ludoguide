@@ -359,13 +359,18 @@
 </footer>
 
 <script>
-const featured = ["brass-birmingham","dune-imperium","lost-ruins-arnak","wingspan","cascadia","gloomhaven"];
+// Fiches populaires : pool des mieux notés, tirage aléatoire à chaque chargement
+function pickFeatured(games, poolMinNote, count) {
+  const pool = games.filter(g => g.cat !== 'extension' && (g.note||0) >= poolMinNote);
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count).map(g => g.slug);
+}
 const tagClass = {strat:"tag-strat",fam:"tag-fam",coop:"tag-coop",party:"tag-party",deck:"tag-deck","2j":"tag-2j"};
 const tagLabel = {strat:"Stratégie",fam:"Famille",coop:"Coopératif",party:"Party",deck:"Deck-building","2j":"2 joueurs"};
 
 fetch('games_data.json').then(r=>r.json()).then(games => {
+  const featured = pickFeatured(games, 9, 6);
   const sel = games.filter(g => featured.includes(g.slug));
-  sel.sort((a,b) => featured.indexOf(a.slug) - featured.indexOf(b.slug));
   document.getElementById('featured-grid').innerHTML = sel.map(g => `
     <a class="jeu-card" href="jeux/${g.slug}.html">
       <div class="jeu-card-visual" style="background:${g.bg};padding:0;">${g.bgg_img ? `<img src="${g.bgg_img}" alt="${g.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">` : g.emoji}</div>
