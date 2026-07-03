@@ -2834,9 +2834,10 @@
     "search": "gloire+odin+jeu",
     "emoji": "⚡",
     "bg": "linear-gradient(135deg,#e6f1fb,#d0e4f7)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/odin-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=gloire+odin+jeu+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=gloire+odin+jeu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=gloire+odin+jeu&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/odin-plateau.jpg"
   },
   {
     "slug": "terraforming-mars-ares",
@@ -3703,9 +3704,10 @@
     "search": "clank+legacy",
     "emoji": "⚔️",
     "bg": "linear-gradient(135deg,#fbeaf0,#f5c8d8)",
-    "bgg_img": "https://cf.geekdo-images.com/zxVVmggfpHJpmnJY9j-k1w__itemrep/img/Py7CTY0tSBSwKQ0sgVjRFfsVUZU=/fit-in/246x300/filters:strip_icc()/pic1657689.jpg",
+    "bgg_img": "https://ludoref.fr/assets/images/clank-legacy-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=clank+legacy+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=clank+legacy&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=clank+legacy&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/clank-legacy-plateau.jpg"
   },
   {
     "slug": "res-arcana",
@@ -5906,9 +5908,10 @@
     "search": "take time",
     "emoji": "🕰️",
     "bg": "linear-gradient(135deg,#f0e6f5,#dcc4ea)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/take-time-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=take+time+jeu+libellud&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/libellud/155380-take-time-3558380131229.html"
+    "philibert_url": "https://www.philibertnet.com/fr/libellud/155380-take-time-3558380131229.html",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/take-time-plateau.jpg"
   },
   {
     "slug": "toy-battle",
@@ -5959,9 +5962,10 @@
     "search": "bomb busters",
     "emoji": "💣",
     "bg": "linear-gradient(135deg,#fdeee0,#f8d4ad)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/bomb-busters-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=bomb+busters+cocktail+games&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/cocktail-games/140599-bomb-busters-3760052143861.html"
+    "philibert_url": "https://www.philibertnet.com/fr/cocktail-games/140599-bomb-busters-3760052143861.html",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/bomb-busters-plateau.jpg"
   },
   {
     "slug": "skull-king",
@@ -6361,9 +6365,10 @@
     "search": "le seigneur des anneaux : duel pour la terre du milieu",
     "emoji": "💍",
     "bg": "linear-gradient(135deg,#2a1a0a,#5a3a1a)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/duel-terre-du-milieu-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=seigneur+des+anneaux+duel+terre+du+milieu&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=duel+terre+du+milieu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=duel+terre+du+milieu&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/duel-terre-du-milieu-plateau.jpg"
   },
   {
     "slug": "akropolis",
@@ -6664,9 +6669,10 @@
     "search": "leda",
     "emoji": "🐾",
     "bg": "linear-gradient(135deg,#2a1a3a,#7a4a9a)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/leda-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=leda+jeu+societe&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=leda+jeu&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=leda+jeu&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/leda-plateau.jpg"
   },
   {
     "slug": "cortex-challenge",
@@ -10796,9 +10802,10 @@
     "search": "nemesis",
     "emoji": "👾",
     "bg": "linear-gradient(135deg,#0a0a0a,#1a0a1a)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/nemesis-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=nemesis+awaken+realms&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=nemesis+awaken&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=nemesis+awaken&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/nemesis-plateau.jpg"
   },
   {
     "slug": "vallee-des-tori",
@@ -11107,9 +11114,10 @@
     "search": "terra mystica",
     "emoji": "🗺️",
     "bg": "linear-gradient(135deg,#0a1a0a,#1a3a1a)",
-    "bgg_img": "",
+    "bgg_img": "https://ludoref.fr/assets/images/terra-mystica-boite.jpg",
     "amazon_url": "https://www.amazon.fr/s?k=terra+mystica+jeu&tag=ludoref-21",
-    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=terra+mystica&ae=1256"
+    "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=terra+mystica&ae=1256",
+    "bgg_hero_img": "https://ludoref.fr/assets/images/terra-mystica-plateau.jpg"
   },
   {
     "slug": "quacks-quedlinburg",
