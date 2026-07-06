@@ -198,7 +198,7 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 .cat-count { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 20px; align-self: center; }
 
 /* ── JEU CARDS ── */
-.jeux-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.jeux-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 20px; }
 .jeu-card {
   background: var(--bg-card);
   border: 2px solid var(--border);
@@ -238,7 +238,7 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 .tag-abs { background: #dff0d8; color: #286018; }
 
 /* ── GUIDES ── */
-.guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 20px; }
 .guide-card {
   background: var(--bg-card); border: 2px solid var(--border);
   border-radius: var(--radius-lg); overflow: hidden;
@@ -255,7 +255,7 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 /* ── NEWSLETTER ── */
 .newsletter-box {
   background: linear-gradient(135deg, #1e3d2a 0%, #2d5a3d 100%);
-  border-radius: var(--radius-xl); padding: 56px 64px;
+  border-radius: var(--radius-xl); padding: clamp(24px, 5vw, 56px) clamp(20px, 5vw, 64px);
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
   border: 2px solid rgba(245,200,66,0.2);
   box-shadow: var(--shadow-lg);
@@ -791,190 +791,147 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 .fiche-board-img img { width: 100%; height: auto; display: block; }
 
 /* ═══════════════════════════════════════════════
-   REFONTE MOBILE COMPLÈTE — LudoRef
-   Breakpoints: 860px (tablette), 600px (mobile)
+   RESPONSIVE — LudoRef
+   Approche mobile-first corrigée
    ═══════════════════════════════════════════════ */
+
+/* ── Base globale anti-overflow ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { overflow-x: hidden; width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; }
+.container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 24px); }
 
 /* ── Tablette (≤860px) ── */
 @media (max-width: 860px) {
   .nav-search-form { display: none; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
-  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .fiche-grid { grid-template-columns: 1fr; }
+  .fiche-sidebar { order: -1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 }
 
 /* ── Mobile (≤600px) ── */
 @media (max-width: 600px) {
 
-  /* --- Container --- */
-  .container { padding: 0 16px; }
+  /* Base */
+  html, body { width: 100%; overflow-x: hidden; }
 
-  /* --- Header / Nav --- */
-  .site-header { padding: 0; }
+  /* Header */
   .site-header .container {
-    display: flex; align-items: center;
-    justify-content: space-between;
-    padding: 0 16px; height: 56px; gap: 10px;
+    height: 56px; padding: 0 16px; gap: 8px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .logo { font-size: 18px; }
+  .logo { font-size: 17px; flex-shrink: 0; }
 
-  /* Barre de recherche mobile — visible et large */
+  /* Cacher les liens nav desktop */
+  nav > a, .nav-cta, #nav-compte-btn { display: none !important; }
+
+  /* Barre de recherche mobile */
   .nav-search-form {
-    display: flex !important;
-    flex: 1;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 24px;
-    padding: 0 12px;
-    height: 38px;
-    align-items: center;
-    gap: 6px;
+    display: flex !important; flex: 1;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 20px; padding: 0 10px;
+    height: 36px; align-items: center; gap: 6px;
+    min-width: 0;
   }
   .nav-search-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 14px;
-    width: 100%;
+    background: transparent; border: none; outline: none;
+    color: white; font-size: 13px; width: 100%; min-width: 0;
   }
-  .nav-search-input::placeholder { color: rgba(255,255,255,.5); }
-  .nav-search-icon { color: rgba(255,255,255,.6); font-size: 14px; flex-shrink: 0; }
+  .nav-search-input::placeholder { color: rgba(255,255,255,.45); }
+  .nav-search-icon { color: rgba(255,255,255,.55); font-size: 13px; flex-shrink: 0; }
 
-  /* Liens nav — cachés, remplacés par hamburger */
-  nav > a:not(.nav-cta):not([id]) { display: none; }
-  .nav-cta { display: none; }
-  #nav-compte-btn { display: none; }
-
-  /* Bouton hamburger — large et cliquable */
+  /* Hamburger */
   .nav-hamburger {
-    width: 40px; height: 40px;
-    border-radius: 8px;
-    background: rgba(255,255,255,.15);
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: white; flex-shrink: 0;
+    width: 38px; height: 38px; border-radius: 8px;
+    background: rgba(255,255,255,.14); border: none; cursor: pointer;
+    display: flex !important; align-items: center; justify-content: center;
+    font-size: 18px; color: white; flex-shrink: 0;
   }
 
-  /* Menu mobile déroulant */
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: #1e3d2a;
-    border-top: 1px solid rgba(255,255,255,.1);
-    padding: 8px 0 16px;
-  }
+  /* Menu mobile */
+  .mobile-menu { display: none; flex-direction: column; background: #1e3d2a; border-top: 1px solid rgba(255,255,255,.1); padding: 4px 0 12px; }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    padding: 14px 20px;
-    color: rgba(255,255,255,.9);
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-  }
+  .mobile-menu a { padding: 13px 20px; color: rgba(255,255,255,.9); font-size: 15px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.06); }
   .mobile-menu a:last-child { border-bottom: none; }
-  .mobile-menu a:active { background: rgba(255,255,255,.08); }
-  /* Bouton compte dans le menu mobile */
-  .mobile-menu-compte {
-    margin: 12px 16px 0;
-    padding: 14px;
-    background: var(--accent-yellow);
-    color: #1a1a2e !important;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 700 !important;
-    font-size: 15px !important;
-  }
+  .mobile-menu-compte { margin: 10px 14px 0 !important; padding: 13px !important; background: var(--accent-yellow) !important; color: #1a1a2e !important; border-radius: 8px; text-align: center; font-weight: 700 !important; border-bottom: none !important; }
 
-  /* --- Homepage Hero --- */
-  .hero { padding: 32px 0 24px; }
-  .hero h1 { font-size: 28px; line-height: 1.25; }
-  .hero-sub { font-size: 15px; }
+  /* Hero homepage */
+  .hero { padding: 28px 0 20px; }
+  .hero h1 { font-size: clamp(24px, 7vw, 32px); line-height: 1.2; }
+  .hero-sub { font-size: 14px; line-height: 1.5; max-width: 100%; }
   .hero-actions { flex-direction: column; gap: 10px; }
-  .hero-actions a { width: 100%; text-align: center; justify-content: center; }
-  .hero-stats { gap: 20px; }
-  .hero-stat-num { font-size: 28px; }
+  .hero-actions a { width: 100%; text-align: center; justify-content: center; box-sizing: border-box; }
+  .hero-stats { gap: 16px; flex-wrap: wrap; }
+  .hero-stat-num { font-size: 26px; }
 
-  /* --- Catalogue / Cards grille --- */
-  .jeux-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .jeu-card-visual { height: 110px; }
-  .jeu-card-body { padding: 10px 12px; }
-  .jeu-card-body h3 { font-size: 13px; line-height: 1.3; }
+  /* Catégories */
+  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .cat-card { padding: 12px 10px; }
+  .cat-icon { font-size: 22px; }
+  .cat-grid h3 { font-size: 12px; }
 
-  /* --- Filtres catalogue --- */
-  .filters-bar {
-    flex-wrap: wrap; gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .filter-btn, .filter-select {
-    min-height: 38px;
-    font-size: 13px;
-    padding: 8px 12px;
-    white-space: nowrap;
-  }
-  select { min-height: 38px; font-size: 14px; }
+  /* Grille jeux */
+  .jeux-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+  .jeu-card-visual { height: 100px; }
+  .jeu-card-body { padding: 10px; }
+  .jeu-card-body h3 { font-size: 12px; line-height: 1.3; }
+  .jeu-meta { font-size: 10px; }
 
-  /* --- Fiches jeux --- */
-  /* Hero de la fiche */
-  .fiche-hero { padding: 20px 0 16px; }
-  .fiche-box-frame { padding: 20px 16px; }
-  .fiche-title { font-size: 26px !important; }
-  .fiche-tagline { font-size: 14px !important; }
-  .fiche-header-row { flex-direction: column; gap: 12px; }
-  .fiche-note-box-v2 {
-    width: 100%; flex-direction: row;
-    gap: 12px; padding: 12px 16px;
-    justify-content: center;
-  }
-  .fiche-note-box-v2 .note-num { font-size: 28px; }
-  .fiche-specs-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .fiche-breadcrumb { font-size: 12px; }
+  /* Filtres */
+  .filters-bar { flex-wrap: wrap; gap: 6px; padding: 0 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .filter-btn { min-height: 36px; font-size: 12px; padding: 0 12px; white-space: nowrap; }
+  .filter-type-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; gap: 6px; }
+  select, .filter-select { min-height: 36px; font-size: 13px; max-width: 100%; }
 
-  /* Layout grille fiche — pleine largeur, sidebar en dessous */
-  .fiche-grid { grid-template-columns: 1fr !important; gap: 24px; }
-  .fiche-sidebar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .fiche-sidebar .sidebar-box { margin: 0; }
-  /* La box d'achat passe en pleine largeur */
-  .fiche-sidebar .sidebar-box:has(h3) { grid-column: 1 / -1; }
-  .fiche-sidebar .sidebar-box#ludo-widget { grid-column: 1 / -1; }
+  /* Fiches jeux */
+  .fiche-hero { padding: 16px 0 12px; }
+  .fiche-box-frame { padding: 18px 14px; border-width: 2px; }
+  .fiche-title { font-size: clamp(20px, 6vw, 28px) !important; letter-spacing: 0; }
+  .fiche-tagline { font-size: 13px !important; }
+  .fiche-header-row { flex-direction: column; gap: 10px; }
+  .fiche-note-box-v2 { width: 100%; flex-direction: row; gap: 12px; padding: 10px 14px; justify-content: center; }
+  .fiche-specs-row { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .spec-item { padding: 8px; }
+  .spec-val { font-size: 13px; }
+  .fiche-breadcrumb { font-size: 11px; }
 
-  /* Image plateau dans le texte */
-  .fiche-board-img { margin: 16px 0; border-radius: 8px; }
+  /* Layout fiche */
+  .fiche-grid { grid-template-columns: 1fr !important; gap: 20px; }
+  .fiche-sidebar { display: flex; flex-direction: column; gap: 10px; }
+  .fiche-body h2 { font-size: 17px; }
+  .fiche-body p, .fiche-body li { font-size: 14px; line-height: 1.6; }
+  .pros-cons { grid-template-columns: 1fr !important; gap: 10px; }
+  .fiche-board-img { margin: 14px 0; border-radius: 8px; }
 
-  /* Sections de contenu */
-  .fiche-body h2 { font-size: 18px; }
-  .fiche-body p { font-size: 15px; line-height: 1.65; }
-
-  /* Pros/Cons */
-  .pros-cons { grid-template-columns: 1fr !important; gap: 12px; }
-
-  /* Boutons d'action (acheter) */
-  .jeu-actions { flex-wrap: wrap; gap: 8px; }
+  /* Boutons d'achat */
+  .sidebar-buy { min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
   .jeu-buy-group { width: 100%; }
-  .link-acheter { flex: 1; text-align: center; min-height: 44px; display: flex; align-items: center; justify-content: center; }
-  .sidebar-buy { min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
 
-  /* --- Catégories homepage --- */
-  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .cat-card { padding: 14px 12px; }
+  /* Comparatifs */
+  .comp-section-toggle { padding: 14px 16px; }
+  .comp-toggle-title { font-size: 15px; }
+  .comp-table { font-size: 12px; }
+  .comp-table th, .comp-table td { padding: 8px 6px; }
 
-  /* --- Footer --- */
-  .footer-top { grid-template-columns: 1fr; gap: 24px; }
-  .footer-copy { font-size: 12px; text-align: center; }
+  /* Guides / Actus */
+  .guides-grid, .actus-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .guide-card, .actu-card { padding: 16px; }
 
-  /* --- Comparatifs --- */
-  .comp-section-toggle { padding: 16px 18px; gap: 8px; }
-  .comp-toggle-title { font-size: 16px; }
-  .comp-section-body { padding: 0 16px 16px; }
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr !important; gap: 20px; }
+  .footer-copy { font-size: 11px; text-align: center; }
+  .footer-links { flex-wrap: wrap; gap: 8px; justify-content: center; }
+}
 
-  /* --- Guides / Actus cards --- */
-  .guides-grid, .actus-grid { grid-template-columns: 1fr; gap: 16px; }
+/* ── Très petit mobile (≤380px) ── */
+@media (max-width: 380px) {
+  .jeux-grid { grid-template-columns: 1fr !important; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .fiche-specs-row { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 22px; }
 }
