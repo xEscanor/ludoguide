@@ -428,6 +428,15 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
   line-height: 1;
   margin-left: 8px;
 }
+.nav-hamburger {
+  display: none;
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.14);
+  border: none; border-radius: 8px; cursor: pointer;
+  color: white; font-size: 20px;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
 .mobile-menu {
   display: none;
   position: fixed;
@@ -803,6 +812,16 @@ img, video, iframe { max-width: 100%; height: auto; }
 .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 24px); }
 
 /* ── Tablette (≤860px) ── */
+
+/* ── Newsletter responsive ── */
+.newsletter-box {
+  display: flex; flex-wrap: wrap;
+  gap: 32px; align-items: center;
+}
+.newsletter-left { flex: 1; min-width: min(260px, 100%); }
+.newsletter-left h2 { font-size: clamp(18px, 3vw, 26px); }
+.newsletter-form-wrap { flex: 1; min-width: min(260px, 100%); }
+
 @media (max-width: 860px) {
   .nav-search-form { display: none; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
@@ -815,6 +834,11 @@ img, video, iframe { max-width: 100%; height: auto; }
 
 /* ── Mobile (≤600px) ── */
 @media (max-width: 600px) {
+
+  /* Hamburger mobile */
+  .nav-hamburger { display: flex !important; }
+  .hamburger { display: flex !important; align-items: center; justify-content: center; width:40px; height:40px; background:rgba(255,255,255,.14); border-radius:8px; }
+
 
   /* Base */
   html, body { width: 100%; overflow-x: hidden; }
@@ -921,6 +945,12 @@ img, video, iframe { max-width: 100%; height: auto; }
   /* Guides / Actus */
   .guides-grid, .actus-grid { grid-template-columns: 1fr !important; gap: 14px; }
   .guide-card, .actu-card { padding: 16px; }
+
+  /* Newsletter */
+  .newsletter-box { flex-direction: column; gap: 20px; }
+  .newsletter-left, .newsletter-form-wrap { min-width: 100%; }
+  .newsletter-left h2 { font-size: 18px; }
+  .section-newsletter { padding: 36px 0; }
 
   /* Footer */
   .footer-top { grid-template-columns: 1fr !important; gap: 20px; }
