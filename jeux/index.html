@@ -255,19 +255,43 @@ fetch('../games_data.json').then(r=>r.json()).then(games=>{
   render();
 });
 </script>
-<div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Fermer">✕</button>
-  <a href="index.html">Fiches jeux</a>
-  <a href="../guides/index.html">Guides</a>
-  <a href="../actus/index.html">Actus</a>
-  <a href="../comparatifs.html">Comparatifs</a>
-  <a href="index.html" class="nav-cta">Trouver un jeu</a>
-<a href="../mon-compte.html" id="nav-compte-mobile">👤 Se connecter</a></div>
+<div class="mobile-menu">
+    <a href="../index.html">Accueil</a>
+    <a href="index.html">Fiches jeux</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="../actus/index.html">Actus</a>
+    <a href="../comparatifs.html">Comparatifs</a>
+    <a href="../mon-compte.html" id="mobile-compte-btn" class="mobile-menu-compte">👤 Se connecter</a>
+  </div>
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const sb = createClient('https://nkjgsmbrjwlxijjljzne.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ramdzbWJyandseGlqamxqem5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NDY3MTksImV4cCI6MjA5ODMyMjcxOX0.UhQda66OgCosrZs_UmcfLQO8E3loamGeBhXAyf1VNok');
 const btn = document.getElementById('nav-compte-btn');
 if (btn) sb.auth.onAuthStateChange((e,s) => { btn.textContent = s?.user ? '👤 Mon compte' : '👤 Se connecter'; });
+</script>
+<script>
+(function(){
+  var btn = document.querySelector('.nav-hamburger');
+  var menu = document.querySelector('.mobile-menu');
+  if(btn && menu){
+    btn.addEventListener('click', function(){
+      menu.classList.toggle('open');
+      btn.textContent = menu.classList.contains('open') ? '✕' : '☰';
+    });
+  }
+  // Mettre à jour le bouton compte dans le menu mobile
+  var mobileCompte = document.getElementById('mobile-compte-btn');
+  if(mobileCompte){
+    var mainBtn = document.getElementById('nav-compte-btn');
+    if(mainBtn){
+      var observer = new MutationObserver(function(){
+        mobileCompte.textContent = mainBtn.textContent;
+        mobileCompte.href = mainBtn.href;
+      });
+      observer.observe(mainBtn, {childList:true, characterData:true, subtree:true});
+    }
+  }
+})();
 </script>
 </body>
 </html>
