@@ -760,7 +760,7 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 }
 .fiche-box-frame::before {
   content: ''; position: absolute; inset: 7px;
-  border: 1px solid color-mix(in srgb, var(--box-accent, #f5c842) 30%, transparent);
+  border: 1px solid rgba(245,200,66,0.3);
   border-radius: 6px; pointer-events: none; z-index: 0;
 }
 .fiche-box-frame::after {
@@ -778,7 +778,7 @@ nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
 }
 .fiche-box-frame .fiche-tagline {
   font-family: 'Fraunces', serif; font-style: italic;
-  color: color-mix(in srgb, var(--box-accent, #f5c842) 85%, white 15%);
+  color: rgba(247,210,100,0.9);
   font-size: 17px; margin: 0; text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
 }
 .fiche-note-box-v2 {
