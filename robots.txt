@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+
+Host: https://ludoref.fr
 
 Sitemap: https://ludoref.fr/sitemap.xml
