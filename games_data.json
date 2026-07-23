@@ -13778,5 +13778,268 @@
     "amazon_url": "https://www.amazon.fr/s?k=dixit+journeys+jeu&tag=ludoref-21",
     "philibert_url": "https://www.philibertnet.com/fr/recherche?search_query=dixit+journeys&ae=1256",
     "bgg_hero_img": "https://cf.geekdo-images.com/w_ft4JoT-248_eqzQ-Clqw__itemheader/img/sg5x2F6H7YAKZF3-oyNjr0XvUck=/800x450/filters:quality(30):strip_icc()/pic1542672.jpg"
+  },
+  {
+    "slug": "7-wonders",
+    "title": "7 Wonders",
+    "tagline": "Bâtissez la plus grande civilisation de l'Antiquité en 30 minutes.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "2–7",
+    "duration": "30 min",
+    "age": "Dès 10 ans",
+    "complexity": "Moyenne",
+    "bg": "#2d5a27",
+    "emoji": "🏛️",
+    "tags": [
+      "strategie",
+      "cartes"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "citadelles",
+    "title": "Citadelles",
+    "tagline": "Intrigues, trahisons et construction de cité — le classique des rôles secrets.",
+    "cat": "strategie",
+    "note": 7,
+    "players": "2–8",
+    "duration": "60 min",
+    "age": "Dès 10 ans",
+    "complexity": "Légère",
+    "bg": "#3d1a0f",
+    "emoji": "🏰",
+    "tags": [
+      "strategie",
+      "cartes"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "twilight-imperium-4",
+    "title": "Twilight Imperium 4e éd.",
+    "tagline": "L'épopée galactique ultime — un empire à bâtir, des alliances à trahir.",
+    "cat": "strategie",
+    "note": 9,
+    "players": "3–6",
+    "duration": "240–480 min",
+    "age": "Dès 14 ans",
+    "complexity": "Expert",
+    "bg": "#0a0a2a",
+    "emoji": "🌌",
+    "tags": [
+      "strategie",
+      "asymetrique"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "arcs",
+    "title": "Arcs",
+    "tagline": "La science-fiction narrative et stratégique qui redéfinit le jeu de conquête spatiale.",
+    "cat": "strategie",
+    "note": 9,
+    "players": "2–4",
+    "duration": "60–120 min",
+    "age": "Dès 14 ans",
+    "complexity": "Élevée",
+    "bg": "#0f1a3a",
+    "emoji": "🚀",
+    "tags": [
+      "strategie",
+      "asymetrique"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "stone-age",
+    "title": "Stone Age",
+    "tagline": "Nourrissez votre tribu et faites prospérer votre civilisation à l'âge de pierre.",
+    "cat": "strategie",
+    "note": 7,
+    "players": "2–4",
+    "duration": "60–90 min",
+    "age": "Dès 10 ans",
+    "complexity": "Légère",
+    "bg": "#5c3d1a",
+    "emoji": "🪨",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "for-a-crown",
+    "title": "For a Crown",
+    "tagline": "Un deck partagé, des rivaux impitoyables — la couronne n'appartient qu'à un seul.",
+    "cat": "deck-building",
+    "note": 8,
+    "players": "2–4",
+    "duration": "45–60 min",
+    "age": "Dès 12 ans",
+    "complexity": "Moyenne",
+    "bg": "#2a1a0f",
+    "emoji": "👑",
+    "tags": [
+      "deck-building",
+      "cartes-strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "moon-colony-bloodbath",
+    "title": "Moon Colony Bloodbath",
+    "tagline": "Survie, trahison et votes meurtriers sur une colonie lunaire en crise.",
+    "cat": "cooperatif",
+    "note": 8,
+    "players": "3–6",
+    "duration": "60–90 min",
+    "age": "Dès 14 ans",
+    "complexity": "Moyenne",
+    "bg": "#1a1a2a",
+    "emoji": "🌙",
+    "tags": [
+      "cooperatif",
+      "ambiance"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "kikai",
+    "title": "Kikai",
+    "tagline": "Le grand jeu de stratégie à deux de 2025 — précision et profondeur dans un écrin élégant.",
+    "cat": "cartes-strategie",
+    "note": 8,
+    "players": "2",
+    "duration": "30–60 min",
+    "age": "Dès 12 ans",
+    "complexity": "Élevée",
+    "bg": "#1a0a2a",
+    "emoji": "⚙️",
+    "tags": [
+      "duel",
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "puerto-rico-2",
+    "title": "Puerto Rico 1897",
+    "tagline": "La référence du jeu de rôles asymétriques, revisitée pour l'ère moderne.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "2–5",
+    "duration": "90–120 min",
+    "age": "Dès 12 ans",
+    "complexity": "Élevée",
+    "bg": "#2a1a0a",
+    "emoji": "🌴",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "sagani",
+    "title": "Sagani",
+    "tagline": "Harmonie et placement de tuiles dans un univers japonais envoûtant.",
+    "cat": "famille",
+    "note": 7,
+    "players": "1–4",
+    "duration": "30–60 min",
+    "age": "Dès 10 ans",
+    "complexity": "Légère",
+    "bg": "#1a3a1a",
+    "emoji": "🎋",
+    "tags": [
+      "famille",
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "oriflamme",
+    "title": "Oriflamme",
+    "tagline": "Intrigues à la cour du roi — bluff et élimination en 20 minutes.",
+    "cat": "cartes-strategie",
+    "note": 7,
+    "players": "3–6",
+    "duration": "20 min",
+    "age": "Dès 10 ans",
+    "complexity": "Légère",
+    "bg": "#2a0a0a",
+    "emoji": "🗡️",
+    "tags": [
+      "cartes-strategie",
+      "ambiance"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "lacerda-co2-second",
+    "title": "CO2 : Second Chance",
+    "tagline": "Sauvez la planète tout en gérant votre empire énergétique.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "2–4",
+    "duration": "120–180 min",
+    "age": "Dès 14 ans",
+    "complexity": "Élevée",
+    "bg": "#0a2a1a",
+    "emoji": "🌿",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "cubitos",
+    "title": "Cubitos",
+    "tagline": "Course de dés déjantée où chaque lancé peut tout changer.",
+    "cat": "famille",
+    "note": 7,
+    "players": "2–4",
+    "duration": "45–75 min",
+    "age": "Dès 10 ans",
+    "complexity": "Légère",
+    "bg": "#1a3a3a",
+    "emoji": "🎲",
+    "tags": [
+      "famille",
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "le-petit-prince",
+    "title": "Le Petit Prince : Faites des Étoiles",
+    "tagline": "Un voyage poétique et délicat sur la planète du Petit Prince.",
+    "cat": "famille",
+    "note": 7,
+    "players": "2–5",
+    "duration": "30 min",
+    "age": "Dès 6 ans",
+    "complexity": "Légère",
+    "bg": "#1a1a3a",
+    "emoji": "⭐",
+    "tags": [
+      "famille",
+      "enfants"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
   }
 ]
