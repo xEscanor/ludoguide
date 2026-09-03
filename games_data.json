@@ -14041,5 +14041,206 @@
     ],
     "bgg_img": "",
     "bgg_hero_img": ""
+  },
+  {
+    "slug": "insider",
+    "title": "Insider",
+    "tagline": "Le quiz cache : quelqu'un connait la reponse et doit vous guider sans se faire prendre.",
+    "cat": "ambiance",
+    "note": 7,
+    "players": "4-8",
+    "duration": "15 min",
+    "age": "Des 9 ans",
+    "complexity": "Legere",
+    "bg": "#1a1a1a",
+    "emoji": "&#128373;",
+    "tags": [
+      "ambiance"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "caverna",
+    "title": "Caverna : La Caverne des Hommes-Naeuds",
+    "tagline": "Agricola dans une grotte -- plus libre, plus epique, et toujours aussi addictif.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "1-7",
+    "duration": "30-210 min",
+    "age": "Des 12 ans",
+    "complexity": "Elevee",
+    "bg": "#2a1a0a",
+    "emoji": "&#9935;",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "lords-waterdeep",
+    "title": "Les Seigneurs de Waterdeep",
+    "tagline": "Placement d'ouvriers dans les rues de Waterdeep -- intrigues et complots garantis.",
+    "cat": "strategie",
+    "note": 7,
+    "players": "2-5",
+    "duration": "60-120 min",
+    "age": "Des 12 ans",
+    "complexity": "Moyenne",
+    "bg": "#1a1a3a",
+    "emoji": "&#128506;",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "ethnos",
+    "title": "Ethnos",
+    "tagline": "Recrutez des peuples fantastiques et imposez votre domination sur les regions.",
+    "cat": "strategie",
+    "note": 7,
+    "players": "2-6",
+    "duration": "45-75 min",
+    "age": "Des 14 ans",
+    "complexity": "Legere",
+    "bg": "#2a3a1a",
+    "emoji": "&#129503;",
+    "tags": [
+      "strategie",
+      "cartes"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "clans-caledonia",
+    "title": "Clans of Caledonia",
+    "tagline": "Commerce, production et expansion dans l'Ecosse du XIXe siecle.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "1-4",
+    "duration": "30-120 min",
+    "age": "Des 12 ans",
+    "complexity": "Elevee",
+    "bg": "#1a3a2a",
+    "emoji": "&#127988;",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "galaxy-trucker",
+    "title": "Galaxy Trucker",
+    "tagline": "Construisez un vaisseau en vrac, puis priez pour qu'il survive au voyage.",
+    "cat": "famille",
+    "note": 7,
+    "players": "2-4",
+    "duration": "60-90 min",
+    "age": "Des 8 ans",
+    "complexity": "Legere",
+    "bg": "#0a1a2a",
+    "emoji": "&#128667;",
+    "tags": [
+      "famille"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "colt-super-express",
+    "title": "Colt Super Express",
+    "tagline": "Le train deraille, tout le monde veut partir en dernier -- le Western en 15 minutes.",
+    "cat": "ambiance",
+    "note": 7,
+    "players": "3-6",
+    "duration": "15 min",
+    "age": "Des 8 ans",
+    "complexity": "Legere",
+    "bg": "#2a1a0a",
+    "emoji": "&#129312;",
+    "tags": [
+      "ambiance"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "azul-stained",
+    "title": "Azul : Vitrail de Sintra",
+    "tagline": "Le plus strategique des Azul -- des vitraux a composer avec precision.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "2-4",
+    "duration": "30-45 min",
+    "age": "Des 8 ans",
+    "complexity": "Moyenne",
+    "bg": "#1a2a3a",
+    "emoji": "&#129695;",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "lost-ruins-arnak-expedition-leaders",
+    "title": "Arnak : Chefs d'Expedition",
+    "tagline": "Six chefs asymetriques transforment chaque partie en aventure differente.",
+    "cat": "extension",
+    "note": 8,
+    "players": "1-4",
+    "duration": "30-120 min",
+    "age": "Des 12 ans",
+    "complexity": "Moyenne",
+    "bg": "#2a1a0a",
+    "emoji": "&#128511;",
+    "tags": [
+      "extension",
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "lacrimosa",
+    "title": "Lacrimosa",
+    "tagline": "Achevcz le Requiem de Mozart -- un deck-building narratif et musical unique.",
+    "cat": "deck-building",
+    "note": 8,
+    "players": "1-4",
+    "duration": "60-120 min",
+    "age": "Des 14 ans",
+    "complexity": "Elevee",
+    "bg": "#1a0a2a",
+    "emoji": "&#127925;",
+    "tags": [
+      "deck-building",
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
+  },
+  {
+    "slug": "revive",
+    "title": "Revive",
+    "tagline": "Reconstruisez la civilisation humaine apres l'ere glaciaire -- une mecanique de machine a explorer.",
+    "cat": "strategie",
+    "note": 8,
+    "players": "1-4",
+    "duration": "60-150 min",
+    "age": "Des 14 ans",
+    "complexity": "Elevee",
+    "bg": "#0a1a2a",
+    "emoji": "&#10052;",
+    "tags": [
+      "strategie"
+    ],
+    "bgg_img": "",
+    "bgg_hero_img": ""
   }
 ]
